@@ -8,6 +8,14 @@ const HomeTemplate = () => {
         <div className='HomeTemplate'>
             <div className='title'>Hi Alcohol</div>
 
+            <div className='homebar-search'>
+                <input type='text' placeholder="예시 : 보드카" />
+                <button type='submit'>
+                
+                </button>
+                
+            </div>
+
             <div className='recommend'>
                 <p>오늘의 술 추천</p>
                 
