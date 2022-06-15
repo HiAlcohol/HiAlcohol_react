@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import {FaSearch} from 'react-icons/fa';
 import './HomeTemplate.css';
 import cocktail from '../img/cocktail.png';
 
@@ -11,7 +12,7 @@ const HomeTemplate = () => {
             <div className='homebar-search'>
                 <input type='text' placeholder="예시 : 보드카" />
                 <button type='submit'>
-                
+                    <FaSearch />
                 </button>
                 
             </div>
