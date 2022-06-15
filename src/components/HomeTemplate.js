@@ -1,4 +1,7 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import './HomeTemplate.css';
+import cocktail from '../img/cocktail.png';
 
 const HomeTemplate = () => {
     return (
@@ -10,9 +13,10 @@ const HomeTemplate = () => {
                 
                 <a>마가리타</a>
                 <br></br>
-                <img src='/src/img/cocktail.png'></img>
+                <img src = {cocktail} className='cockimg' />
 
             </div>
+            
             
         </div>
     );
