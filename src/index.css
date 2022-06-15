@@ -2,7 +2,11 @@ body {
   margin: 0;
   padding: 0;
   background: #242424;
+  text-align: center;
+  align-items: center;
 }
+
+
 /* 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

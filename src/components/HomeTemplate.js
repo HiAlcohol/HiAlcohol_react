@@ -6,15 +6,20 @@ import cocktail from '../img/cocktail.png';
 const HomeTemplate = () => {
     return (
         <div className='HomeTemplate'>
-            <div className='app-title'>Hi Alcohol</div>
+            <div className='title'>Hi Alcohol</div>
 
-            <div className='homebar-recommend'>
+            <div className='recommend'>
                 <p>오늘의 술 추천</p>
                 
                 <a>마가리타</a>
                 <br></br>
                 <img src = {cocktail} className='cockimg' />
 
+            </div>
+
+            <div className='mbti-test'>
+                <p>당신에게 어울리는 술 테스트</p>
+                <div className='go-mbti'>테스트 시작</div>
             </div>
             
             

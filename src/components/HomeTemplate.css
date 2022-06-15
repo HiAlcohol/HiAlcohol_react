@@ -1,7 +1,37 @@
 .HomeTemplate {
-    color: aliceblue;
+    color: white;
 }
-.app-title {
-    color: #0bf3bc;
-}
+
+.title{
+    color: #0BF3BC;
+    font-size: 30px;
+  }
+  
+  .recommend {
+    font-size: 20px;
+  }
+  
+  .cockimg {
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+  }
+
+  .mbti-test p {
+    font-size: 17px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  
+  .go-mbti{
+    margin : auto;
+    padding-top: 10px;
+    height: 40px;
+    width: 185px;
+    border-radius: 50px;
+    border: 1px solid #0BF3BC;
+    background: #242424;
+    box-shadow: 0px 0px 10px rgba(11, 243, 188, 0.5);
+    font-size: 17px;
+  }
 
