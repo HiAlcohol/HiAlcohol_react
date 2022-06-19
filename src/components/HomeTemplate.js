@@ -11,8 +11,8 @@ const HomeTemplate = () => {
 
             <div className='homebar-search'>
                 <input type='text' placeholder="예시 : 보드카" />
-                <button type='submit'>
-                    <FaSearch />
+                <button type='submit'><Link to='/searchlist'><FaSearch /></Link>
+                    
                 </button>
                 
             </div>
