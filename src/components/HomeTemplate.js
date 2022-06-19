@@ -20,7 +20,7 @@ const HomeTemplate = () => {
             <div className='recommend'>
                 <p>오늘의 술 추천</p>
                 
-                <a>마가리타</a>
+                <a>마가리타 {'>'}</a>
                 <br></br>
                 <img src = {cocktail} className='cockimg' />
 
