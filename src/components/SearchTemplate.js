@@ -1,4 +1,4 @@
-// import React from 'react';
+import SearchListItem from './SearchListItem';
 import './SearchTemplate.css';
 import {FaSearch} from 'react-icons/fa';
 
@@ -11,6 +11,9 @@ const SearchList = () => {
                 </button>
                 
             </div>
+            <br></br>
+            <SearchListItem />
+            <SearchListItem />
         </div>
         
     );
