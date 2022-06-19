@@ -1,5 +1,5 @@
 // import React from 'react';
-import './SearchListTemplate.css';
+import './SearchTemplate.css';
 import {FaSearch} from 'react-icons/fa';
 
 const SearchList = () => {

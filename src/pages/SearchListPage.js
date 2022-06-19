@@ -1,4 +1,4 @@
-import SearchListTemplate from "../components/SearchListTemplate";
+import SearchListTemplate from "../components/SearchTemplate";
 
 const SearchListPage = () => {
     return (
