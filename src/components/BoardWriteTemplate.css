@@ -1,0 +1,59 @@
+.main_title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.hi_alcohol{
+    color: #0BF3BC; 
+    font-size: 25px;
+
+}
+
+a { 
+    text-decoration:none ;
+} 
+
+.container{
+    text-align: center;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	align-items: center;
+}
+
+.title {
+	width: 95%;
+}
+
+.title input{
+    background-color:#242424; 
+    height: 30px; 
+    width: 95%;
+    color: white;
+    margin-bottom: 20px;
+    /* margin-top: 20px; */
+    border: none;
+    border-bottom: white 1px solid;
+	padding: 10px;
+}
+
+.contents {
+	width: 100%;
+}
+
+.contents textarea{
+    background-color:#242424; 
+    height: 500px; 
+    width: 90%;
+    color: white;
+    border-radius: 0.5em;
+    border-color: white;
+	padding: 10px;
+	
+}
+.completion {
+    color: #0BF3BC;
+   
+}
