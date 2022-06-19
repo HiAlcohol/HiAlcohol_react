@@ -1,9 +1,8 @@
+import SearchListTemplate from "../components/SearchListTemplate";
+
 const SearchListPage = () => {
     return (
-        <div>
-            <h1>SearchList</h1>
-            <p>List</p>
-        </div>
+        <SearchListTemplate />
     )
 }
 
