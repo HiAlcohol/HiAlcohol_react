@@ -1,0 +1,40 @@
+.list {
+    width: 90%;
+    height: 150px;
+    margin: 0 auto;
+    padding-top: 30px;
+    padding-bottom: 10px;
+    a {
+        margin-top: 10px;
+        margin-left: 10px;
+        float: left;
+        font-size: 17px;
+        color: white;
+        text-decoration: none;
+    }
+    .recipe {
+        margin-top: 10px;
+        border: 0;
+        font-size: 20px;
+        color: white;
+        background-color: #242424;
+        float: right;
+        cursor: pointer;
+    }
+}
+
+.input {
+    div {
+        height: 35px;
+        line-height: 35px;
+        min-width: 70px;
+        margin-top: 15px;
+        margin-right: 12px;
+        border: 1px solid #0BF3BC;
+        border-radius: 15px;
+        font-size: 15px;
+        color: #0BF3BC;
+        float: left;
+        display: inline-block;
+    }
+}

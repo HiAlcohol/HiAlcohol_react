@@ -1,4 +1,4 @@
-import './SearchListItem.css';
+import './SearchListItem.scss';
 
 const SearchListItem = () => {
     return (
