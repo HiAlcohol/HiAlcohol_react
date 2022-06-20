@@ -4,7 +4,6 @@
     align-items: center;
 }
 
-
 .hi_alcohol{
     color: #0BF3BC; 
     font-size: 25px;
@@ -27,7 +26,8 @@ a {
 	width: 95%;
 }
 
-.title input{
+.title {
+    input{
     background-color:#242424; 
     height: 30px; 
     width: 95%;
@@ -37,22 +37,22 @@ a {
     border: none;
     border-bottom: white 1px solid;
 	padding: 10px;
+    }
 }
 
 .contents {
 	width: 100%;
+    textarea {
+        background-color:#242424; 
+        height: 500px; 
+        width: 90%;
+        color: white;
+        border-radius: 0.5em;
+        border-color: white;
+        padding: 10px;
+    }
 }
 
-.contents textarea{
-    background-color:#242424; 
-    height: 500px; 
-    width: 90%;
-    color: white;
-    border-radius: 0.5em;
-    border-color: white;
-	padding: 10px;
-	
-}
 .completion {
     color: #0BF3BC;
    
