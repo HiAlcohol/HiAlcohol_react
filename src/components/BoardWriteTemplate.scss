@@ -1,14 +1,32 @@
+.BoardWriteTemplate {
+    font-size: 15px;
+    margin-top: 10px;
+}
+
 .main_title{
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
+.exit {
+    color: #0BF3BC;
+    float: left;
+    margin-left: 10px;
+}
+
 .hi_alcohol{
     color: #0BF3BC; 
     font-size: 25px;
-
+    display: inline-block;
 }
+
+.completion {
+    color: #0BF3BC;
+    float: right;
+    margin-right: 10px;
+}
+
 
 a { 
     text-decoration:none ;
@@ -23,10 +41,7 @@ a {
 }
 
 .title {
-	width: 95%;
-}
-
-.title {
+    width: 95%;
     input{
     background-color:#242424; 
     height: 30px; 
@@ -51,9 +66,4 @@ a {
         border-color: white;
         padding: 10px;
     }
-}
-
-.completion {
-    color: #0BF3BC;
-   
 }
