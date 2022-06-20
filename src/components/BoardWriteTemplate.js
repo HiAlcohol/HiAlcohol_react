@@ -11,7 +11,7 @@ const BoardWriteTemplate = () => {
                     X
                 </div>
                 <div className='hi_alcohol'>
-                    Hi Alcohol
+                <Link to='/'>Hi Alcohol</Link>
                 </div>
                 <div className='completion'>
                     완료                  

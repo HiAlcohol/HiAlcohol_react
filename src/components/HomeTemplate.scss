@@ -24,6 +24,9 @@
         color: #dddddd;
         background-color: transparent;
         float: left;
+        &:focus {
+            outline: none;
+            }
     }
     button {
         padding-top: 10px;

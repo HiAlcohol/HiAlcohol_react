@@ -19,6 +19,7 @@
     color: #0BF3BC; 
     font-size: 25px;
     display: inline-block;
+    
 }
 
 .completion {
@@ -48,11 +49,14 @@ a {
     width: 95%;
     color: white;
     margin-bottom: 20px;
-    /* margin-top: 20px; */
     border: none;
     border-bottom: white 1px solid;
 	padding: 10px;
+    &:focus {
+        outline: none;
+        }
     }
+    
 }
 
 .contents {
