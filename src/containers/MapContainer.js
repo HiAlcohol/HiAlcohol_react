@@ -6,12 +6,64 @@ const { kakao } = window;
 const MapContainer = () => {
     useEffect(() => {
 
-        const container = document.getElementById("map");
-        const options = {
-          center: new kakao.maps.LatLng(33.450701, 126.570667),
-          level: 3,
-        };
-        const map = new kakao.maps.Map(container, options);
+        var infowindow = new kakao.maps.InfoWindow({zIndex:1});
+        if (navigator.geolocation) {
+        
+           navigator.geolocation.getCurrentPosition(function(position) {
+            
+               var geocoder = new kakao.maps.services.Geocoder();
+            
+               var lat = position.coords.latitude,
+               lon = position.coords.longitude; 
+            
+               var coord = new kakao.maps.LatLng(lat, lon);
+               var callback = function(result, status) {
+                   if (status === kakao.maps.services.Status.OK) {
+                       console.log(result[0].address.address_name);
+                   }
+               };
+            
+               geocoder.coord2Address(coord.getLng(), coord.getLat(), callback);
+          
+               var locPosition = new kakao.maps.LatLng(lat, lon), 
+               mapContainer = document.getElementById('map'), 
+               mapOption = {
+                   center: locPosition,
+                   level: 5 
+               };
+            
+               var map = new kakao.maps.Map(mapContainer, mapOption);
+               var center = map.getCenter();
+       
+               // new kakao.maps.InfoWindow({ position: center, map: map, content: '현재 위치'});
+               var ps = new kakao.maps.services.Places(); 
+               
+            //   ${a}
+           
+           function displayMarker(place) {
+        
+               var marker = new kakao.maps.Marker({
+                   map: map,
+                   position: new kakao.maps.LatLng(place.y, place.x) 
+               });
+     
+           kakao.maps.event.addListener(marker, 'click', function() {
+            
+               infowindow.setContent(
+                   '<div class= "mapview"><div class="viewname">' + place.place_name + '</div><hr>'+
+                   '<div class="viewblank"></div>'+
+                   '<div style="font-size:12px;">' + place.address_name + '</div>'+
+                   '<div class="viewblank"></div>'+
+                   '<div style="font-size:12px;">' + place.phone + '</div>'+
+                   '<div class="viewblank"></div>'+
+                   '<div style="font-size:12px;"><a href="' + place.place_url + '">[상세보기]</a></div></div>'
+                   );
+               infowindow.open(map, marker);
+               });
+           }
+            
+           });
+           }
       }, []);
 
       return (
