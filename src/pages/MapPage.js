@@ -1,11 +1,11 @@
-import MapTemplate from "../components/MapTemplate";
+import MapContainer from "../containers/MapContainer";
 import Header from "../components/Header";
 
 const Mappage = () => {
     return (
         <>
             <Header />
-            <MapTemplate />
+            <MapContainer />
         </>
     )
 }
