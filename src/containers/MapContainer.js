@@ -35,10 +35,22 @@ const MapContainer = () => {
                var map = new kakao.maps.Map(mapContainer, mapOption);
                var center = map.getCenter();
        
-               // new kakao.maps.InfoWindow({ position: center, map: map, content: '현재 위치'});
+            //    new kakao.maps.InfoWindow({ position: center, map: map, content: '현재 위치'});
                var ps = new kakao.maps.services.Places(); 
                
             //   ${a}
+            ps.keywordSearch('주류유통', placesSearchCB, {
+                location: center, 
+                sort: kakao.maps.services.SortBy.DISTANCE
+            }); 
+         
+            function placesSearchCB (data, status, pagination) {
+                if (status === kakao.maps.services.Status.OK) {
+                    for (var i=0; i<data.length; i++) {
+                        displayMarker(data[i]);
+                    }
+                }
+            }
            
            function displayMarker(place) {
         
