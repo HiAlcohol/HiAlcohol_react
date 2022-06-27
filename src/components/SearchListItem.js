@@ -1,11 +1,12 @@
 import './SearchListItem.scss';
+import { Link } from 'react-router-dom';
 
 const SearchListItem = () => {
     return (
         <div className="SearchListItem">
             <div className="list">
                 <a>내 마음대로 주</a>
-                <div className="recipe">{'>'}</div>
+                <div className="recipe"><Link to='/recipe'>{'>'}</Link></div>
                 <br /><br />
                 <div className="input">
                     <div>체리</div>
