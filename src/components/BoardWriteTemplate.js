@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './BoardWriteTemplate.scss';
+import '../scss/BoardWriteTemplate.scss';
 
 const BoardWriteTemplate = () => {
     return (

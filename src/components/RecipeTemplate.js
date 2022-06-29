@@ -1,5 +1,5 @@
 import  React from "react";
-import './RecipeTemplate.scss';
+import '../scss/RecipeTemplate.scss';
 
 const RecipeTemplate = () => {
     
