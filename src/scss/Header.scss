@@ -1,0 +1,26 @@
+*{margin:0;padding: 0;}
+@import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
+p {
+font-family: "Pattaya", sans-serif;
+color: white;
+}
+.header {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+}
+
+.Header {
+    
+    font-size: 25px;
+}
+
+.logo {
+    font-family: 'Pattaya';
+}
+.writeBtn {
+    width: 40px;
+}
+
