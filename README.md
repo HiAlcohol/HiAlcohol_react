@@ -5,6 +5,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ## Available Scripts
 
 In the project directory, you can run:
+- yarn 먼저 실행 한 후 아래 커맨드 실행
 
 ### `yarn start`
 
