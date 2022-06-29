@@ -1,4 +1,4 @@
-import './SearchListItem.scss';
+import '../scss/SearchListItem.scss';
 import { Link } from 'react-router-dom';
 
 const SearchListItem = () => {
