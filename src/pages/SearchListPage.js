@@ -1,4 +1,5 @@
 import SearchListTemplate from "../components/SearchTemplate";
+import SearchListItem from "../components/SearchListItem";
 import Header from "../components/Header";
 
 const SearchListPage = () => {
@@ -6,6 +7,8 @@ const SearchListPage = () => {
         <>
             <Header />
             <SearchListTemplate />
+            <SearchListItem />
+            <SearchListItem />
         </>
         
     )
