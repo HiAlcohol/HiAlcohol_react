@@ -1,12 +1,23 @@
 import '../scss/SearchListItem.scss';
-import { Link } from 'react-router-dom';
+import React, { useState } from "react";
+import MyModal from './Modal'
 
 const SearchListItem = () => {
+    
+    const [isOpen, setOpen] = useState(false);
+    const handleClick = () => {
+        setOpen(true);
+      };
+
     return (
         <div className="SearchListItem">
             <div className="list">
+                <div className='recipe-title'>
                 <a>내 마음대로 주</a>
-                <div className="recipe"><Link to='/recipe'>{'>'}</Link></div>
+             
+                <button id='recipe' onClick={handleClick}>{'>'}</button>
+                <MyModal isOpen={isOpen} />
+                </div>
                 <br /><br />
                 <div className="input">
                     <div>체리</div>
@@ -18,7 +29,7 @@ const SearchListItem = () => {
                     <div>토닉워터</div>
                 </div>
             </div>
-        </div>
+         </div>
     );
 };
 
