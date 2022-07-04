@@ -53,7 +53,8 @@ const SearchListItem = () => {
                             onRequestClose={handleClickCancle}
                 >
                     <div className='RecipeTemplate'>
-                        <button onClick={handleClickCancle}>X</button>
+                        <button id='recipe-close' onClick={handleClickCancle}>X</button>
+                        <br /><br /><br />
                         <div class="name">마가리타</div>
                         <br /><br />
                         <div className="material">
