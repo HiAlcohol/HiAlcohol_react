@@ -8,7 +8,7 @@ function Boards() {
         {id: 2, title: '술 테스트 게시글', userName: '유저2', createDate: '2022.03.15', likedCnt: 2}
     ]
     return <div>
-        <Header></Header>
+        <Header right="write"></Header>
         <div className="dropdown">
             <form action="/board" method="post" className="sort">
                 <select id="singer" name="order">

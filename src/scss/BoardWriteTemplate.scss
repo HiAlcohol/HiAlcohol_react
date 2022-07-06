@@ -42,17 +42,17 @@ a {
 	align-items: center;
 }
 
-.title {
+.writeTitle {
     width: 95%;
     input{
-    background-color:#242424; 
-    height: 30px; 
-    width: 95%;
-    color: white;
-    margin-bottom: 20px;
-    border: none;
-    border-bottom: white 1px solid;
-	padding: 10px;
+		background-color:#242424; 
+		height: 30px; 
+		width: 95%;
+		color: white;
+		margin-bottom: 20px;
+		border: none;
+		border-bottom: white 1px solid;
+		padding: 10px;
     &:focus {
         outline: none;
         }

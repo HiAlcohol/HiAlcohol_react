@@ -1,23 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import '../scss/BoardWriteTemplate.scss';
+import Header from './Header';
 
 const BoardWriteTemplate = () => {
     return (
         <div className='BoardWriteTemplate'>
            <form>
             <div className='main-title'>
-                <div className='exit'>
-                    X
-                </div>
-                <div className='hi_alcohol'>
-                <Link to='/'>Hi Alcohol</Link>
-                </div>
-                <div className='completion'>
-                    완료                  
-                </div>
+                <Header right='write'></Header>
                 <div className='container'>
-                    <div className='title'>
+                    <div className='writeTitle'>
                         <input type='text' placeholder='제목'></input>
                     </div>
                     <div className='contents'>

@@ -13,7 +13,7 @@ function BoardDetailPage(props) {
 		likedCnt: 8
 	}
 	return <div>
-		<Header></Header>
+		<Header right={none}></Header>
 		<div className="board">
 			<div className="heading">
 				<div className='boardTitle'>

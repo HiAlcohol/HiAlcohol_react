@@ -24,3 +24,16 @@ color: white;
     width: 40px;
 }
 
+.user {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-right: 10px;
+}
+
+.nickname {
+	font-family: GmarketSansMedium;
+	font-size: 13px;
+	padding-right: 5px;
+	color: #8B8B8B;
+}
