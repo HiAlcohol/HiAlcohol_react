@@ -7,7 +7,7 @@ function BoardListItem(props) {
     for (let i = 0; i < props.board.length; i++) {
         listItem.push(
             <div className="content">
-                <a href={"/board/view/" + board[i].id}>
+                <a href={"/board/" + board[i].id}>
                     <div className="subject">
                         <p>{board[i].title}</p>
                         <div className="info">

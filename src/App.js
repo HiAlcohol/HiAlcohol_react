@@ -5,6 +5,7 @@ import BoardWrite from "./pages/BoardWritePage";
 import Map from "./pages/MapPage";
 import Recipe from "./pages/RecipePage"
 import Boards from "./pages/BoardListPage"
+import BoardDetailPage from "./pages/BoardDetailPage";
 
 const App = () => {
   return (
@@ -15,6 +16,7 @@ const App = () => {
 
       <Route path="/map" element={<Map />} />
       <Route path="/boards" element={<Boards />}/>
+	  <Route path="/board/:id" element={<BoardDetailPage/>}/>
       <Route path="/board/write" element={<BoardWrite />} />
 
     </Routes>
