@@ -6,6 +6,8 @@ import Map from "./pages/MapPage";
 import Recipe from "./pages/RecipePage"
 import Boards from "./pages/BoardListPage"
 import BoardDetailPage from "./pages/BoardDetailPage";
+import LikeList from "./pages/LikeListPage";
+import MyBoards from "./pages/MyBoardPage";
 
 const App = () => {
   return (
@@ -18,7 +20,8 @@ const App = () => {
       <Route path="/boards" element={<Boards />}/>
 	  <Route path="/board/:id" element={<BoardDetailPage/>}/>
       <Route path="/board/write" element={<BoardWrite />} />
-
+	  <Route path="/likes" element={<LikeList/>}/>
+	  <Route path="/myboard" element={<MyBoards/>}/>
     </Routes>
   );  
 };
