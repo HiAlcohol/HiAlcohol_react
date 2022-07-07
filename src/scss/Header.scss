@@ -1,0 +1,39 @@
+*{margin:0;padding: 0;}
+@import url("https://fonts.googleapis.com/css2?family=Pattaya&display=swap");
+p {
+font-family: "Pattaya", sans-serif;
+color: white;
+}
+.header {
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+}
+
+.Header {
+    
+    font-size: 25px;
+}
+
+.logo {
+    font-family: 'Pattaya';
+}
+.writeBtn {
+    width: 40px;
+}
+
+.user {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-right: 10px;
+}
+
+.nickname {
+	font-family: GmarketSansMedium;
+	font-size: 13px;
+	padding-right: 5px;
+	color: #8B8B8B;
+}
