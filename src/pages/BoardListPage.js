@@ -1,6 +1,6 @@
 import Header from "../components/Header"
 import BoardListItem from "../components/BoardListItem";
-import '../scss/BoardList.scss'
+import '../scss/board/BoardList.scss'
 
 function Boards() {
     const board = [

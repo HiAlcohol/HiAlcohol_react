@@ -1,5 +1,5 @@
 import heart from '../img/heart_fill.png'
-import '../scss/BoardListItem.scss'
+import '../scss/board/BoardListItem.scss'
 
 function BoardListItem(props) {
     const board = props.board;

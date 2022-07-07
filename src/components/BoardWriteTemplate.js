@@ -1,5 +1,5 @@
 import React from 'react';
-import '../scss/BoardWriteTemplate.scss';
+import '../scss/board/BoardWriteTemplate.scss';
 import Header from './Header';
 
 const BoardWriteTemplate = () => {

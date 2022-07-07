@@ -1,4 +1,5 @@
 import '../scss/Comment.scss'
+
 function Comment() {
 	// api comment
 	const comment = [
