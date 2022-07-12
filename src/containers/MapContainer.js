@@ -6,8 +6,6 @@ const { kakao } = window;
 const MapContainer = () => {
      const params = new URLSearchParams(window.location.search);
     let loc = params.get("location");
-  
-     console.log("what >>> ", loc )
 
     useEffect(() => {
 
@@ -43,8 +41,6 @@ const MapContainer = () => {
             //    new kakao.maps.InfoWindow({ position: center, map: map, content: '현재 위치'});
                var ps = new kakao.maps.services.Places(); 
                
-           
-            console.log("hi >>>>", loc)
 
              ps.keywordSearch(loc+'주류유통', placesSearchCB); 
         
