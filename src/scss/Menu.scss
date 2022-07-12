@@ -125,13 +125,14 @@ $key-color: #0BF3BC;
   Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
   */
   .bm-menu-wrap {
-	position: fixed;
+	// position: fixed;
 	height: 100%;
+	margin-top: -40px;
   }
   
   /* General sidebar styles */
   .bm-menu {
-	margin-top: -50px;
+	margin-top: -30px;
 	background: #2f2f2f;
 	padding: 30px 1.5em 0;
 	font-size: 1.15em;
@@ -146,7 +147,7 @@ $key-color: #0BF3BC;
   .bm-item-list {
 	color: #b8b7ad;
 	padding: 0.8em;
-	margin-top: -10px;
+	margin-top: 20px;
   }
   
   /* Individual item */
