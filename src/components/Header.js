@@ -1,4 +1,5 @@
 import React from 'react';
+import '../scss/Header.scss'
 import { Link } from 'react-router-dom';
 import writeBtn from '../img/writeButton.png';
 import '../scss/Header.scss';
@@ -44,8 +45,10 @@ const Header = (props) => {
 		</>
 	}
     return (
+
         <div className="header">            
             {header}
+
         </div>
     );
 };

@@ -1,24 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import {FaSearch} from 'react-icons/fa';
+import Search from './SearchTemplate';
 import '../scss/HomeTemplate.scss';
 import cocktail from '../img/cocktail.png';
 import Header from './Header';
 
 const HomeTemplate = () => {
     return (
+
 		<>
 			<Header right="user"></Header>
-			<div className='HomeTemplate'>
-				<div className='title'>Hi Alcohol</div>
+			
 
-				<div className='homebar-search'>
-					<input type='text' placeholder="예시 : 보드카" />
-					<button type='submit'><Link to='/searchlist'><FaSearch /></Link>
-						
-					</button>
-					
-				</div>
+        <div className='HomeTemplate'>
+            <div className='title'>Hi Alcohol</div>
+            <Search />
+
+     
 
 				<div className='recommend'>
 					<p>오늘의 술 추천</p>
