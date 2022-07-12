@@ -1,8 +1,8 @@
 import '../scss/SearchListItem.scss';
 import '../scss/RecipeTemplate.scss';
 import React, { useState } from "react";
-// import MyModal from './Modal'
 import Modal from 'react-modal';
+import cocktail from '../img/cocktail.png';
 
 const ModalStyle = {
     overlay: {
@@ -44,6 +44,10 @@ const SearchListItem = () => {
     return (
         <div className="SearchListItem">
             <div className="list">
+                {/* <div className='img-area'>  */}
+                <img src = {cocktail} className="list-img" />
+                {/* </div> */}
+                
                 <div className='recipe-title'>
                 <a>내 마음대로 주</a>
              
@@ -56,6 +60,8 @@ const SearchListItem = () => {
                         <button id='recipe-close' onClick={handleClickCancle}>X</button>
                         <br /><br /><br />
                         <div class="name">마가리타</div>
+                        <br />
+                        <img src = {cocktail} className="recipe-img" />
                         <br /><br />
                         <div className="material">
                                 <div>체리</div>
