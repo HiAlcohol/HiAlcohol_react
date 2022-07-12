@@ -1,8 +1,8 @@
-import '../scss/board/BoardItem.scss'
-import '../scss/board/BoardListItem.scss'
-import heart from '../img/heart_fill.png'
-import Header from '../components/Header'
-import Comment from '../components/Comment'
+import '../../scss/board/BoardItem.scss'
+import '../../scss/board/BoardListItem.scss'
+import heart from '../../img/heart_fill.png'
+import Header from '../../components/Header'
+import Comment from '../../components/Comment'
 
 function BoardDetailPage(props) {
 	const dummy = {

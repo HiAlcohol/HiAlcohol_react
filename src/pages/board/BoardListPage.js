@@ -1,7 +1,8 @@
-import BoardListItem from "../components/BoardListItem";
-import Header from "../components/Header";
+import Header from "../../components/Header"
+import BoardListItem from "../../components/BoardListItem";
+import '../../scss/board/BoardList.scss'
 
-function MyBoards() {
+function Boards() {
     const board = [
         {id: 1, title: '알쓰를 위한 편의점 칵테일', userName: '유저', createDate: '2022.03.14', likedCnt: 8},
         {id: 2, title: '술 테스트 게시글', userName: '유저2', createDate: '2022.03.15', likedCnt: 2}
@@ -20,4 +21,4 @@ function MyBoards() {
     </div>
 }
 
-export default MyBoards;
+export default Boards;

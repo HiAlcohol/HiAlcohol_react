@@ -1,4 +1,4 @@
-import BoardWriteTemplate from "../components/BoardWriteTemplate";
+import BoardWriteTemplate from "../../components/BoardWriteTemplate";
 
 const BoardWritepage = () => {
     return (
