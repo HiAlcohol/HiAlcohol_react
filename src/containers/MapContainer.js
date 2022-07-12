@@ -6,7 +6,7 @@ const { kakao } = window;
 const MapContainer = () => {
      const params = new URLSearchParams(window.location.search);
     let loc = params.get("location");
-
+    
     useEffect(() => {
 
         var infowindow = new kakao.maps.InfoWindow({zIndex:1});
@@ -40,9 +40,24 @@ const MapContainer = () => {
        
             //    new kakao.maps.InfoWindow({ position: center, map: map, content: '현재 위치'});
                var ps = new kakao.maps.services.Places(); 
-               
 
-             ps.keywordSearch(loc+'주류유통', placesSearchCB); 
+            if(loc.length==0){
+            ps.keywordSearch('주류유통', placesSearchCB, {
+                location: center, 
+                sort: kakao.maps.services.SortBy.DISTANCE
+            }); 
+         
+            function placesSearchCB (data, status, pagination) {
+                if (status === kakao.maps.services.Status.OK) {
+                    for (var i=0; i<data.length; i++) {
+                        displayMarker(data[i]);
+                    }
+                }
+            }
+        }
+        else {
+
+            ps.keywordSearch(loc+'주류유통', placesSearchCB); 
         
             function placesSearchCB (data, status, pagination) {
                 if (status === kakao.maps.services.Status.OK) {
@@ -57,19 +72,7 @@ const MapContainer = () => {
                     map.setBounds(bounds);
                 } 
             }
-
-            // ps.keywordSearch('주류유통', placesSearchCB, {
-            //     location: center, 
-            //     sort: kakao.maps.services.SortBy.DISTANCE
-            // }); 
-         
-            // function placesSearchCB (data, status, pagination) {
-            //     if (status === kakao.maps.services.Status.OK) {
-            //         for (var i=0; i<data.length; i++) {
-            //             displayMarker(data[i]);
-            //         }
-            //     }
-            // }
+        }
            
            function displayMarker(place) {
         
