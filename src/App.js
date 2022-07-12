@@ -1,13 +1,14 @@
 import { Route, Routes } from "react-router-dom";
 import Home from './pages/HomePage';
 import SearchList from './pages/SearchListPage';
-import BoardWrite from "./pages/BoardWritePage";
+import BoardWrite from "./pages/board/BoardWritePage";
 import Map from "./pages/MapPage";
 import Recipe from "./pages/RecipePage"
-import Boards from "./pages/BoardListPage"
-import BoardDetailPage from "./pages/BoardDetailPage";
+import Boards from "./pages/board/BoardListPage"
+import BoardDetailPage from "./pages/board/BoardDetailPage";
 import LikeList from "./pages/LikeListPage";
-import MyBoards from "./pages/MyBoardPage";
+import MyBoards from "./pages/board/MyBoardPage";
+import MbtiTest from "./pages/MbtiTestPage";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
       <Route path="/board/write" element={<BoardWrite />} />
 	  <Route path="/likes" element={<LikeList/>}/>
 	  <Route path="/myboard" element={<MyBoards/>}/>
+	  <Route path="/mbti/test" element={<MbtiTest/>}/>
     </Routes>
   );  
 };
