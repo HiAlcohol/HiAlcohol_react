@@ -31,7 +31,7 @@ const HomeTemplate = () => {
 
 				<div className='mbti-test'>
 					<p>당신에게 어울리는 술 테스트</p>
-					<div className='go-mbti'>테스트 시작</div>
+					<a href='/mbti/test' className='mbti-test'><div className='go-mbti'>테스트 시작</div></a>
 				</div>
 			</div>
 		</>

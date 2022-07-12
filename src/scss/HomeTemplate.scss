@@ -61,10 +61,11 @@
     margin-bottom: 40px;
     }
 }
-  
+
 .go-mbti{
-    margin : auto;
-    padding-top: 10px;
+	display: table-cell;
+	vertical-align: middle;
+    padding: 3px;
     height: 40px;
     width: 185px;
     border-radius: 50px;
