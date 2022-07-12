@@ -4,6 +4,11 @@ const { kakao } = window;
 
 
 const MapContainer = () => {
+     const params = new URLSearchParams(window.location.search);
+    let loc = params.get("location");
+  
+     console.log("what >>> ", loc )
+
     useEffect(() => {
 
         var infowindow = new kakao.maps.InfoWindow({zIndex:1});

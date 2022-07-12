@@ -2,6 +2,8 @@ import  React from "react";
 import '../scss/MapTemplate.scss';
 
 const MapTemplate = () => {
+
+   
     
     return (
         <div className='MapTemplate'>
