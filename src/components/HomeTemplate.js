@@ -11,11 +11,13 @@ const HomeTemplate = () => {
 
 		<>
 			<Header right="user"></Header>
-			
 
-        <div className='HomeTemplate'>
-            <div className='title'>Hi Alcohol</div>
-            <Search />
+        	<div className='HomeTemplate'>
+            	<div className='title'>Hi Alcohol</div>
+				{/* <span style={"color: #0bf3bc"}>
+					<i className="fas fa-glass-martini-alt" style="font-size: 30px"></i>
+				</span> */}
+            	<Search />
 
      
 

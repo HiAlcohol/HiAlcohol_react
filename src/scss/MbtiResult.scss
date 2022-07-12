@@ -1,0 +1,52 @@
+$key-color: #0BF3BC;
+
+.result {
+	color: white;
+	margin-top: 20px;
+}
+
+.desc {
+	margin: 30px 20px 20px;
+	
+}
+
+.desc li {
+	list-style: none;
+	padding: 5px;
+}
+
+.match {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 10px;
+}
+
+.match div {
+	margin: 10px;
+	padding: 15px;
+	border: 1px solid $key-color;
+	color: white;
+	border-radius: 10px;
+	box-shadow: 0px 0px 10px 0.5px rgba(11, 243, 188, 0.5);
+}
+
+.restart, .copy{
+	background-color: $key-color;
+	border: none;
+	display: inline;
+	width: 200px;
+	height: 50px;
+	font-size: 17px;
+	color: white;
+	border-radius: 15px;
+	margin: 10px;
+}
+
+.copy {
+	background-color: #BDBDBD;
+}
+
+.recommend {
+	color: white;
+	font-size: 15px;
+}

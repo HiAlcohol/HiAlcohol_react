@@ -8,10 +8,11 @@ import Menu from "./Menu"
 const Header = (props) => {
 	console.log(props)
 	var header = ''
-	var dummyUser = ''
+	var dummyUser = { profile: 'http://k.kakaocdn.net/dn/dotDrj/btrybGQioYJ/xyy5MXVs2ESIAodvdnZIw1/img_110x110.jpg',
+						nickname: 'user'}
 	if (props.right === 'board') {
 		header = <>
-		<Menu></Menu>
+		{/* <Menu></Menu> */}
 		<div className='Header'>
 			<Link to='/' className='logo'>Hi Alcohol</Link>
 		</div>
@@ -20,12 +21,10 @@ const Header = (props) => {
         </div>
 	</>
 	} else if (props.right === 'user') {
-		dummyUser = { profile: 'http://k.kakaocdn.net/dn/dotDrj/btrybGQioYJ/xyy5MXVs2ESIAodvdnZIw1/img_110x110.jpg',
-						nickname: 'user'}
 		console.log(dummyUser)
 		header = 
 		<>
-			<Menu></Menu>
+			{/* <Menu></Menu> */}
 			<div className='user'>
 				<p className='nickname'>{dummyUser.nickname}</p>
 				<img src={dummyUser.profile} width="25px" height="25px"/>
@@ -43,13 +42,26 @@ const Header = (props) => {
                     완료                  
                 </div>
 		</>
+	} else if (props.right === 'mbti') {
+		header = <>
+		{/* <Menu></Menu> */}
+		<div className='Header'>
+			<Link to='/' className='logo'>Hi Alcohol</Link>
+		</div>
+		<div className='user'>
+				<p className='nickname'>{dummyUser.nickname}</p>
+				<img src={dummyUser.profile} width="25px" height="25px"/>
+			</div>
+	</>
 	}
     return (
-
-        <div className="header">            
-            {header}
-
-        </div>
+		<>
+			<Menu></Menu>
+			<div className="header"> 
+				<div></div>           
+				{header}
+			</div>
+		</>
     );
 };
 
