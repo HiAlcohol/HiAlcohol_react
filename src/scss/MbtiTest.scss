@@ -1,0 +1,43 @@
+$key-color: #0BF3BC;
+
+.progress_bar {
+	width: 350px;
+	height: 10px;
+	background-color: #303030;
+	text-align: center;
+	border-radius: 5px;
+	margin: auto;
+}
+
+.progress {
+	background-color: $key-color;
+	height: 10px;
+	z-index: 1;
+	border-radius: 5px;
+}
+
+.number {
+	margin-top: 10px;
+	color: white;
+}
+
+.qna {
+	margin: 30px;
+	display: inline-block;
+}
+
+#q {
+	font-size: 17px;
+}
+
+.answer {
+	color: white;
+	padding: 20px 20px;
+	text-align: center;
+	background-color: transparent;
+	border: 1px solid #0BF3BC;
+	margin: 30px;
+	box-shadow: 0px 0px 10px 0.5px rgba(11, 243, 188, 0.5);
+	border-radius: 20px;
+	font-size: 15px;
+}

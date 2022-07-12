@@ -40,12 +40,15 @@
 }
 
 .recommend {
-    margin-top: 100px;
+    margin-top: 30px;
     font-size: 20px;
     a {
         font-size: 30px;
         font-weight: 100;
     }
+	p {
+		padding: 10px;
+	}
 }
 
 .cockimg {
@@ -58,20 +61,21 @@
     p {
     font-size: 17px;
     margin-top: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     }
 }
 
 .go-mbti{
 	display: table-cell;
 	vertical-align: middle;
-    padding: 3px;
+    padding: 2px 50px;
     height: 40px;
-    width: 185px;
+    // width: 185px;
     border-radius: 50px;
-    border: 1px solid #0BF3BC;
-    background: #242424;
-    box-shadow: 0px 0px 10px rgba(11, 243, 188, 0.5);
+    // border: 1px solid #0BF3BC;
+    background: #0BF3BC;
+	color: white;
+    // box-shadow: 0px 0px 10px rgba(11, 243, 188, 0.5);
     font-size: 17px;
 }
 
