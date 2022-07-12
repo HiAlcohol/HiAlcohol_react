@@ -1,14 +1,14 @@
-import RecipeTemplate from "../components/RecipeTemplate";
-import Header from "../components/Header";
+// import RecipeTemplate from "../components/RecipeTemplate";
+// import Header from "../components/Header";
 
-const RecipePage = () => {
-    return (
-        <>
-            <Header />
-            <RecipeTemplate />
-        </>
+// const RecipePage = () => {
+//     return (
+//         <>
+//             <Header />
+//             <RecipeTemplate />
+//         </>
         
-    )
-}
+//     )
+// }
 
-export default RecipePage;
+// export default RecipePage;
