@@ -94,10 +94,10 @@ $key-color: #0BF3BC;
   }
   
   /* Color/shape of burger icon bars */
-  .bm-burger-bars {
+.bm-burger-bars {
 	background: $key-color;
-	height: 10%;
-  }
+	// height: 10%;
+}
   
   /* Color/shape of burger icon bars on hover*/
 //   .bm-burger-bars-hover {
@@ -108,7 +108,12 @@ $key-color: #0BF3BC;
   .bm-cross-button {
 	height: 24px;
 	width: 24px;
+	top: -20px;
   }
+
+.bm-cross-button > span {
+	top: -20px;
+}
   
   /* Color/shape of close button cross */
   .bm-cross {
@@ -126,8 +131,9 @@ $key-color: #0BF3BC;
   
   /* General sidebar styles */
   .bm-menu {
+	margin-top: -50px;
 	background: #2f2f2f;
-	padding: 2.5em 1.5em 0;
+	padding: 30px 1.5em 0;
 	font-size: 1.15em;
   }
   
@@ -140,11 +146,13 @@ $key-color: #0BF3BC;
   .bm-item-list {
 	color: #b8b7ad;
 	padding: 0.8em;
+	margin-top: -10px;
   }
   
   /* Individual item */
   .bm-item {
 	display: inline-block;
+	color: #8b8b8b;
 	// padding: 10px;
   }
 
@@ -153,6 +161,7 @@ $key-color: #0BF3BC;
 }
   
   /* Styling of overlay */
-  .bm-overlay {
+.bm-overlay {
 	background: rgba(0, 0, 0, 0.3);
-  }
+	margin-top: -10px;
+}

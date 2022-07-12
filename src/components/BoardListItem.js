@@ -18,7 +18,7 @@ function BoardListItem(props) {
                     </div>
                 </a>
                 <div className="like">
-                    <a href="#"><button id="img_btn" class="likebtn">
+                    <a href="#"><button id="img_btn" className="likebtn">
                         <input type="image" id="likeImg" src={heart} />
                     </button></a>
                     <div id="likes" disabled="disabled">{board[i].likedCnt}</div>

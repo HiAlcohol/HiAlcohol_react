@@ -56,9 +56,10 @@ const Header = (props) => {
 	}
     return (
 		<>
-			<Menu></Menu>
-			<div className="header"> 
-				<div></div>           
+			
+			<div className="header">
+				<Menu></Menu>
+				{/* <div></div>            */}
 				{header}
 			</div>
 		</>

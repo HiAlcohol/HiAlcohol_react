@@ -29,7 +29,7 @@ import {slide as Slide} from 'react-burger-menu'
 function Menu(props) {
 	return (
 		// <div >
-		<Slide className='menu_btn'>
+		<Slide className='menu_btn' height={'10%'}>
 			<a className="menu-item" href="/boards">
 				꿀조합 게시판
 			</a>

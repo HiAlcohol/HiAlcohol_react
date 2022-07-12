@@ -12,8 +12,8 @@ function Boards() {
         <div className="dropdown">
             <form action="/board" method="post" className="sort">
                 <select id="singer" name="order">
-                    <option value="date" selected>최신순</option>
-                    <option value="likes">좋아요순</option>
+                    <option value="date" >최신순</option>
+                    <option selected="likes">좋아요순</option>
                 </select>
             </form>
         </div>
