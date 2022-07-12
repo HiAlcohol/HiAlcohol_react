@@ -5,6 +5,8 @@ import Search from './SearchTemplate';
 import '../scss/HomeTemplate.scss';
 import cocktail from '../img/cocktail.png';
 import Header from './Header';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMartiniGlass, faMartiniGlassCitrus } from "@fortawesome/free-solid-svg-icons";
 
 const HomeTemplate = () => {
     return (
@@ -13,10 +15,10 @@ const HomeTemplate = () => {
 			<Header right="user"></Header>
 
         	<div className='HomeTemplate'>
-            	<div className='title'>Hi Alcohol</div>
-				{/* <span style={"color: #0bf3bc"}>
-					<i className="fas fa-glass-martini-alt" style="font-size: 30px"></i>
-				</span> */}
+            	<div className='title'>
+					Hi Alcohol <FontAwesomeIcon icon={faMartiniGlassCitrus} />
+				</div>
+				
             	<Search />
 
      
