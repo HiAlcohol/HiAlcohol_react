@@ -15,7 +15,7 @@ function MbtiResult() {
 
 	}
 	return <>
-	<Header right='mbti'></Header>
+	<Header right='common'></Header>
 	<div id="capture">
 		<div className="result">
 			<p>당신에게 어울리는 술은</p>

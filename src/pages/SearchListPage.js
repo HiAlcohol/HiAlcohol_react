@@ -20,7 +20,7 @@ function SearchListPage () {
         },
             ]
     return <div>
-            <Header />
+            <Header right='common'></Header>
             <SearchListTemplate />
             <SearchListItem recipe={recipe}></SearchListItem>
         </div>

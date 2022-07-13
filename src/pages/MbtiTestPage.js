@@ -22,7 +22,7 @@ function MbtiTest() {
 		}
 	}
 	return <>
-		<Header right='mbti'></Header>
+		<Header right='common'></Header>
 		<div className='progress_bar'>
 			<div className='progress' style={progress(number)}></div>
 		</div>

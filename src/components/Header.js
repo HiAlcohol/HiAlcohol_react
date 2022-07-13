@@ -42,7 +42,7 @@ const Header = (props) => {
                     완료                  
                 </div>
 		</>
-	} else if (props.right === 'mbti') {
+	} else if (props.right === 'common') {
 		header = <>
 		{/* <Menu></Menu> */}
 		<div className='Header'>
@@ -56,7 +56,6 @@ const Header = (props) => {
 	}
     return (
 		<>
-			
 			<div className="header">
 				<Menu></Menu>
 				{/* <div></div>            */}
