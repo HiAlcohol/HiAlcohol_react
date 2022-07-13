@@ -29,6 +29,7 @@ const ModalStyle = {
 		zIndex: 10,
 	},
 };
+
 function SearchListItem(props) {
 
     const [isOpen, setOpen] = useState(false);
@@ -41,10 +42,19 @@ function SearchListItem(props) {
       }
 
     const recipe = props.recipe;
-    const material = props.material;
     const searchItem = []
 
+    console.log(recipe[0].materials[0])
+
     for (let i = 0; i<recipe.length;i++) {
+        const materials = recipe[i].materials
+        const inputItem = []
+        for (let j = 0; j<3; j++){
+            inputItem.push(
+                <div className='in'>{materials[j]}</div>
+            )
+        }
+ 
         searchItem.push(
             <div className='list'>
                  <img src = {recipe[i].img} className="list-img" />
@@ -65,9 +75,7 @@ function SearchListItem(props) {
                         <img src = {recipe[i].img} className="recipe-img" />
                         <br /><br />
                         <div className="material">
-                                <div>체리</div>
-                                <div>맥콜</div>
-                                <div>사이다</div>
+                                {inputItem}
                             </div>
                         <br /><br /><br />
                         <p>- 비율 -</p>
@@ -79,18 +87,14 @@ function SearchListItem(props) {
                 </Modal>
                 </div>
                 <br /><br />
+               
                 <div className="input">
-                    <div>체리</div>
-                    <div>맥콜</div>
-                    <div>사이다</div>
-                    <div>소주</div>
-                    <div>깔라만씨 토닉워터</div>
-                    <div>토닉워터</div>
-                    <div>토닉워터</div>
+                    {inputItem}
                 </div>
             </div>
         )
     }
+    console.log("sea>>>",searchItem)
     return <div className='searchlist'>{searchItem}</div>
 }
 export default SearchListItem;
