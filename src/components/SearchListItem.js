@@ -30,8 +30,8 @@ const ModalStyle = {
 	},
 };
 
-const SearchListItem = () => {
-    
+function SearchListItem(props) {
+
     const [isOpen, setOpen] = useState(false);
 
     const handleClick = () => {
@@ -41,15 +41,26 @@ const SearchListItem = () => {
         setOpen(false);
       }
 
-    return (
-        <div className="SearchListItem">
-            <div className="list">
-                {/* <div className='img-area'>  */}
-                <img src = {cocktail} className="list-img" />
-                {/* </div> */}
+    const recipe = props.recipe;
+    const searchItem = []
+
+    console.log(recipe[0].materials[0])
+
+    for (let i = 0; i<recipe.length;i++) {
+        const materials = recipe[i].materials
+        const inputItem = []
+        for (let j = 0; j<3; j++){
+            inputItem.push(
+                <div className='in'>{materials[j]}</div>
+            )
+        }
+ 
+        searchItem.push(
+            <div className='list'>
+                 <img src = {recipe[i].img} className="list-img" />
                 
                 <div className='recipe-title'>
-                <a>내 마음대로 주</a>
+                <a>{recipe[i].cocktail}</a>
              
                 <button id='recipe' onClick={handleClick}>{'>'}</button>
                 <Modal isOpen={isOpen} 
@@ -59,37 +70,31 @@ const SearchListItem = () => {
                     <div className='RecipeTemplate'>
                         <button id='recipe-close' onClick={handleClickCancle}>X</button>
                         <br /><br /><br />
-                        <div class="name">마가리타</div>
+                        <div class="name">{recipe[i].cocktail}</div>
                         <br />
-                        <img src = {cocktail} className="recipe-img" />
+                        <img src = {recipe[i].img} className="recipe-img" />
                         <br /><br />
                         <div className="material">
-                                <div>체리</div>
-                                <div>맥콜</div>
-                                <div>사이다</div>
+                                {inputItem}
                             </div>
                         <br /><br /><br />
                         <p>- 비율 -</p>
-                        <h2>1 : 1 : 1</h2>
+                        <h2>{recipe[i].rate}</h2>
                         <br /><br />
-                        <p>설명</p>
+                        <p>{recipe[i].content}</p>
 
                     </div>
                 </Modal>
                 </div>
                 <br /><br />
+               
                 <div className="input">
-                    <div>체리</div>
-                    <div>맥콜</div>
-                    <div>사이다</div>
-                    <div>소주</div>
-                    <div>깔라만씨 토닉워터</div>
-                    <div>토닉워터</div>
-                    <div>토닉워터</div>
+                    {inputItem}
                 </div>
             </div>
-         </div>
-    );
-};
-
+        )
+    }
+    console.log("sea>>>",searchItem)
+    return <div className='searchlist'>{searchItem}</div>
+}
 export default SearchListItem;
