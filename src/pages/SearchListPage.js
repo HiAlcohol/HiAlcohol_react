@@ -19,10 +19,11 @@ function SearchListPage () {
             materials : ['사이다2', '콜라2', '환타2']
         },
             ]
+
     return <div>
             <Header right='common'></Header>
             <SearchListTemplate />
-            <SearchListItem recipe={recipe}></SearchListItem>
+            <SearchListItem recipe={recipe} type='search'></SearchListItem>
         </div>
         
     

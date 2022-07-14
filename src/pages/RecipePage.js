@@ -1,14 +1,31 @@
-// import RecipeTemplate from "../components/RecipeTemplate";
-// import Header from "../components/Header";
+import SearchListItem from "../components/SearchListItem";
+import Header from "../components/Header";
 
-// const RecipePage = () => {
-//     return (
-//         <>
-//             <Header />
-//             <RecipeTemplate />
-//         </>
+function RecipePage () {
+    const recipe = [
+        {id:1, 
+            cocktail: '마가리타', 
+            rate: '1 : 1 : 1', 
+            content:'설명입니다.', 
+            img : '../img/cocktail.png',
+            materials : ['사이다', '콜라', '환타']
+        },
+        {id:1, 
+            cocktail: '마가리타2', 
+            rate: '1 : 1 : 2', 
+            content:'설명입니다.2', 
+            img : '../img/cocktail.png',
+            materials : ['사이다2', '콜라2', '환타2']
+        },
+            ]
+
+    return <div>
+            <Header right='common'></Header>
+            
+            <SearchListItem recipe={recipe} type='modify'></SearchListItem>
+        </div>
         
-//     )
-// }
+    
+}
 
-// export default RecipePage;
+export default RecipePage;
