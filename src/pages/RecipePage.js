@@ -1,5 +1,7 @@
 import SearchListItem from "../components/SearchListItem";
 import Header from "../components/Header";
+import "../scss/Recipe.scss"
+import { Link } from "react-router-dom";
 
 function RecipePage () {
     const recipe = [
@@ -21,6 +23,10 @@ function RecipePage () {
 
     return <div>
             <Header right='common'></Header>
+
+            <div className="add">
+            <Link to='hi'><button className="addRecipe">+레시피 추가</button></Link>
+           </div>
             
             <SearchListItem recipe={recipe} type='modify'></SearchListItem>
         </div>
