@@ -11,7 +11,7 @@ const SearchList = () => {
                 <input type='text' placeholder="술 이름을 입력해주세요." />
                 {/* <button type='submit'><Link to = '/searchlist'><FaSearch /></Link>
                 </button> */}
-                <button type='submit'><Link to = '/searchlist'>
+                <button type='submit'><Link to = '/cocktails'>
 				<FontAwesomeIcon icon={faMagnifyingGlass} />
 				</Link>
                 </button>
