@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import Modal from 'react-modal';
 import cocktail from '../img/cocktail.png';
 import { click } from '@testing-library/user-event/dist/click';
+import { Link } from 'react-router-dom';
 
 const ModalStyle = {
     overlay: {
@@ -59,30 +60,35 @@ function SearchListItem(props) {
         if (props.type === 'search') {
             click = <>
                  <button id='recipe' onClick={handleClick}>{'>'}</button>
-        <Modal isOpen={isOpen} 
+                 <Modal isOpen={isOpen} 
                     style={ModalStyle}
                     onRequestClose={handleClickCancle}
-        >
-            <div className='RecipeTemplate'>
-                <button id='recipe-close' onClick={handleClickCancle}>X</button>
-                <br /><br /><br />
-                <div class="name">{recipe[i].cocktail}</div>
-                <br />
-                <img src = {recipe[i].img} className="recipe-img" />
-                <br /><br />
-                <div className="material">
-                        {inputItem}
-                    </div>
-                <br /><br /><br />
-                <p>- 비율 -</p>
-                <h2>{recipe[i].rate}</h2>
-                <br /><br />
-                <p>{recipe[i].content}</p>
+                >   
+                    <div className='RecipeTemplate'>
+                        <button id='recipe-close' onClick={handleClickCancle}>X</button>
+                        <br /><br /><br />
+                        <div class="name">{recipe[i].cocktail}</div>
+                        <br />
+                        <img src = {recipe[i].img} className="recipe-img" />
+                        <br /><br />
+                        <div className="material">
+                                {inputItem}
+                            </div>
+                        <br /><br /><br />
+                        <p>- 비율 -</p>
+                        <h2>{recipe[i].rate}</h2>
+                        <br /><br />
+                        <p>{recipe[i].content}</p>
 
-            </div>
-        </Modal>
+                    </div>
+                </Modal>
             </>
         } else if (props.type === 'modify') {
+            click = <>
+                <div className='modiRecipe'>
+                    <Link to='hi'><button>수정</button></Link>
+                </div>
+            </>
             
         }
  
