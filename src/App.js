@@ -12,6 +12,7 @@ import MbtiTest from "./pages/MbtiTestPage";
 import MbtiResult from "./pages/MbtiResultPage";
 import Recipe from "./pages/RecipePage";
 import NicknameEdit from "./pages/NickNameEditPage";
+import AdminReport from "./pages/admin/AdminReportPage";
 
 const App = () => {
   return (
@@ -29,6 +30,7 @@ const App = () => {
 	  <Route path="/mbti/result" element={<MbtiResult/>}/>
 	  <Route path="/recipe" element={<Recipe />} />
 	  <Route path="/nickname/edit" element={<NicknameEdit/>}/>
+	  <Route path="/admin/report" element={<AdminReport/>}/>
     </Routes>
   )
 };
