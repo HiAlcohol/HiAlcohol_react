@@ -1,3 +1,4 @@
+import { type } from "@testing-library/user-event/dist/type";
 import React, { useEffect } from "react";
 import MapTemplate from "../components/MapTemplate";
 const { kakao } = window;
@@ -41,38 +42,56 @@ const MapContainer = () => {
             //    new kakao.maps.InfoWindow({ position: center, map: map, content: '현재 위치'});
                var ps = new kakao.maps.services.Places(); 
 
-            if(loc.length==0){
-            ps.keywordSearch('주류유통', placesSearchCB, {
-                location: center, 
-                sort: kakao.maps.services.SortBy.DISTANCE
-            }); 
-         
-            function placesSearchCB (data, status, pagination) {
-                if (status === kakao.maps.services.Status.OK) {
-                    for (var i=0; i<data.length; i++) {
-                        displayMarker(data[i]);
+               if(loc == null){
+                console.log("HI")
+                ps.keywordSearch('주류유통', placesSearchCB, {
+                    location: center, 
+                    sort: kakao.maps.services.SortBy.DISTANCE
+                }); 
+            
+                function placesSearchCB (data, status, pagination) {
+                    if (status === kakao.maps.services.Status.OK) {
+                        for (var i=0; i<data.length; i++) {
+                            displayMarker(data[i]);
+                        }
+                    }
+                }
+                
+            }
+
+            else if(loc.length==0){
+                ps.keywordSearch('주류유통', placesSearchCB, {
+                    location: center, 
+                    sort: kakao.maps.services.SortBy.DISTANCE
+                }); 
+            
+                function placesSearchCB (data, status, pagination) {
+                    if (status === kakao.maps.services.Status.OK) {
+                        for (var i=0; i<data.length; i++) {
+                            displayMarker(data[i]);
+                        }
                     }
                 }
             }
-        }
-        else {
-
-            ps.keywordSearch(loc+'주류유통', placesSearchCB); 
-        
-            function placesSearchCB (data, status, pagination) {
-                if (status === kakao.maps.services.Status.OK) {
+            else if (loc.length>0){
+                
+                ps.keywordSearch(loc+'주류유통', placesSearchCB); 
             
-                    var bounds = new kakao.maps.LatLngBounds();
-            
-                    for (var i=0; i<data.length; i++) {
-                        displayMarker(data[i]);    
-                        bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+                function placesSearchCB (data, status, pagination) {
+                    if (status === kakao.maps.services.Status.OK) {
+                
+                        var bounds = new kakao.maps.LatLngBounds();
+                
+                        for (var i=0; i<data.length; i++) {
+                            displayMarker(data[i]);    
+                            bounds.extend(new kakao.maps.LatLng(data[i].y, data[i].x));
+                        } 
+                
+                        map.setBounds(bounds);
                     } 
-            
-                    map.setBounds(bounds);
-                } 
+                }
             }
-        }
+            
            
            function displayMarker(place) {
         
