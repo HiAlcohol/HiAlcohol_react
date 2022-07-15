@@ -69,7 +69,7 @@ function SearchListItem(props) {
                         <br /><br /><br />
                         <div class="name">{recipe[i].cocktail}</div>
                         <br />
-                        <img src = {recipe[i].img} className="recipe-img" />
+                        <img src={recipe[i].img.cocktail} className="recipe-img" />
                         <br /><br />
                         <div className="material">
                                 {inputItem}
