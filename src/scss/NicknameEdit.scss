@@ -1,0 +1,35 @@
+.nick_edit_header {
+	color: white;
+	margin: 20px;
+}
+
+.input_box {
+	display: inline;
+	border-spacing: 10px;
+}
+
+.nickname_box > th > p {
+	font-size: 15px;
+	margin: 10px;
+}
+
+.nickname_box > td > input {
+	background-color: transparent;
+	border: 1px solid #0BF3BC;
+    border-radius: 15px;
+	color: white;
+	padding: 10px;
+	margin: 10px;
+	width: 100%;
+	// box-shadow: 0px 0px 10px rgba(11, 243, 188, 0.5);
+}
+
+.profile th p{
+	font-size: 15px;
+}
+
+.profile > td > input {
+	color: white;
+	background-color: transparent;
+	margin: 10px;
+}
