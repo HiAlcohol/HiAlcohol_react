@@ -53,12 +53,18 @@ const Header = (props) => {
 				<img src={dummyUser.profile} width="25px" height="25px"/>
 			</div>
 	</>
+	} else {
+		header = <>
+		<div className='Header'>
+			<Link to='/' className='logo'>Hi Alcohol</Link>
+		</div>
+		<div></div>
+		</>
 	}
     return (
 		<>
 			<div className="header">
 				<Menu></Menu>
-				{/* <div></div>            */}
 				{header}
 			</div>
 		</>
