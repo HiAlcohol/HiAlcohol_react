@@ -43,7 +43,21 @@ th > p {
 	margin: 10px;
 }
 
+.mat {
+    border-radius: 20px;
+    background-color: #0BF3BC;
+    padding: 5px;
+    float: left;
+}
+.blank {
+    float: left;
+}
 
+#out {
+    background-color: #0BF3BC;
+    color: black;
+    border: none;
+}
 
 .cockimg th p{
 	font-size: 15px;

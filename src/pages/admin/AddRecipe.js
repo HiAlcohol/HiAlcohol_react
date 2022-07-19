@@ -15,6 +15,21 @@ function AddRecipeTemplate() {
 		cockimg : "!!"
 	}
 
+
+	var mat = []
+	for (let i =0; i<dummyRecipe.materials.length; i++){
+		console.log(dummyRecipe.materials[i])
+		mat.push(<>
+			<div className="blank"></div>
+			<div className="mat">
+				{dummyRecipe.materials[i]} 
+				<button id = "out">X</button>
+			</div>
+			</>
+		)
+	
+	}
+
     return (
 
         <>
@@ -36,10 +51,12 @@ function AddRecipeTemplate() {
 			</tr>
             <tr className="cockinput_box">
 				<th><p>재료</p></th>
-				<td><input type="text" value={dummyRecipe.materials}/>
+				<td><input type="text" />
 				<button id="inputbtn" type="submit">재료추가+</button></td>
-                
-                
+				
+			</tr>
+			<tr>
+			<div className="matzone">{mat}</div>
 			</tr>
             <tr className="cockrate_box">
 				<th><p>비율</p></th>
