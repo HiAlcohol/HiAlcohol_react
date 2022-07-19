@@ -54,6 +54,10 @@ function AddRecipeTemplate() {
 				<td><input type='file' accept='image/*'/></td>
 			</tr>
 		</table>
+		<div className="btnzone">
+			<button id = "canclebtn">취소</button>
+			<button id = "okbtn">확인</button>
+		</div>
 
         
         </>
