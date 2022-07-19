@@ -27,7 +27,7 @@ function AdminCocktail () {
             <Header right='common'></Header>
 			<SearchListTemplate />
             <div className="add">
-            <Link to='hi'><button className="addRecipe">+레시피 추가</button></Link>
+            <Link to='/admin/addrecipe'><button className="addRecipe">+레시피 추가</button></Link>
            </div>
             
             <SearchListItem recipe={recipe} type='modify'></SearchListItem>
