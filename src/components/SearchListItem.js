@@ -91,7 +91,9 @@ function SearchListItem(props) {
                     <div className='RecipeTemplate'>
                         <button id='recipe-close' onClick={handleClickCancle}>X</button>
                         <br /><br /><br />
+
                         <RecipeModal recipe = {recipe} inputItem = {inputItem} id = {i}/>
+
                     </div>
                 </Modal>
             </>

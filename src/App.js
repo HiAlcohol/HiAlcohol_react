@@ -11,6 +11,9 @@ import MyBoards from "./pages/board/MyBoardPage";
 import MbtiTest from "./pages/MbtiTestPage";
 import MbtiResult from "./pages/MbtiResultPage";
 import Recipe from "./pages/RecipePage";
+import NicknameEdit from "./pages/NickNameEditPage";
+import AdminReport from "./pages/admin/AdminReportPage";
+import AdminCocktail from "./pages/admin/AdminCocktailPage";
 
 const App = () => {
   return (
@@ -26,7 +29,10 @@ const App = () => {
 	  <Route path="/myboard" element={<MyBoards/>}/>
 	  <Route path="/mbti/test" element={<MbtiTest/>}/>
 	  <Route path="/mbti/result" element={<MbtiResult/>}/>
-    <Route path="/recipe" element={<Recipe />} />
+	  <Route path="/recipe" element={<Recipe />} />
+	  <Route path="/nickname/edit" element={<NicknameEdit/>}/>
+	  <Route path="/admin/report" element={<AdminReport/>}/>
+	  <Route path="/admin/cocktail" element={<AdminCocktail/>}/>
     </Routes>
   )
 };

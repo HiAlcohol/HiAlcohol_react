@@ -132,10 +132,10 @@ $key-color: #0BF3BC;
   
   /* General sidebar styles */
   .bm-menu {
-	margin-top: -30px;
+	margin-top: -10px;
 	background: #2f2f2f;
 	padding: 30px 1.5em 0;
-	font-size: 1.15em;
+	font-size: 18px;
   }
   
   /* Morph shape necessary with bubble or elastic */
@@ -148,6 +148,7 @@ $key-color: #0BF3BC;
 	color: #b8b7ad;
 	padding: 0.8em;
 	margin-top: 20px;
+	text-align: left;
   }
   
   /* Individual item */
