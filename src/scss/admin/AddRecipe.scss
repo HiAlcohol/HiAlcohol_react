@@ -23,6 +23,21 @@
     }
 }
 
+.cockinput_box {
+    input {
+        width: 67%
+    }
+    button {
+        background-color: #242424;
+        border: 1px solid #0BF3BC;
+        border-radius: 30px;
+        color: #0BF3BC;
+        width: 20%;
+        height: 40px;
+    }
+}
+
+
 th > p {
 	font-size: 15px;
 	margin: 10px;

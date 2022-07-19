@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import Header from '../Header';
+import Header from '../../components/Header'
 import "../../scss/admin/AddRecipe.scss"
 
 function AddRecipeTemplate() {
-
-
 
     return (
 
@@ -28,7 +26,9 @@ function AddRecipeTemplate() {
 			</tr>
             <tr className="cockinput_box">
 				<th><p>재료</p></th>
-				<td><input type="text" /></td>
+				<td><input type="text" /><button id="inputbtn" type="submit">재료추가+</button></td>
+                
+                
 			</tr>
             <tr className="cockrate_box">
 				<th><p>비율</p></th>

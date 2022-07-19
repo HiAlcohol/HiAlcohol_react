@@ -14,7 +14,7 @@ import Recipe from "./pages/RecipePage";
 import NicknameEdit from "./pages/NickNameEditPage";
 import AdminReport from "./pages/admin/AdminReportPage";
 import AdminCocktail from "./pages/admin/AdminCocktailPage";
-import AddRecipe from "./components/admin/AddRecipe";
+import AddRecipe from "./pages/admin/AddRecipe";
 
 const App = () => {
   return (
