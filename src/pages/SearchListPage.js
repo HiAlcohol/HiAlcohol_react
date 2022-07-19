@@ -4,7 +4,7 @@ import Header from "../components/Header";
 
 function SearchListPage () {
     const recipe = [
-        {id:1, 
+        {id:0, 
             cocktail: '마가리타', 
             rate: '1 : 1 : 1', 
             content:'설명입니다.', 
