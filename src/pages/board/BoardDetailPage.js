@@ -19,7 +19,7 @@ function BoardDetailPage() {
 	const [board, setBoard] = useState(null);
 	const [error, setError] = useState(null);
 	const params = useParams();
-	console.log('props', params)
+
 	useEffect(() => {
 		const fetchBoard = async () => {
 			try {
