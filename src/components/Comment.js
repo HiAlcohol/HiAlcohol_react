@@ -1,27 +1,49 @@
+import axios from 'axios';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'
 import '../scss/Comment.scss'
 
 function Comment() {
 	// api comment
-	const comment = [
-		{id: 1, nickname: 'user', content: 'test content', createdate: '2022-07-03'},
-		{id: 2, nickname: 'user2', content: 'test content2', createdate: '2022-05-03'}
-	]
+	// const comment = [
+	// 	{id: 1, nickname: 'user', content: 'test content', createdate: '2022-07-03'},
+	// 	{id: 2, nickname: 'user2', content: 'test content2', createdate: '2022-05-03'}
+	// ]
+	const [comments, setComments] = useState(null);
+	const [error, setError] = useState(null);
+	const params = useParams();
+
+	useEffect(() => {
+		const fetchComment = async () => {
+			try {
+				const response = await axios.get('http://3.35.208.41:5000/boards/' + params.id + '/comments');
+				setComments(response.data.data);
+			} catch(e) {
+				setError(e);
+			}
+		}
+		fetchComment();
+	}, []);
 	var comList = []
-	console.log('comment', comment)
-	for (let i = 0; i < comment.length; i++) {
-		console.log('*')
-		if (i !== 0 && i !== comment.length / 2 - 1) {
+	
+	if (error) return <div>에러가 발생했습니다. {error}</div>
+	if (!comments) return <div>댓글 api 호출 실패</div>
+
+	for (let i = 0; i < comments.length; i++) {
+		if (i !== 0) {
 			comList.push(<hr/>)
 		}
 		comList.push(<div className="comview">
 			<div className='com_header'>
-				<div className="com_nick">{comment[i].nickname}</div>
+				<div className="com_nick">{comments[i].nickname}</div>
 				<div>X</div>
 			</div>
-			<pre className='com_content'>{comment[i].content}</pre>
-			<div className='date'>{comment[i].createdate}</div>
+			<pre className='com_content'>{comments[i].content}</pre>
+			<div className='date'>{comments[i].createdate}</div>
 		</div>)
-		console.log('com', comList)
+	}
+	if (comList.length == 0) {
+		comList.push(<div className='comview'>아직 등록된 댓글이 없습니다.</div>)
 	}
 	
 	return <div>
