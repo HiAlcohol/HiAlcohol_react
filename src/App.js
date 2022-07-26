@@ -15,6 +15,9 @@ import NicknameEdit from "./pages/NickNameEditPage";
 import AdminReport from "./pages/admin/AdminReportPage";
 import AdminCocktail from "./pages/admin/AdminCocktailPage";
 import AddRecipe from "./pages/admin/AddRecipe";
+import Suggestion from "./pages/board/SuggestionListPage";
+import SuggestionDetail from "./pages/board/SuggestionDetailPage";
+import SuggestionWrite from "./pages/board/SuggestionWritePage";
 
 const App = () => {
   return (
@@ -35,6 +38,9 @@ const App = () => {
 	  <Route path="/admin/report" element={<AdminReport/>}/>
 	  <Route path="/admin/cocktail" element={<AdminCocktail/>}/>
     <Route path= "/admin/cocktail/addrecipe" element={<AddRecipe />} />
+    <Route path= "/suggestions" element={<Suggestion />} />
+    <Route path="/suggestions/:id" element={<SuggestionDetail />} />
+    <Route path = "/suggestion" element= {<SuggestionWrite />} />
     </Routes>
   )
 };
