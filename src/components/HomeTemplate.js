@@ -12,47 +12,47 @@ import { faMartiniGlass, faMartiniGlassCitrus } from "@fortawesome/free-solid-sv
 function HomeTemplate(props) {
 
 	const recipe = props.recipe;
-	const materials = recipe.materials;
-	const inputItem = []
-        for (let j = 0; j<3; j++){
-            inputItem.push(
-                <div className='in'>{materials[j]}</div>
-            )
-        }
-	const [isOpen, setOpen] = useState(false);
+	// const materials = recipe.materials;
+	// const inputItem = []
+    //     for (let j = 0; j<3; j++){
+    //         inputItem.push(
+    //             <div className='in'>{materials[j]}</div>
+    //         )
+    //     }
+	// const [isOpen, setOpen] = useState(false);
 
-    const handleClick = () => {
-        setOpen(true);
-      };
-      const handleClickCancle = () => {
-        setOpen(false);
-      }
+    // const handleClick = () => {
+    //     setOpen(true);
+    //   };
+    //   const handleClickCancle = () => {
+    //     setOpen(false);
+    //   }
 
-	  const ModalStyle = {
-		overlay: {
-			position: "fixed",
-			top: 0,
-			left: 0,
-			right: 0,
-			bottom: 0,
-			backgroundColor: "rgba(255, 255, 255, 0.45)",
-			zIndex: 10,
-		},
-		content: {
-			display: "flex",
-			justifyContent: "center",
-			background: "#242424",
-			overflow: "auto",
-			top: "15vh",
-			left: "15vw",
-			right: "15vw",
-			bottom: "15vh",
-			WebkitOverflowScrolling: "touch",
-			borderRadius: "20px",
-			outline: "none",
-			zIndex: 10,
-		},
-	};
+	//   const ModalStyle = {
+	// 	overlay: {
+	// 		position: "fixed",
+	// 		top: 0,
+	// 		left: 0,
+	// 		right: 0,
+	// 		bottom: 0,
+	// 		backgroundColor: "rgba(255, 255, 255, 0.45)",
+	// 		zIndex: 10,
+	// 	},
+	// 	content: {
+	// 		display: "flex",
+	// 		justifyContent: "center",
+	// 		background: "#242424",
+	// 		overflow: "auto",
+	// 		top: "15vh",
+	// 		left: "15vw",
+	// 		right: "15vw",
+	// 		bottom: "15vh",
+	// 		WebkitOverflowScrolling: "touch",
+	// 		borderRadius: "20px",
+	// 		outline: "none",
+	// 		zIndex: 10,
+	// 	},
+	// };
 
     return (
 
@@ -71,8 +71,8 @@ function HomeTemplate(props) {
 				<div className='recommend'>
 					<p>오늘의 술 추천</p>
 					
-					<a onClick={handleClick}>{recipe.cocktail} {'>'}</a>
-					<Modal isOpen={isOpen} 
+					<a >{recipe.cocktail} {'>'}</a>
+					{/* <Modal isOpen={isOpen} 
                     style={ModalStyle}
                     onRequestClose={handleClickCancle}
                 >   
@@ -81,7 +81,7 @@ function HomeTemplate(props) {
                         <br /><br /><br />
 						<div class="name">{recipe.cocktail}</div>
 						<br />
-						<img src = {recipe.img} className="recipe-img" />
+						<img src = {recipe.image} className="recipe-img" />
 						<br /><br />
 						<div className="material">
 								{inputItem}
@@ -92,7 +92,7 @@ function HomeTemplate(props) {
 						<br /><br />
 						<p>{recipe.content}</p>
 					</div>
-                </Modal>
+                </Modal> */}
 					
                  
 					<br></br>

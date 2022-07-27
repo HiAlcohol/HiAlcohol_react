@@ -1,20 +1,29 @@
 import HomeTemplate from "../components/HomeTemplate";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 const Homepage = () => {
+    const [random, setRandom] = useState(null);
+	const [error, setError] = useState(null);
 
-    const recipe = 
-        {id:1, 
-            cocktail: '마가리타', 
-            rate: '1 : 1 : 1', 
-            content:'설명입니다.', 
-            img : '../img/cocktail.png',
-            materials : ['사이다', '콜라', '환타']
-        }
+	useEffect(() => {
+		const fetchBoard = async () => {
+			try {
+				const response = await axios.get('http://3.35.208.41:5000/');
+				setRandom(response.data.data);
+				console.log(response.data.data)
+			} catch(e) {
+				setError(e);
+			}
+		};
+		fetchBoard()
+	}, []);
+	if (error) return <div>에러가 발생했습니다. {error}</div>
+	if (!random) return <div>데이터가 없습니다.</div>
 
+    console.log(random)
     return (
-        <HomeTemplate recipe = {recipe}>
-
-        </HomeTemplate>
+        <HomeTemplate recipe = {random} />
     )
 }
 
