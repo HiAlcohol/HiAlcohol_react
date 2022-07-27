@@ -10,7 +10,7 @@ function Suggestion() {
 	const [Selected, setSelected] = useState('latest');
 
 	useEffect( () => {
-		const fetchBoards = async () => {
+		const fetchSuggestion = async () => {
 
 			try {
 				console.log('렌더링이 완료되었습니다!');
@@ -22,7 +22,7 @@ function Suggestion() {
 				setError(e)
 			}
 		};
-		fetchBoards();
+		fetchSuggestion();
 		setSelected('latest')
 	}, []);
 

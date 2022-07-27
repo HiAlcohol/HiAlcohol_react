@@ -17,7 +17,7 @@ function HomeTemplate(props) {
 	
 	useEffect(() => {
 
-		const fetchBoard = async () => {
+		const fetchToday = async () => {
 			try {
 				const response = await axios.get('http://3.35.208.41:5000/cocktails/recipe/'+props.cocktail.id);
 				setRecipe(response.data.data);
@@ -25,7 +25,7 @@ function HomeTemplate(props) {
 				setError(e);
 			}
 		};
-		fetchBoard()
+		fetchToday()
 
 		
 	}, []);

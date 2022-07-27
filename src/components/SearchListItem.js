@@ -41,7 +41,7 @@ function SearchListItem(props) {
     let keyword = props.keyword
 
 	useEffect(() => {
-		const fetchBoard = async () => {
+		const fetchSearch = async () => {
 			try {
 				const response = await axios.get('http://3.35.208.41:5000/cocktails/search?keyword='+keyword);
 				setRecipes(response.data.data);
@@ -49,7 +49,7 @@ function SearchListItem(props) {
 				setError(e);
 			}
 		};
-		fetchBoard()
+		fetchSearch()
 
 	}, []);
 	if (error) return <div>에러가 발생했습니다. {error}</div>

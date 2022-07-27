@@ -12,7 +12,7 @@ function SuggestionDetailPage(props) {
 	const params = useParams();
 
 	useEffect(() => {
-		const fetchBoard = async () => {
+		const fetchSuggestion = async () => {
 			try {
 				const response = await axios.get('http://3.35.208.41:5000/suggestion/' + params.id);
 				setSuggestion(response.data.data);
@@ -21,7 +21,7 @@ function SuggestionDetailPage(props) {
 				setError(e);
 			}
 		};
-		fetchBoard()
+		fetchSuggestion()
 	}, []);
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!suggestion) return <div>데이터가 없습니다.</div>
