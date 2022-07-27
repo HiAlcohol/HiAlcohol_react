@@ -5,18 +5,20 @@ import '../scss/board/BoardListItem.scss'
 function Item(props) {
     const board = props.board
     const link = props.link
-    console.log("what", {link})
     let linkIs = ""
+	let key = ''
     if (link === 'board'){
         linkIs = "/board/" 
+		key = board.postId
     }
     else if(link === 'suggestion') {
-        console.log("ok")
-        linkIs = "/suggestions/" 
+        linkIs = "/suggestion/" 
+		key = board.suggestionId
     }
+	console.log(key)
 
 	return <div className="content">
-		<a href={linkIs + board.postId}>
+		<a href={linkIs + key}>
 			<div className="subject">
 				<p>{board.title}</p>
 				<div className="info">
@@ -39,9 +41,17 @@ function BoardListItem(props) {
 
     let board = props.board;
     let link = props.link
+	console.log(board)
+	let key
+	if (link === 'board'){
+		key = 'postID';
+	}
+	else {
+		key = 'suggestionId';
+	}
 
     return <div className='contentList'>
-		{board.map(board => (<Item board={board} link= {link} key={board.postId}/>))}
+		{board.map(board => (<Item board={board} link= {link} key= {board.key}/>))}
 	</div>
     
 }
