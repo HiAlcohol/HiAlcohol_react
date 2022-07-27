@@ -9,9 +9,7 @@ import React, { useState } from "react";
 const SearchList = () => {
     const params = new URLSearchParams(window.location.search);
     let key = params.get("keyword");
-    console.log(key)
     let link = '/cocktails/search?keyword='+key
-    console.log(link)
 
     return (
     <>
