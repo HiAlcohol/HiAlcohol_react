@@ -42,7 +42,7 @@ function SuggestionDetailPage(props) {
 					<a href="#"><button id="img_btn" className="likebtn">
 						<input type="image" id="likeImg" src={heart} />
 					</button></a>
-					<div id="likes" disabled="disabled">{sugges.count}</div>
+					<div id="likes" disabled="disabled">{sugges.like_count}</div>
 				</div>
 			</div>
 			<pre className='boardContent'>
