@@ -47,8 +47,6 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - 칵테일 레시피 조회
 - 우리동네 주류매장
 - 관리자 페이지 (레시피 수정, 추가)
-
-- 관리자 페이지 (건의 게시판)
 - 건의 게시판 CRUD
 
 
