@@ -11,7 +11,6 @@ const Homepage = () => {
 			try {
 				const response = await axios.get('http://3.35.208.41:5000/');
 				setRandom(response.data.data);
-				console.log(response.data.data)
 			} catch(e) {
 				setError(e);
 			}
@@ -21,7 +20,6 @@ const Homepage = () => {
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!random) return <div>데이터가 없습니다.</div>
 
-    console.log(random)
     return (
         <HomeTemplate recipe = {random} />
     )

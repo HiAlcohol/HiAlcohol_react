@@ -2,9 +2,10 @@ import '../scss/SearchListItem.scss';
 import '../scss/RecipeTemplate.scss';
 import React, { useState } from "react";
 import Modal from 'react-modal';
-import cocktail from '../img/cocktail.png';
 import { click } from '@testing-library/user-event/dist/click';
 import { Link } from 'react-router-dom';
+import axios from "axios";
+import { useEffect } from "react";
 
 function RecipeModal(props) {
     const recipe = props.recipe;
@@ -56,8 +57,24 @@ const ModalStyle = {
 };
 
 function SearchListItem(props) {
-
+    const [recipes , setRecipes] = useState(null);
+	const [error, setError] = useState(null);
     const [isOpen, setOpen] = useState(false);
+    let keyword = props.keyword
+
+	useEffect(() => {
+		const fetchBoard = async () => {
+			try {
+				const response = await axios.get('http://3.35.208.41:5000/cocktails/search?keyword='+keyword);
+				setRecipes(response.data.data);
+			} catch(e) {
+				setError(e);
+			}
+		};
+		fetchBoard()
+	}, []);
+	if (error) return <div>에러가 발생했습니다. {error}</div>
+	if (!recipes) return <div>데이터가 없습니다.</div>
 
     const handleClick = () => {
         setOpen(true);
@@ -66,11 +83,8 @@ function SearchListItem(props) {
         setOpen(false);
       }
 
-    const recipe = props.recipe;
+    const recipe = recipes;
     const searchItem = []
-
-    const Click = ''
-
 
     for (let i = 0; i<recipe.length;i++) {
         const materials = recipe[i].materials
@@ -81,7 +95,6 @@ function SearchListItem(props) {
             )
         }
         if (props.type === 'search') {
-            console.log("id1 >>", i)
             click = <>
                  <button id='recipe' onClick={handleClick}>{'>'}</button>
                  <Modal isOpen={isOpen} 
@@ -92,7 +105,7 @@ function SearchListItem(props) {
                         <button id='recipe-close' onClick={handleClickCancle}>X</button>
                         <br /><br /><br />
 
-                        <RecipeModal recipe = {recipe} inputItem = {inputItem} id = {i}/>
+                        <RecipeModal recipe = {recipe} inputItem = {inputItem} />
 
                     </div>
                 </Modal>
@@ -107,9 +120,9 @@ function SearchListItem(props) {
         }
  
         searchItem.push(
+            <>
             <div className='list'>
                  <img src = {recipe[i].img} className="list-img" />
-                <div>{recipe[i].id}</div>
                 <div className='recipe-title'>
                 <a>{recipe[i].cocktail}</a>
 
@@ -121,6 +134,8 @@ function SearchListItem(props) {
                     {inputItem}
                 </div>
             </div>
+            <br />
+            </>
         )
     }
     return <div className='searchlist'>{searchItem}</div>
