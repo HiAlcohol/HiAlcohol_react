@@ -2,12 +2,25 @@ import heart from '../img/heart_fill.png'
 import '../scss/board/BoardListItem.scss'
 
 function BoardListItem(props) {
+    let linkIs = ""
+    if (props.link === 'board'){
+        linkIs = "/board/" 
+    }
+    else if(props.link === 'suggestion') {
+        console.log("ok")
+        linkIs = "/suggestions/" 
+        console.log("?? >>", linkIs)
+    }
+    
     const board = props.board;
+    
+    
     const listItem = []
     for (let i = 0; i < props.board.length; i++) {
+        
         listItem.push(
             <div className="content">
-                <a href={"/board/" + board[i].id}>
+                <a href={linkIs+ board[i].id}>
                     <div className="subject">
                         <p>{board[i].title}</p>
                         <div className="info">

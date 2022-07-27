@@ -20,6 +20,16 @@ const Header = (props) => {
             <Link to="/board/write"><img className="writeBtn" src={writeBtn}/></Link>
         </div>
 	</>
+	} else if (props.right === 'suggestion') {
+		header = <>
+		{/* <Menu></Menu> */}
+		<div className='Header'>
+			<Link to='/' className='logo'>Hi Alcohol</Link>
+		</div>
+		<div className="writeBtn">
+            <Link to="/suggestion"><img className="writeBtn" src={writeBtn}/></Link>
+        </div>
+	</>
 	} else if (props.right === 'user') {
 		console.log(dummyUser)
 		header = 

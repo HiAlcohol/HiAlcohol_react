@@ -17,7 +17,7 @@ function Boards() {
                 </select>
             </form>
         </div>
-        <BoardListItem board={board}></BoardListItem>
+        <BoardListItem board={board} link='board'></BoardListItem>
     </div>
 }
 
