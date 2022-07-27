@@ -8,7 +8,7 @@ function Suggestion() {
         {id: 2, title: '술 테스트 게시글', userName: '유저2', createDate: '2022.03.15', likedCnt: 2}
     ]
     return <div>
-        <Header right="board"></Header>
+        <Header right="suggestion"></Header>
         <div className="dropdown">
             <form action="/board" method="post" className="sort">
                 <select id="singer" name="order">
@@ -17,7 +17,7 @@ function Suggestion() {
                 </select>
             </form>
         </div>
-        <BoardListItem board={board}></BoardListItem>
+        <BoardListItem board={board} link='suggestion'></BoardListItem>
     </div>
 }
 

@@ -47,7 +47,7 @@ function Boards() {
 				<option value="like" key="like">좋아요순</option>
 			</select>
         </div>
-        <BoardListItem board={boards}></BoardListItem>
+        <BoardListItem board={boards} link='board'></BoardListItem>
     </div>
 }
 
