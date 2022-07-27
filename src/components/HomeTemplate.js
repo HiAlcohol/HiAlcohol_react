@@ -1,10 +1,7 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
-import {FaSearch} from 'react-icons/fa';
 import Modal from 'react-modal';
 import Search from './SearchTemplate';
 import '../scss/HomeTemplate.scss';
-import cocktail from '../img/cocktail.png';
 import Header from './Header';
 import axios from "axios";
 import { useEffect} from "react";
