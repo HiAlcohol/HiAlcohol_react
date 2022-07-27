@@ -4,10 +4,14 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 import SearchListItem from './SearchListItem';
+import React, { useState } from "react";
 
 const SearchList = () => {
     const params = new URLSearchParams(window.location.search);
     let key = params.get("keyword");
+    console.log(key)
+    let link = '/cocktails/search?keyword='+key
+    console.log(link)
 
     return (
     <>
@@ -16,7 +20,7 @@ const SearchList = () => {
                 <form method="get" >
                     <input type='text' name= 'keyword' placeholder="술 이름을 입력해주세요." />
                     <button type='submit'>
-                        <Link to ='/cocktails/search?keyword='>
+                        <Link to = {link}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                     </Link>
                     </button>
@@ -25,7 +29,6 @@ const SearchList = () => {
             </div>
             <br></br>
         </div>
-        <SearchListItem keyword={key} type='search'/>
     </>
         
     );

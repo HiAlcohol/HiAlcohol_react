@@ -10,6 +10,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMartiniGlass, faMartiniGlassCitrus } from "@fortawesome/free-solid-svg-icons";
 
 function HomeTemplate(props) {
+	const params = new URLSearchParams(window.location.search);
+    let key = params.get("keyword");
 
 	const recipe = props.recipe;
 	// const materials = recipe.materials;
@@ -64,7 +66,7 @@ function HomeTemplate(props) {
 					Hi Alcohol <FontAwesomeIcon icon={faMartiniGlassCitrus} />
 				</div>
 				
-            	<Search />
+            	<Search keyword={key} type='search'/>
 
      
 
