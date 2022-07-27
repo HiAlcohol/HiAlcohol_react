@@ -1,60 +1,83 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
-import {FaSearch} from 'react-icons/fa';
 import Modal from 'react-modal';
 import Search from './SearchTemplate';
 import '../scss/HomeTemplate.scss';
-import cocktail from '../img/cocktail.png';
 import Header from './Header';
+import axios from "axios";
+import { useEffect} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMartiniGlass, faMartiniGlassCitrus } from "@fortawesome/free-solid-svg-icons";
 
 function HomeTemplate(props) {
+
+	const [torecipe, setRecipe] = useState(null);
+	const [error, setError] = useState(null);
+	const [isOpen, setOpen] = useState(false);
+
+	
+	useEffect(() => {
+
+		const fetchToday = async () => {
+			try {
+				const response = await axios.get('http://3.35.208.41:5000/cocktails/recipe/'+props.cocktail.id);
+				setRecipe(response.data.data);
+			} catch(e) {
+				setError(e);
+			}
+		};
+		fetchToday()
+
+		
+	}, []);
+	if (error) return <div>에러가 발생했습니다. {error}</div>
+	if (!torecipe) return <div>데이터가 없습니다.</div>
+
 	const params = new URLSearchParams(window.location.search);
     let key = params.get("keyword");
 
-	const recipe = props.recipe;
-	// const materials = recipe.materials;
-	// const inputItem = []
-    //     for (let j = 0; j<3; j++){
-    //         inputItem.push(
-    //             <div className='in'>{materials[j]}</div>
-    //         )
-    //     }
-	// const [isOpen, setOpen] = useState(false);
+	const cocktail = props.cocktail;
+	const recipe = torecipe[0];
+	const materials = recipe.materials;
+	const inputItem = []
+        for (let j = 0; j<materials.length; j++){
+            inputItem.push(
+                <div className='in'>{materials[j]}</div>
+            )
+        }
+	
 
-    // const handleClick = () => {
-    //     setOpen(true);
-    //   };
-    //   const handleClickCancle = () => {
-    //     setOpen(false);
-    //   }
+    const handleClick = () => {
+        setOpen(true);
+      };
+      const handleClickCancle = () => {
+        setOpen(false);
+      }
 
-	//   const ModalStyle = {
-	// 	overlay: {
-	// 		position: "fixed",
-	// 		top: 0,
-	// 		left: 0,
-	// 		right: 0,
-	// 		bottom: 0,
-	// 		backgroundColor: "rgba(255, 255, 255, 0.45)",
-	// 		zIndex: 10,
-	// 	},
-	// 	content: {
-	// 		display: "flex",
-	// 		justifyContent: "center",
-	// 		background: "#242424",
-	// 		overflow: "auto",
-	// 		top: "15vh",
-	// 		left: "15vw",
-	// 		right: "15vw",
-	// 		bottom: "15vh",
-	// 		WebkitOverflowScrolling: "touch",
-	// 		borderRadius: "20px",
-	// 		outline: "none",
-	// 		zIndex: 10,
-	// 	},
-	// };
+	  const ModalStyle = {
+		overlay: {
+			position: "fixed",
+			top: 0,
+			left: 0,
+			right: 0,
+			bottom: 0,
+			backgroundColor: "rgba(255, 255, 255, 0.45)",
+			zIndex: 10,
+		},
+		content: {
+			display: "flex",
+			justifyContent: "center",
+			background: "#242424",
+			overflow: "auto",
+			top: "15vh",
+			left: "15vw",
+			right: "15vw",
+			bottom: "15vh",
+			WebkitOverflowScrolling: "touch",
+			borderRadius: "20px",
+			outline: "none",
+			zIndex: 10,
+		},
+	};
 
     return (
 
@@ -73,8 +96,8 @@ function HomeTemplate(props) {
 				<div className='recommend'>
 					<p>오늘의 술 추천</p>
 					
-					<a >{recipe.cocktail} {'>'}</a>
-					{/* <Modal isOpen={isOpen} 
+					<a onClick={handleClick}>{recipe.cocktail} {'>'}</a>
+					<Modal isOpen={isOpen} 
                     style={ModalStyle}
                     onRequestClose={handleClickCancle}
                 >   
@@ -94,7 +117,7 @@ function HomeTemplate(props) {
 						<br /><br />
 						<p>{recipe.content}</p>
 					</div>
-                </Modal> */}
+                </Modal>
 					
                  
 					<br></br>

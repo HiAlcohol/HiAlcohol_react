@@ -7,7 +7,8 @@ const Homepage = () => {
 	const [error, setError] = useState(null);
 
 	useEffect(() => {
-		const fetchBoard = async () => {
+
+		const fetchHome = async () => {
 			try {
 				const response = await axios.get('http://3.35.208.41:5000/');
 				setRandom(response.data.data);
@@ -15,13 +16,14 @@ const Homepage = () => {
 				setError(e);
 			}
 		};
-		fetchBoard()
+		fetchHome()
+		
 	}, []);
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!random) return <div>데이터가 없습니다.</div>
 
     return (
-        <HomeTemplate recipe = {random} />
+        <HomeTemplate cocktail = {random} />
     )
 }
 

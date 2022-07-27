@@ -6,29 +6,7 @@ import { click } from '@testing-library/user-event/dist/click';
 import { Link } from 'react-router-dom';
 import axios from "axios";
 import { useEffect } from "react";
-
-function RecipeModal(props) {
-    const recipe = props.recipe;
-    const inputItem = props.inputItem;
-    const  i = props.id;
-
-    return(
-        <>
-        <div class="name">{recipe[i].cocktail}</div>
-        <br />
-        <img src = {recipe[i].img} className="recipe-img" />
-        <br /><br />
-        <div className="material">
-                {inputItem}
-        </div>
-        <br /><br /><br />
-        <p>- 비율 -</p>
-        <h2>{recipe[i].rate}</h2>
-        <br /><br />
-        <p>{recipe[i].content}</p>
-        </>
-    )
-}
+import RecipeModal from './RecipeModal';
 
 const ModalStyle = {
     overlay: {
@@ -63,7 +41,7 @@ function SearchListItem(props) {
     let keyword = props.keyword
 
 	useEffect(() => {
-		const fetchBoard = async () => {
+		const fetchSearch = async () => {
 			try {
 				const response = await axios.get('http://3.35.208.41:5000/cocktails/search?keyword='+keyword);
 				setRecipes(response.data.data);
@@ -71,7 +49,8 @@ function SearchListItem(props) {
 				setError(e);
 			}
 		};
-		fetchBoard()
+		fetchSearch()
+
 	}, []);
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!recipes) return <div>데이터가 없습니다.</div>
@@ -83,11 +62,11 @@ function SearchListItem(props) {
         setOpen(false);
       }
 
-    const recipe = recipes;
+    const cocktail = recipes;
     const searchItem = []
 
-    for (let i = 0; i<recipe.length;i++) {
-        const materials = recipe[i].materials
+    for (let i = 0; i<cocktail.length;i++) {
+        const materials = cocktail[i].materials
         const inputItem = []
         for (let j = 0; j<materials.length; j++){
             inputItem.push(
@@ -102,10 +81,10 @@ function SearchListItem(props) {
                     onRequestClose={handleClickCancle}
                 >   
                     <div className='RecipeTemplate'>
-                        <button id='recipe-close' onClick={handleClickCancle}>X</button>
+                    <button id='recipe-close' onClick={handleClickCancle}>X</button>
                         <br /><br /><br />
 
-                        <RecipeModal recipe = {recipe} inputItem = {inputItem} />
+                        <RecipeModal key = {cocktail[i].id} />
 
                     </div>
                 </Modal>
@@ -122,9 +101,9 @@ function SearchListItem(props) {
         searchItem.push(
             <>
             <div className='list'>
-                 <img src = {recipe[i].img} className="list-img" />
+                 <img src = {cocktail[i].img} className="list-img" />
                 <div className='recipe-title'>
-                <a>{recipe[i].cocktail}</a>
+                <a>{cocktail[i].cocktail}</a>
 
                 {click}
                 </div>
