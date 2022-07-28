@@ -1,5 +1,5 @@
-import SearchListItem from "../components/SearchListItem";
-import Header from "../components/Header";
+import SearchListItem from "../../components/SearchListItem";
+import Header from "../../components/Header";
 import "../scss/Recipe.scss"
 import { Link } from "react-router-dom";
 
