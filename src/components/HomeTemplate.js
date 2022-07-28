@@ -105,8 +105,6 @@ function HomeTemplate(props) {
                         <button id='recipe-close' onClick={handleClickCancle}>X</button>
                         <br /><br /><br />
 						<div class="name">{recipe.cocktail}</div>
-						<br />
-						<img src = {recipe.image} className="recipe-img" />
 						<br /><br />
 						<div className="material">
 								{inputItem}
