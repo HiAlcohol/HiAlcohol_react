@@ -38,6 +38,7 @@ function SearchListItem(props) {
     const [recipes , setRecipes] = useState(null);
 	const [error, setError] = useState(null);
     const [isOpen, setOpen] = useState(false);
+    const [keyId, setKeyId] = useState(null);
     let keyword = props.keyword
 
 	useEffect(() => {
@@ -55,9 +56,14 @@ function SearchListItem(props) {
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!recipes) return <div>데이터가 없습니다.</div>
 
-    const handleClick = () => {
-        setOpen(true);
-      };
+    const changeKey = (i) => {
+        try {
+            setKeyId(cocktail[i].id)
+        } catch(e) {
+            setError(e);
+        }
+    };
+    
       const handleClickCancle = () => {
         setOpen(false);
       }
@@ -66,6 +72,7 @@ function SearchListItem(props) {
     const searchItem = []
 
     for (let i = 0; i<cocktail.length;i++) {
+        
         const materials = cocktail[i].materials
         const inputItem = []
         for (let j = 0; j<materials.length; j++){
@@ -75,7 +82,11 @@ function SearchListItem(props) {
         }
         if (props.type === 'search') {
             click = <>
-                 <button id='recipe' onClick={handleClick}>{'>'}</button>
+                 <button id='recipe' onClick={() => {
+                    setOpen(true)
+                    changeKey(i)
+                 }}>
+                    {'>'}</button>
                  <Modal isOpen={isOpen} 
                     style={ModalStyle}
                     onRequestClose={handleClickCancle}
@@ -84,7 +95,7 @@ function SearchListItem(props) {
                     <button id='recipe-close' onClick={handleClickCancle}>X</button>
                         <br /><br /><br />
 
-                        <RecipeModal key = {cocktail[i].id} />
+                        <RecipeModal keyID={keyId} />
 
                     </div>
                 </Modal>
