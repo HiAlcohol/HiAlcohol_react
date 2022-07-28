@@ -15,7 +15,7 @@ const ModalStyle = {
       left: 0,
       right: 0,
       bottom: 0,
-      backgroundColor: "rgba(255, 255, 255, 0.45)",
+      backgroundColor: "rgba(255, 255, 255, 0.02)",
       zIndex: 10,
    },
    content: {
