@@ -41,8 +41,6 @@ function RecipeModal(props) {
     return(
         <>
         <div class="name">{recipe[0].cocktail}</div>
-        <br />
-        <img src = {recipe[0].img} className="recipe-img" />
         <br /><br />
         <div className="material">
                 {inputItem}
