@@ -26,7 +26,7 @@ function AdminReport() {
 			try {
 				console.log('렌더링이 완료되었습니다!');
 				const response = await axios.get(
-					'http://3.35.208.41:5000/admin/reports/board'
+					'http://3.35.208.41:5000/admin/reports/comment'
 				);
 				setReports(response.data.data);
 			} catch(e) {
@@ -48,6 +48,8 @@ function AdminReport() {
 		<Header></Header>
 		<ReportBoards subtitle={'신고된 게시글'} boards={dummy}/>
 		<ReportBoards subtitle={'신고된 댓글이 포함된 게시글'} boards={dummy}/>
+		{/* <ReportBoards subtitle={'신고된 게시글'} boards={reports}/>
+		<ReportBoards subtitle={'신고된 댓글이 포함된 게시글'} boards={reportsComent}/> */}
 	</>
 }
 
