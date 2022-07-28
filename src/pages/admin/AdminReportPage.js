@@ -37,12 +37,12 @@ function AdminReport() {
 		
 	}, []);
 
-	if (error) return <div>에러가 발생했습니다. {error}</div>
-	if (!reports) return <div>데이터가 없습니다.</div>
-	if (!reportsComent) return <div>데이터가 없습니다.</div>
+	// if (error) return <div>에러가 발생했습니다. {error}</div>
+	// if (!reports) return <div>데이터가 없습니다.</div>
+	// if (!reportsComent) return <div>데이터가 없습니다.</div>
 
 	const dummy = [
-		{key: 1, id:1, title: '잭콕', userName: '유저1', createDate: '2021.10.15', visible: true},
+		{key: 1, id:12, title: '잭콕', userName: '유저1', createDate: '2021.10.15', visible: true},
 		{key: 2, id:2, title: '잭콕', userName: '유저1', createDate: '2021.10.15', visible: false},
 		{key: 3, id:3, title: '잭콕', userName: '유저1', createDate: '2021.10.15', visible: true},
 		{key: 4, id:4, title: '잭콕', userName: '유저1', createDate: '2021.10.15', visible: false}
