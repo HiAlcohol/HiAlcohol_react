@@ -39,7 +39,11 @@ function Comment() {
 				<div>X</div>
 			</div>
 			<pre className='com_content'>{comments[i].content}</pre>
-			<div className='date'>{comments[i].createdate}</div>
+			<div className='com_footer'>
+				<div className='date'>{comments[i].createdate}</div>
+				<div className='report'>신고</div>
+			</div>
+			
 		</div>)
 	}
 	if (comList.length == 0) {
