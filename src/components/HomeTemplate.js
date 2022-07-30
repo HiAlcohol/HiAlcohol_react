@@ -37,6 +37,7 @@ function HomeTemplate(props) {
 
 	const cocktail = props.cocktail;
 	const recipe = torecipe[0];
+	
 	const materials = recipe.materials;
 	const inputItem = []
         for (let j = 0; j<materials.length; j++){
@@ -119,7 +120,8 @@ function HomeTemplate(props) {
 					
                  
 					<br></br>
-					<img src = {cocktail} className='cockimg' />
+					
+					<img src = {cocktail.image} className='cockimg' />
 
 				</div>
 

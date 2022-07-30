@@ -58,9 +58,11 @@ function BoardDetailPage() {
 			</pre>
 			<div className='select'>
 				<div></div>
-				<div>수정</div>
+				<div className='modify'>수정</div>
 				<div>|</div>
 				<div className='del'>삭제</div>
+				<div>|</div>
+				<div className='report'>신고</div>
 				<div></div>
 			</div>
 		</div>
