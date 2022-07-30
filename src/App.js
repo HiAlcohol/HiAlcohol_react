@@ -13,6 +13,7 @@ import NicknameEdit from "./pages/NickNameEditPage";
 import AdminReport from "./pages/admin/AdminReportPage";
 import AdminCocktail from "./pages/admin/AdminCocktailPage";
 import AddRecipe from "./pages/admin/AddRecipe";
+import ModifyRecipe from "./pages/admin/ModifyRecipe"
 import Suggestion from "./pages/board/SuggestionListPage";
 import SuggestionDetail from "./pages/board/SuggestionDetailPage";
 import SuggestionWrite from "./pages/board/SuggestionWritePage";
@@ -34,6 +35,7 @@ const App = () => {
 	  <Route path="/admin/reports/board" element={<AdminReport/>}/>
 	  <Route path="/admin/cocktail" element={<AdminCocktail/>}/>
     <Route path= "/admin/cocktail/addrecipe" element={<AddRecipe />} />
+    <Route path= "/admin/cocktail/modifyrecipe" element={<ModifyRecipe />} />
     <Route path= "/suggestions" element={<Suggestion />} />
     <Route path="/suggestion/:id" element={<SuggestionDetail />} />
     <Route path = "/suggestion" element= {<SuggestionWrite />} />

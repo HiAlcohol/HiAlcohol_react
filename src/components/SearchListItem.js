@@ -103,7 +103,7 @@ function SearchListItem(props) {
         } else if (props.type === 'modify') {
             click = <>
                 <div className='modiRecipe'>
-                    <Link to='/admin/cocktail/addrecipe'><button>수정</button></Link>
+                    <Link to='/admin/cocktail/modifyrecipe'><button>수정</button></Link>
                 </div>
             </>
             
