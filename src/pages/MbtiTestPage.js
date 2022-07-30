@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from "../components/Header";
 import question from '../question.json'
 import '../scss/MbtiTest.scss'
+import { useCookies } from "react-cookie";
 
 function progress(number) {
 	var pro_bar = String(number * 8.3) + '%'
@@ -14,9 +15,20 @@ function progress(number) {
 function MbtiTest() {
 	console.log(question)
 	const [number, setNumber] = useState(1);
+	const [sheet, setSheet] = useState('');
+	const [cookies, setCookie] = useCookies(["sheet"]);
 	console.log('number', number)
-	const onIncrease = () => {
+	const onIncrease = (params, e) => {
 		setNumber(String(Number(number) + 1))
+		console.log(number)
+		setSheet(String(sheet + params))
+		console.log('sheet:', sheet)
+		if (sheet.length == 12) {
+			setCookie('sheet', sheet + params, {
+				date: 3600,
+				path: '/'
+			})
+		}
 		if (number === '12') {
 			window.location.href = "/mbti/result"
 		}
@@ -29,10 +41,10 @@ function MbtiTest() {
 		<div className='number'>{number}/12</div>
 		<div className='qna'>
 			<p id='q'>Q{number}. {question[number].question}</p>
-			<div className='answer' onClick={onIncrease}>
+			<div className='answer' onClick={(e) => {onIncrease('1', e)}}>
 				{question[number].answer1}
 			</div>
-			<div className='answer' onClick={onIncrease}>
+			<div className='answer' onClick={(e) => {onIncrease('2', e)}}>
 				{question[number].answer2}
 			</div>
 		</div>

@@ -3,17 +3,37 @@ import result from '../result.json'
 import cocktail from '../img/cocktail.png'
 import '../scss/MbtiResult.scss'
 import { Link } from 'react-router-dom';
+import { Cookies } from 'react-cookie';
+import { useEffect, useState } from "react";
+import axios from "axios";
+
+const cookies = new Cookies();
 
 function MbtiResult() {
-	const mbti = 'estj'
-	const mbti_result = result[mbti]
-	console.log('mbti', mbti_result.description)
+	const [mbti, setMbti] = useState(null);
+	const [error, setError] = useState(null);
+	// const mbti_result = result[mbti]
+	// console.log('mbti', mbti_result.description)
 	const restart = () => {
 		window.location.href = "/mbti/test"
 	}
 	const copy = () => {
 
 	}
+	useEffect(() => {
+		const fetchMbti = async () => {
+			try {
+				const response = await axios.get('http://3.35.208.41:5000/mbti?result=' + cookies.get('sheet'))
+				setMbti(response.data.data.mbti)
+			} catch (e) {
+				setError(e)
+			}
+		}
+		fetchMbti();
+	}, [])
+
+	if (error) return <div>에러가 발생했습니다. {error}</div>
+	if (!mbti) return <div>데이터가 없습니다.</div>
 	return <>
 	<Header right='common'></Header>
 	<div id="capture">
@@ -22,10 +42,10 @@ function MbtiResult() {
 			<br/>
 			<img src = {cocktail} className='cockimg' />
 			<br/>
-			<p>마가리타 {'>'}</p>
+			<p>{result[mbti].cocktail} {'>'}</p>
 			<div className="desc">
 				<ul>
-					{mbti_result.description.map(desc => (<li>{desc}</li>))}
+					{result[mbti].description.map(desc => (<li>{desc}</li>))}
 				</ul>
 			</div>
 		</div>
@@ -33,12 +53,12 @@ function MbtiResult() {
 			<div>
 				최고의 궁합
 				<br/>
-				{'<'}{mbti_result.best}{'>'}
+				{'<'}{result[mbti].best}{'>'}
 			</div>
 			<div>
 				최악의 궁합
 				<br/>
-				{'<'}{mbti_result.worst}{'>'}
+				{'<'}{result[mbti].worst}{'>'}
 			</div>
 		</div>
 	</div>
