@@ -27,7 +27,7 @@ function SuggestionDetailPage(props) {
 	if (!suggestion) return <div>데이터가 없습니다.</div>
 	let sugges = suggestion[0]
 	return <div>
-		<Header right='board'></Header>
+		<Header right='suggestion'></Header>
 		<div className="board">
 			<div className="heading">
 				<div className='boardTitle'>

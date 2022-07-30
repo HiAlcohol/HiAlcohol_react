@@ -49,7 +49,7 @@ const Header = (props) => {
                 	<Link to='/' className='logo'>Hi Alcohol</Link>
                 </div>
                 <div className='completion'>
-                    완료                  
+                    <input id="completeBtn" type="submit" value="완료"></input>
                 </div>
 		</>
 	} else if (props.right === 'common') {
