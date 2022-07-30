@@ -3,17 +3,14 @@ import result from '../result.json'
 import cocktail from '../img/cocktail.png'
 import '../scss/MbtiResult.scss'
 import { Link } from 'react-router-dom';
-import { Cookies } from 'react-cookie';
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-const cookies = new Cookies();
 
 function MbtiResult() {
 	const [mbti, setMbti] = useState(null);
 	const [error, setError] = useState(null);
-	// const mbti_result = result[mbti]
-	// console.log('mbti', mbti_result.description)
+	const params = new URLSearchParams(window.location.search).get("selected");
+
 	const restart = () => {
 		window.location.href = "/mbti/test"
 	}
@@ -23,7 +20,7 @@ function MbtiResult() {
 	useEffect(() => {
 		const fetchMbti = async () => {
 			try {
-				const response = await axios.get('http://3.35.208.41:5000/mbti?result=' + cookies.get('sheet'))
+				const response = await axios.get('http://3.35.208.41:5000/mbti?result=' + params)
 				setMbti(response.data.data.mbti)
 			} catch (e) {
 				setError(e)
