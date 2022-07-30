@@ -6,10 +6,17 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
-function SuggestionDetailPage(props) {
+function SuggestionDetailPage() {
 	const [suggestion, setSuggestion] = useState(null);
 	const [error, setError] = useState(null);
 	const params = useParams();
+
+    const likeHandler = (e) => {
+        e.preventDefault();
+    
+        axios.post('http://3.35.208.41:5000/suggestion'+params.id+'/like', {}, {headers:{}})
+        .then((res) => console.log(res));
+    }
 
 	useEffect(() => {
 		const fetchSuggestion = async () => {
@@ -39,9 +46,9 @@ function SuggestionDetailPage(props) {
 					</div>
 				</div>
 				<div className="like">
-					<a href="#"><button id="img_btn" className="likebtn">
+					<button id="img_btn" className="likebtn" onChange={likeHandler}>
 						<input type="image" id="likeImg" src={heart} />
-					</button></a>
+					</button>
 					<div id="likes" disabled="disabled">{sugges.like_count}</div>
 				</div>
 			</div>
