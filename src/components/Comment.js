@@ -8,7 +8,6 @@ function Comment() {
 	const [comments, setComments] = useState(null);
 	const [error, setError] = useState(null);
 	const params = useParams();
-	const [comId, setComId] = useState(null);
 	useEffect(() => {
 		const fetchComment = async () => {
 			try {

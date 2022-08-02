@@ -34,6 +34,12 @@ function BoardDetailPage() {
 	}, []);
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!board) return <div>데이터가 없습니다.</div>
+
+	const ReportHandler = (i) => {
+        axios.post('http://3.35.208.41:5000/reports/board/'+params.id)
+        .then((res) => console.log(res));
+    }
+
 	return <div>
 		<Header right='board'></Header>
 		<div className="board">
@@ -62,7 +68,7 @@ function BoardDetailPage() {
 				<div>|</div>
 				<div className='del'>삭제</div>
 				<div>|</div>
-				<div className='report'>신고</div>
+				<div className='report' onClick={ReportHandler}>신고</div>
 				<div></div>
 			</div>
 		</div>
