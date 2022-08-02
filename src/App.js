@@ -18,7 +18,8 @@ import SuggestionDetail from "./pages/board/SuggestionDetailPage";
 import SuggestionWrite from "./pages/board/SuggestionWritePage";
 
 function isLogin() {
-	return localStorage.getItem("token");
+	console.log(localStorage.getItem("token")?true:false)
+	return localStorage.getItem("token")?true:false;
 }
 
 const App = () => {
@@ -30,14 +31,14 @@ const App = () => {
       <Route path="/boards" element={<Boards />}/>
 	  <Route path="/board/:id" element={<BoardDetailPage/>}/>
       <Route path="/board/write" element={(props) => isLogin() ? <BoardWrite {...props} /> : <Navigate replace to="/boards"/>} />
-	  <Route path="/likes" element={(props) => isLogin() ? <LikeList {...props}/> : <Navigate replace to="/"/>}/>
-	  <Route path="/myboard" element={(props) => isLogin() ? <MyBoards {...props}/> : <Navigate replace to="/"/>}/>
+	  {isLogin() ? <Route path="/likes" element={<LikeList/>}/> : <Navigate replace to="/"/>}
+	  {isLogin() ? <Route path="/myboard" element={<MyBoards />}/> : <Navigate replace to="/"/>}
 	  <Route path="/mbti/test" element={<MbtiTest/>}/>
 	  <Route path="/mbti/result" element={<MbtiResult/>}/>
 	  <Route path="/nickname/edit" element={(props) => isLogin() ? <NicknameEdit {...props}/> : <Navigate replace to="/"/>}/>
 	  <Route path="/admin/reports/board" element={(props) => isLogin() ? <AdminReport {...props}/> : <Navigate replace to="/"/>}/>
 	  <Route path="/admin/cocktail" element={(props) => isLogin() ? <AdminCocktail {...props}/> : <Navigate replace to="/"/>}/>
-    <Route path= "/admin/cocktail/addrecipe" element={(props) => isLogin() ? <AddRecipe {...props}/> : <Navigate replace to="/"/>}/> />
+    <Route path= "/admin/cocktail/addrecipe" element={(props) => isLogin() ? <AddRecipe {...props}/> : <Navigate replace to="/"/>}/>
     <Route path= "/suggestions" element={<Suggestion />} />
     <Route path="/suggestion/:id" element={<SuggestionDetail />} />
     <Route path = "/suggestion" element= {<SuggestionWrite />} />
