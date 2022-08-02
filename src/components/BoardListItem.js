@@ -1,6 +1,7 @@
 import heartfill from '../img/heart_fill.png'
 import heart from '../img/heart_outline.png'
 import '../scss/board/BoardListItem.scss'
+import LikedBtn from './board/LikedBtn'
 
 function Item(props) {
     const board = props.board
@@ -28,12 +29,13 @@ function Item(props) {
 				</div>
 			</div>
 		</a>
-		<div className="like">
-			<a href="#"><button id="img_btn" className="likebtn">
+		<LikedBtn id={board.postId} likeSelection={board.likeSelection} count={board.count}/>
+		{/* <div className="like">
+			<a href="#"><button id="img_btn" className="likebtn" >
 				<input type="image" id="likeImg" src={board.likeSelection ? heartfill: heart} />
 			</button></a>
 			<div id="likes" disabled="disabled">{board.count}</div>
-		</div>
+		</div> */}
 	</div>
 }
 
