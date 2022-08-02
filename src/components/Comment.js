@@ -26,7 +26,7 @@ function Comment() {
 	if (!comments) return <div>댓글 api 호출 실패</div>
 
 	const commentReportHandler = (i) => {
-        axios.post('http://3.35.208.41:5000/reports/board/:boardId/comment/commentId', {params: {boardId:params.id, commentId:comments[i].commentId} })
+        axios.post('http://3.35.208.41:5000/reports/board/'+params.id+'/comment/'+comments[i].commentId)
         .then((res) => console.log(res));
     }
 
