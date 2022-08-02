@@ -1,15 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import '../scss/Header.scss'
 import { Link } from 'react-router-dom';
+// import { Cookies } from 'react-cookie';
 import writeBtn from '../img/writeButton.png';
+import loginIcon from '../img/loginIcon.png';
 import '../scss/Header.scss';
 import Menu from "./Menu"
+import axios from 'axios';
+
+const User = () => {
+	const token = localStorage.getItem('token');
+	const [nickname, setNickname] = useState('로그인하기')
+	const [profile, setProfile] = useState(loginIcon)
+	const [error, setError] = useState(null);
+	const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT_URI}&response_type=code`;
+	useEffect( () => {
+		const fetchUserInfo = async () => {
+			try {
+				if (token) {
+					const headers = {'token': token}
+					console.log('headers:', headers)
+					const response = await axios.get("http://3.35.208.41:5000/users", {headers: {
+						Authorization: `Bearer ${localStorage.getItem("token")}`,
+					  }
+					});
+					setNickname(response.data.data.nickname)
+					setProfile(response.data.data.profile_url)
+				}
+			} catch(e) {
+				setError(e);
+			}
+		}
+		fetchUserInfo();
+	}, []);
+
+	if (error) return <div>{error}</div>
+	if (nickname === '로그인하기') {
+		return <a href={KAKAO_AUTH_URL}>
+			<div className='user'>
+				<p className='nickname'>{nickname}</p>
+				<img src={profile} width="25px" height="25px"/>
+			</div>
+		</a>
+	}
+	return <div className='user'>
+			<p className='nickname'>{nickname}</p>
+			<img src={profile} width="25px" height="25px"/>
+		</div>
+}
 
 const Header = (props) => {
 	console.log(props)
 	var header = ''
-	var dummyUser = { profile: 'http://k.kakaocdn.net/dn/dotDrj/btrybGQioYJ/xyy5MXVs2ESIAodvdnZIw1/img_110x110.jpg',
-						nickname: 'user'}
 	if (props.right === 'board') {
 		header = <>
 		{/* <Menu></Menu> */}
@@ -31,14 +73,10 @@ const Header = (props) => {
         </div>
 	</>
 	} else if (props.right === 'user') {
-		console.log(dummyUser)
+		// console.log(dummyUser)
 		header = 
 		<>
-			{/* <Menu></Menu> */}
-			<div className='user'>
-				<p className='nickname'>{dummyUser.nickname}</p>
-				<img src={dummyUser.profile} width="25px" height="25px"/>
-			</div>
+			<User />
 		</>
 	} else if (props.right === 'write') {
 		header = <>
@@ -58,10 +96,7 @@ const Header = (props) => {
 		<div className='Header'>
 			<Link to='/' className='logo'>Hi Alcohol</Link>
 		</div>
-		<div className='user'>
-				<p className='nickname'>{dummyUser.nickname}</p>
-				<img src={dummyUser.profile} width="25px" height="25px"/>
-			</div>
+		<User />
 	</>
 	} else {
 		header = <>
