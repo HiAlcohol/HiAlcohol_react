@@ -4,15 +4,11 @@ import { useParams } from 'react-router-dom'
 import '../scss/Comment.scss'
 
 function Comment() {
-	// api comment
-	// const comment = [
-	// 	{id: 1, nickname: 'user', content: 'test content', createdate: '2022-07-03'},
-	// 	{id: 2, nickname: 'user2', content: 'test content2', createdate: '2022-05-03'}
-	// ]
+
 	const [comments, setComments] = useState(null);
 	const [error, setError] = useState(null);
 	const params = useParams();
-
+	const [comId, setComId] = useState(null);
 	useEffect(() => {
 		const fetchComment = async () => {
 			try {
@@ -29,11 +25,17 @@ function Comment() {
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!comments) return <div>댓글 api 호출 실패</div>
 
+	const commentReportHandler = (i) => {
+        axios.post('http://3.35.208.41:5000/reports/board/:boardId/comment/commentId', {params: {boardId:params.id, commentId:comments[i].commentId} })
+        .then((res) => console.log(res));
+    }
+
 	for (let i = 0; i < comments.length; i++) {
+		
 		if (i !== 0) {
 			comList.push(<hr/>)
 		}
-		comList.push(<div className="comview">
+		comList.push(<div className="comview">				
 			<div className='com_header'>
 				<div className="com_nick">{comments[i].nickname}</div>
 				<div>X</div>
@@ -41,7 +43,9 @@ function Comment() {
 			<pre className='com_content'>{comments[i].content}</pre>
 			<div className='com_footer'>
 				<div className='date'>{comments[i].createdate}</div>
-				<div className='report'>신고</div>
+				<div className='report' onClick={() => {
+					commentReportHandler(i)
+                 }}>신고</div>
 			</div>
 			
 		</div>)
