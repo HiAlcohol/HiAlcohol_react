@@ -11,19 +11,12 @@ function SuggestionDetailPage() {
 	const [error, setError] = useState(null);
 	const params = useParams();
 
-    const likeHandler = (e) => {
-        e.preventDefault();
-    
-        axios.post('http://3.35.208.41:5000/suggestion'+params.id+'/like', {}, {headers:{}})
-        .then((res) => console.log(res));
-    }
-
 	useEffect(() => {
 		const fetchSuggestion = async () => {
 			try {
 				const response = await axios.get('http://3.35.208.41:5000/suggestion/' + params.id);
 				setSuggestion(response.data.data);
-				console.log(response.data.data)
+				// console.log(response.data.data)
 			} catch(e) {
 				setError(e);
 			}
@@ -33,6 +26,14 @@ function SuggestionDetailPage() {
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!suggestion) return <div>데이터가 없습니다.</div>
 	let sugges = suggestion[0]
+
+	const likeHandler  = (e) => {
+		
+		console.log("whar",params.id)
+		e.preventDefault();
+        axios.post('http://3.35.208.41:5000/suggestion/'+params.id+'/like')
+    }
+	
 	return <div>
 		<Header right='suggestion'></Header>
 		<div className="board">
@@ -46,7 +47,7 @@ function SuggestionDetailPage() {
 					</div>
 				</div>
 				<div className="like">
-					<button id="img_btn" className="likebtn" onChange={likeHandler}>
+					<button id="img_btn" className="likebtn" onClick={likeHandler}>
 						<input type="image" id="likeImg" src={heart} />
 					</button>
 					<div id="likes" disabled="disabled">{sugges.like_count}</div>

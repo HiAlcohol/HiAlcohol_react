@@ -1,10 +1,12 @@
 import heartfill from '../img/heart_fill.png'
 import heart from '../img/heart_outline.png'
 import '../scss/board/BoardListItem.scss'
+import axios from "axios";
 
 function Item(props) {
     const board = props.board
     const link = props.link
+
     let linkIs = ""
 	let key = ''
     if (link === 'board'){
@@ -15,7 +17,11 @@ function Item(props) {
         linkIs = "/suggestion/" 
 		key = board.suggestionId
     }
-	console.log(key)
+
+	const suggeslikeHandler  = (e) => {
+		e.preventDefault();
+        axios.post('http://3.35.208.41:5000/suggestion/'+key+'/like')
+    }
 
 	return <div className="content">
 		<a href={linkIs + key}>
@@ -29,7 +35,7 @@ function Item(props) {
 			</div>
 		</a>
 		<div className="like">
-			<a href="#"><button id="img_btn" className="likebtn">
+			<a href="#"><button id="img_btn" className="likebtn" onClick={suggeslikeHandler}>
 				<input type="image" id="likeImg" src={board.likeSelection ? heartfill: heart} />
 			</button></a>
 			<div id="likes" disabled="disabled">{board.count}</div>
@@ -40,8 +46,7 @@ function Item(props) {
 function BoardListItem(props) {
 
     let board = props.board;
-    let link = props.link
-	console.log(board)
+    let link = props.link;
 	let key
 	if (link === 'board'){
 		key = 'postID';
