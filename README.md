@@ -42,11 +42,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 이민형
 <br/>
-- 칵테일 검색 결과 조회
+- 칵테일 검색 결과 및 해당 레시피 조회 
 - 칵테일 랜덤 추천 조회
-- 칵테일 레시피 조회
 - 우리동네 주류매장
-- 관리자 페이지 (레시피 수정, 추가)
 - 건의 게시판 CRUD
-
-
+- 게시글/댓글 신고 기능
+- 관리자 페이지 (레시피 수정, 추가)
