@@ -56,7 +56,7 @@ const Header = (props) => {
 			}
 		}
 		fetchUserInfo();
-	}, [localStorage.getItem('token')]);
+	}, []);
 	
 	console.log(props)
 	var header = ''

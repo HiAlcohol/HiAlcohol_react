@@ -31,8 +31,8 @@ const App = () => {
       <Route path="/boards" element={<Boards />}/>
 	  <Route path="/board/:id" element={<BoardDetailPage/>}/>
       <Route path="/board/write" element={(props) => isLogin() ? <BoardWrite {...props} /> : <Navigate replace to="/boards"/>} />
-	  {isLogin() ? <Route path="/likes" element={<LikeList/>}/> : <Navigate replace to="/"/>}
-	  {isLogin() ? <Route path="/myboard" element={<MyBoards />}/> : <Navigate replace to="/"/>}
+	  <Route path="/likes" element={() => isLogin() ? <LikeList/> : <Navigate replace to="/"/>}/>
+	  <Route path="/myboard" element={() => isLogin() ? <MyBoards /> : <Navigate replace to="/"/>}/>
 	  <Route path="/mbti/test" element={<MbtiTest/>}/>
 	  <Route path="/mbti/result" element={<MbtiResult/>}/>
 	  <Route path="/nickname/edit" element={(props) => isLogin() ? <NicknameEdit {...props}/> : <Navigate replace to="/"/>}/>
