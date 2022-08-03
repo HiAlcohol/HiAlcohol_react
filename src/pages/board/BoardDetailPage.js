@@ -24,7 +24,7 @@ function BoardDetailPage() {
 	useEffect(() => {
 		const fetchBoard = async () => {
 			try {
-				const response = await axios.get('http://3.35.208.41:5000/boards/' + params.id);
+				const response = await axios.get('http://hialcohol.xyz:5000/boards/' + params.id);
 				setBoard(response.data.data);
 				console.log(response.data.data)
 			} catch(e) {
@@ -35,12 +35,18 @@ function BoardDetailPage() {
 	}, []);
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!board) return <div>데이터가 없습니다.</div>
+	
 
-	const ReportHandler = (i) => {
-        axios.post('http://3.35.208.41:5000/reports/board/'+params.id)
-        .then((res) => console.log(res));
-    }
-
+	const ReportHandler = async () => {
+		
+		const response = await axios.post('http://hialcohol.xyz:5000/reports/board/'+params.id, null,
+		{headers: {
+			Authorization: `Bearer ${localStorage.getItem("token")}`,
+		  }
+		});
+		
+		window.location.reload();
+	}
 	return <div>
 		<Header right='board'></Header>
 		<div className="board">

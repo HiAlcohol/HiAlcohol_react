@@ -31,7 +31,11 @@ function SuggestionDetailPage() {
 		
 		console.log("whar",params.id)
 		e.preventDefault();
-        axios.post('http://3.35.208.41:5000/suggestion/'+params.id+'/like')
+        axios.post('http://3.35.208.41:5000/suggestion/'+params.id+'/like',
+		{headers: {
+			Authorization: `Bearer ${localStorage.getItem("token")}`,
+		  }
+		})
     }
 	
 	return <div>

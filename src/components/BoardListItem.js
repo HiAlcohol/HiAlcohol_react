@@ -1,9 +1,5 @@
 import '../scss/board/BoardListItem.scss'
-<<<<<<< HEAD
-import axios from "axios";
-=======
 import LikedBtn from './board/LikedBtn'
->>>>>>> main
 
 function Item(props) {
     const board = props.board
@@ -20,11 +16,6 @@ function Item(props) {
 		key = board.suggestionId
     }
 
-	const suggeslikeHandler  = (e) => {
-		e.preventDefault();
-        axios.post('http://3.35.208.41:5000/suggestion/'+key+'/like')
-    }
-
 	return <div className="content">
 		<a href={linkIs + key}>
 			<div className="subject">
@@ -36,14 +27,9 @@ function Item(props) {
 				</div>
 			</div>
 		</a>
-		{/* // <div className="like">
-		// 	<a href="#"><button id="img_btn" className="likebtn" onClick={suggeslikeHandler}>
-		// 		<input type="image" id="likeImg" src={board.likeSelection ? heartfill: heart} />
-		// 	</button></a>
-		// 	<div id="likes" disabled="disabled">{board.count}</div>
-		// </div> */}
 
-		<LikedBtn id={board.postId} likeSelection={board.likeSelection} count={board.count}/>
+		<LikedBtn id={key} likeSelection={board.likeSelection} count={board.count} what={link}/>
+		
 
 	</div>
 }
