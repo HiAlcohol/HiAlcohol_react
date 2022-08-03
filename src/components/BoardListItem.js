@@ -1,5 +1,3 @@
-import heartfill from '../img/heart_fill.png'
-import heart from '../img/heart_outline.png'
 import '../scss/board/BoardListItem.scss'
 import LikedBtn from './board/LikedBtn'
 
@@ -30,12 +28,6 @@ function Item(props) {
 			</div>
 		</a>
 		<LikedBtn id={board.postId} likeSelection={board.likeSelection} count={board.count}/>
-		{/* <div className="like">
-			<a href="#"><button id="img_btn" className="likebtn" >
-				<input type="image" id="likeImg" src={board.likeSelection ? heartfill: heart} />
-			</button></a>
-			<div id="likes" disabled="disabled">{board.count}</div>
-		</div> */}
 	</div>
 }
 
@@ -52,6 +44,7 @@ function BoardListItem(props) {
 		key = 'suggestionId';
 	}
 
+	if (board.length === 0) return <p className='contentList'>데이터가 없습니다</p>
     return <div className='contentList'>
 		{board.map(board => (<Item board={board} link= {link} key= {board.key}/>))}
 	</div>

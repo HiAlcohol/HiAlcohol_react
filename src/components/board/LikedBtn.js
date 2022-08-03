@@ -22,6 +22,7 @@ const LikedBtn = (props) => {
 			});
 			console.log('스크랩')
 		}
+		window.location.reload();
 	}
 	return <div className="like" onClick={liked}>
 			<a href="#"><button id="img_btn" className="likebtn" >
