@@ -13,6 +13,7 @@ import NicknameEdit from "./pages/NickNameEditPage";
 import AdminReport from "./pages/admin/AdminReportPage";
 import AdminCocktail from "./pages/admin/AdminCocktailPage";
 import AddRecipe from "./pages/admin/AddRecipe";
+import ModifyRecipe from "./pages/admin/ModifyRecipe"
 import Suggestion from "./pages/board/SuggestionListPage";
 import SuggestionDetail from "./pages/board/SuggestionDetailPage";
 import SuggestionWrite from "./pages/board/SuggestionWritePage";
@@ -35,10 +36,12 @@ const App = () => {
 	  <Route path="/myboard" element={isLogin() ? <MyBoards /> : <Navigate replace to="/"/>}/>
 	  <Route path="/mbti/test" element={<MbtiTest/>}/>
 	  <Route path="/mbti/result" element={<MbtiResult/>}/>
+
 	  <Route path="/nickname/edit" element={(props) => {isLogin() ? <NicknameEdit {...props}/> : <Navigate replace to="/"/>}}/>
 	  <Route path="/admin/reports/board" element={(props) => {isLogin() ? <AdminReport {...props}/> : <Navigate replace to="/"/>}}/>
 	  <Route path="/admin/cocktail" element={(props) => {isLogin() ? <AdminCocktail {...props}/> : <Navigate replace to="/"/>}}/>
     <Route path= "/admin/cocktail/addrecipe" element={(props) => {isLogin() ? <AddRecipe {...props}/> : <Navigate replace to="/"/>}}/>
+    <Route path= "/admin/cocktail/modifyrecipe" element={(props) => {isLogin() ? <ModifyRecipe {...props}/> : <Navigate replace to="/"/>}}/>
     <Route path= "/suggestions" element={<Suggestion />} />
     <Route path="/suggestion/:id" element={<SuggestionDetail />} />
     <Route path = "/suggestion" element= {<SuggestionWrite />} />

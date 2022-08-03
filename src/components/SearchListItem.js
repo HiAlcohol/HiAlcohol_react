@@ -103,7 +103,7 @@ function SearchListItem(props) {
         } else if (props.type === 'modify') {
             click = <>
                 <div className='modiRecipe'>
-                    <Link to='/admin/cocktail/addrecipe'><button>수정</button></Link>
+                    <Link to='/admin/cocktail/modifyrecipe'><button>수정</button></Link>
                 </div>
             </>
             
@@ -112,7 +112,7 @@ function SearchListItem(props) {
         searchItem.push(
             <>
             <div className='list'>
-                 <img src = {cocktail[i].img} className="list-img" />
+                 <img src = {cocktail[i].image} className="list-img" />
                 <div className='recipe-title'>
                 <a>{cocktail[i].cocktail}</a>
 

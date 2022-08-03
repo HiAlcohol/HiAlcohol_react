@@ -5,8 +5,9 @@ import Header from '../../components/Header'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import LikedBtn from '../../components/board/LikedBtn'
 
-function SuggestionDetailPage(props) {
+function SuggestionDetailPage() {
 	const [suggestion, setSuggestion] = useState(null);
 	const [error, setError] = useState(null);
 	const params = useParams();
@@ -16,7 +17,7 @@ function SuggestionDetailPage(props) {
 			try {
 				const response = await axios.get('http://3.35.208.41:5000/suggestion/' + params.id);
 				setSuggestion(response.data.data);
-				console.log(response.data.data)
+				// console.log(response.data.data)
 			} catch(e) {
 				setError(e);
 			}
@@ -26,8 +27,10 @@ function SuggestionDetailPage(props) {
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!suggestion) return <div>데이터가 없습니다.</div>
 	let sugges = suggestion[0]
+	console.log(sugges.id)
+
 	return <div>
-		<Header right='board'></Header>
+		<Header right='suggestion'></Header>
 		<div className="board">
 			<div className="heading">
 				<div className='boardTitle'>
@@ -38,12 +41,7 @@ function SuggestionDetailPage(props) {
 						<span>{sugges.createdate}</span>
 					</div>
 				</div>
-				<div className="like">
-					<a href="#"><button id="img_btn" className="likebtn">
-						<input type="image" id="likeImg" src={heart} />
-					</button></a>
-					<div id="likes" disabled="disabled">{sugges.like_count}</div>
-				</div>
+				<LikedBtn id={sugges.id} likeSelection={sugges.likeSelection} count={sugges.like_count} what='suggestion'/>
 			</div>
 			<pre className='boardContent'>
 				{sugges.content}
