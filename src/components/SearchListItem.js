@@ -112,7 +112,7 @@ function SearchListItem(props) {
         searchItem.push(
             <>
             <div className='list'>
-                 <img src = {cocktail[i].img} className="list-img" />
+                 <img src = {cocktail[i].image} className="list-img" />
                 <div className='recipe-title'>
                 <a>{cocktail[i].cocktail}</a>
 
