@@ -6,7 +6,6 @@ import loginIcon from '../img/loginIcon.png';
 import '../scss/Header.scss';
 import Menu from "./Menu"
 import axios from 'axios';
-import UserInfo from './auth/UserInfo';
 
 const User = (props) => {
 	const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT_URI}&response_type=code`;
@@ -38,12 +37,8 @@ const Header = (props) => {
 		const fetchUserInfo = async () => {
 			try {
 				if (token) {
-					// const response = await UserInfo()
-					// setNickname(response.nickname)
-					// setProfile(response.profile)
-					// setRole(response.role)
-
-					const response = await axios.get("http://3.35.208.41:5000/users", {headers: {
+					const response = await axios.get("http://3.35.208.41:5000/users", 
+					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					  }
 					});
@@ -62,7 +57,6 @@ const Header = (props) => {
 	var header = ''
 	if (props.right === 'board') {
 		header = <>
-		{/* <Menu></Menu> */}
 		<div className='Header'>
 			<Link to='/' className='logo'>Hi Alcohol</Link>
 		</div>
@@ -72,7 +66,6 @@ const Header = (props) => {
 	</>
 	} else if (props.right === 'suggestion') {
 		header = <>
-		{/* <Menu></Menu> */}
 		<div className='Header'>
 			<Link to='/' className='logo'>Hi Alcohol</Link>
 		</div>
@@ -81,26 +74,25 @@ const Header = (props) => {
         </div>
 	</>
 	} else if (props.right === 'user') {
-		// console.log(dummyUser)
 		header = 
 		<>
 			<User nickname={nickname} profile={profile} />
 		</>
 	} else if (props.right === 'write') {
-		header = <>
+		header = <div className="header">
 		<div className='exit'>
                     X
                 </div>
-                <div className='hi_alcohol'>
+                <div className='Header'>
                 	<Link to='/' className='logo'>Hi Alcohol</Link>
                 </div>
                 <div className='completion'>
                     완료                  
                 </div>
-		</>
+		</div>
+		return header;
 	} else if (props.right === 'common') {
 		header = <>
-		{/* <Menu></Menu> */}
 		<div className='Header'>
 			<Link to='/' className='logo'>Hi Alcohol</Link>
 		</div>
