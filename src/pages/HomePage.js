@@ -1,16 +1,32 @@
 import HomeTemplate from "../components/HomeTemplate";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import UserInfo from "../components/auth/UserInfo";
+// import { Cookies } from "react-cookie";
+
+// const cookies = new Cookies();
 
 const Homepage = () => {
     const [random, setRandom] = useState(null);
 	const [error, setError] = useState(null);
+	const query = new URLSearchParams(window.location.search).get("token");
 
 	useEffect(() => {
+		const setToken = async () => {
+			try {
+				if (query) {
+					localStorage.setItem('token', query);
+				}
+			} catch(e) {
+				setError(e);
+			}
+		};
+		setToken();
 
 		const fetchHome = async () => {
 			try {
 				const response = await axios.get('http://3.35.208.41:5000/');
+				console.log(1)
 				setRandom(response.data.data);
 			} catch(e) {
 				setError(e);

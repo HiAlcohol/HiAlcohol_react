@@ -26,7 +26,6 @@ function HomeTemplate(props) {
 			}
 		};
 		fetchToday()
-
 		
 	}, []);
 	if (error) return <div>에러가 발생했습니다. {error}</div>
@@ -92,8 +91,6 @@ function HomeTemplate(props) {
 				
             	<Search keyword={key} type='search'/>
 
-     
-
 				<div className='recommend'>
 					<p>오늘의 술 추천</p>
 					
@@ -118,7 +115,6 @@ function HomeTemplate(props) {
 					</div>
                 </Modal>
 					
-                 
 					<br></br>
 					
 					<img src = {cocktail.image} className='cockimg' />
