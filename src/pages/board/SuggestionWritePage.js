@@ -33,6 +33,8 @@ const SuggestionWritepage = () => {
 		  }
 		})
         .then((res) => console.log(res));
+        
+    window.location.replace("suggestions");
     }
 
     
