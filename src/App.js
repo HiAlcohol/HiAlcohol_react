@@ -30,15 +30,15 @@ const App = () => {
       <Route path="/map" element={<Map />} />
       <Route path="/boards" element={<Boards />}/>
 	  <Route path="/board/:id" element={<BoardDetailPage/>}/>
-      <Route path="/board/write" element={(props) => isLogin() ? <BoardWrite {...props} /> : <Navigate replace to="/boards"/>} />
-	  <Route path="/likes" element={() => isLogin() ? <LikeList/> : <Navigate replace to="/"/>}/>
-	  <Route path="/myboard" element={() => isLogin() ? <MyBoards /> : <Navigate replace to="/"/>}/>
+      <Route path="/board/write" element={isLogin() ? <BoardWrite /> : <Navigate replace to="/boards"/>} />
+	  <Route path="/likes" element={isLogin() ? <LikeList/> : <Navigate replace to="/"/>}/>
+	  <Route path="/myboard" element={isLogin() ? <MyBoards /> : <Navigate replace to="/"/>}/>
 	  <Route path="/mbti/test" element={<MbtiTest/>}/>
 	  <Route path="/mbti/result" element={<MbtiResult/>}/>
-	  <Route path="/nickname/edit" element={(props) => isLogin() ? <NicknameEdit {...props}/> : <Navigate replace to="/"/>}/>
-	  <Route path="/admin/reports/board" element={(props) => isLogin() ? <AdminReport {...props}/> : <Navigate replace to="/"/>}/>
-	  <Route path="/admin/cocktail" element={(props) => isLogin() ? <AdminCocktail {...props}/> : <Navigate replace to="/"/>}/>
-    <Route path= "/admin/cocktail/addrecipe" element={(props) => isLogin() ? <AddRecipe {...props}/> : <Navigate replace to="/"/>}/>
+	  <Route path="/nickname/edit" element={(props) => {isLogin() ? <NicknameEdit {...props}/> : <Navigate replace to="/"/>}}/>
+	  <Route path="/admin/reports/board" element={(props) => {isLogin() ? <AdminReport {...props}/> : <Navigate replace to="/"/>}}/>
+	  <Route path="/admin/cocktail" element={(props) => {isLogin() ? <AdminCocktail {...props}/> : <Navigate replace to="/"/>}}/>
+    <Route path= "/admin/cocktail/addrecipe" element={(props) => {isLogin() ? <AddRecipe {...props}/> : <Navigate replace to="/"/>}}/>
     <Route path= "/suggestions" element={<Suggestion />} />
     <Route path="/suggestion/:id" element={<SuggestionDetail />} />
     <Route path = "/suggestion" element= {<SuggestionWrite />} />
