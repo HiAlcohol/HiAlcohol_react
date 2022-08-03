@@ -6,6 +6,7 @@ import Comment from '../../components/Comment'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import LikedBtn from '../../components/board/LikedBtn'
 
 function BoardDetailPage() {
 	// const dummy = {
@@ -52,12 +53,7 @@ function BoardDetailPage() {
 						<span>{board.createdate}</span>
 					</div>
 				</div>
-				<div className="like">
-					<a href="#"><button id="img_btn" className="likebtn">
-						<input type="image" id="likeImg" src={heart} />
-					</button></a>
-					<div id="likes" disabled="disabled">{board.count}</div>
-				</div>
+				<LikedBtn id={board.postId} likeSelection={board.likeSelection} count={board.count}/>
 			</div>
 			<pre className='boardContent'>
 				{board.content}

@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import Home from './pages/HomePage';
 import SearchList from './pages/SearchListPage';
 import BoardWrite from "./pages/board/BoardWritePage";
@@ -18,6 +18,11 @@ import Suggestion from "./pages/board/SuggestionListPage";
 import SuggestionDetail from "./pages/board/SuggestionDetailPage";
 import SuggestionWrite from "./pages/board/SuggestionWritePage";
 
+function isLogin() {
+	console.log(localStorage.getItem("token")?true:false)
+	return localStorage.getItem("token")?true:false;
+}
+
 const App = () => {
   return (
     <Routes>
@@ -26,16 +31,17 @@ const App = () => {
       <Route path="/map" element={<Map />} />
       <Route path="/boards" element={<Boards />}/>
 	  <Route path="/board/:id" element={<BoardDetailPage/>}/>
-      <Route path="/board/write" element={<BoardWrite />} />
-	  <Route path="/likes" element={<LikeList/>}/>
-	  <Route path="/myboard" element={<MyBoards/>}/>
+      <Route path="/board/write" element={isLogin() ? <BoardWrite /> : <Navigate replace to="/boards"/>} />
+	  <Route path="/likes" element={isLogin() ? <LikeList/> : <Navigate replace to="/"/>}/>
+	  <Route path="/myboard" element={isLogin() ? <MyBoards /> : <Navigate replace to="/"/>}/>
 	  <Route path="/mbti/test" element={<MbtiTest/>}/>
 	  <Route path="/mbti/result" element={<MbtiResult/>}/>
-	  <Route path="/nickname/edit" element={<NicknameEdit/>}/>
-	  <Route path="/admin/reports/board" element={<AdminReport/>}/>
-	  <Route path="/admin/cocktail" element={<AdminCocktail/>}/>
-    <Route path= "/admin/cocktail/addrecipe" element={<AddRecipe />} />
-    <Route path= "/admin/cocktail/modifyrecipe" element={<ModifyRecipe />} />
+
+	  <Route path="/nickname/edit" element={(props) => {isLogin() ? <NicknameEdit {...props}/> : <Navigate replace to="/"/>}}/>
+	  <Route path="/admin/reports/board" element={(props) => {isLogin() ? <AdminReport {...props}/> : <Navigate replace to="/"/>}}/>
+	  <Route path="/admin/cocktail" element={(props) => {isLogin() ? <AdminCocktail {...props}/> : <Navigate replace to="/"/>}}/>
+    <Route path= "/admin/cocktail/addrecipe" element={(props) => {isLogin() ? <AddRecipe {...props}/> : <Navigate replace to="/"/>}}/>
+    <Route path= "/admin/cocktail/modifyrecipe" element={(props) => {isLogin() ? <ModifyRecipe {...props}/> : <Navigate replace to="/"/>}}/>
     <Route path= "/suggestions" element={<Suggestion />} />
     <Route path="/suggestion/:id" element={<SuggestionDetail />} />
     <Route path = "/suggestion" element= {<SuggestionWrite />} />
