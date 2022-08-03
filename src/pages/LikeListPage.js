@@ -18,7 +18,11 @@ function LikeList() {
 			try {
 				console.log('렌더링이 완료되었습니다!');
 				const response = await axios.get(
-					'http://3.35.208.41:5000/users/likes'
+					'http://3.35.208.41:5000/users/likes',
+					{headers: {
+						Authorization: `Bearer ${localStorage.getItem("token")}`,
+						}
+					}
 				);
 				setBoards(response.data.data);
 			} catch(e) {
@@ -39,7 +43,7 @@ function LikeList() {
 	}
 
 	if (error) return <div>에러가 발생했습니다. {error}</div>
-	if (!boards) return <div>데이터가 없습니다.</div>
+	if (!boards) return <p>데이터가 없습니다.</p>
 	
     return <div>
         <Header right="board"></Header>
