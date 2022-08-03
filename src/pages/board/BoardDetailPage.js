@@ -45,7 +45,6 @@ function BoardDetailPage() {
 		  }
 		});
 		
-		window.location.reload();
 	}
 	return <div>
 		<Header right='board'></Header>
@@ -59,7 +58,7 @@ function BoardDetailPage() {
 						<span>{board.createdate}</span>
 					</div>
 				</div>
-				<LikedBtn id={board.postId} likeSelection={board.likeSelection} count={board.count}/>
+				<LikedBtn id={board.postId} likeSelection={board.likeSelection} count={board.count} what=''/>
 			</div>
 			<pre className='boardContent'>
 				{board.content}

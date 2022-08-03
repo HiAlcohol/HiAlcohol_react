@@ -5,6 +5,7 @@ import Header from '../../components/Header'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import LikedBtn from '../../components/board/LikedBtn'
 
 function SuggestionDetailPage() {
 	const [suggestion, setSuggestion] = useState(null);
@@ -26,18 +27,8 @@ function SuggestionDetailPage() {
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!suggestion) return <div>데이터가 없습니다.</div>
 	let sugges = suggestion[0]
+	console.log(sugges.id)
 
-	const likeHandler  = (e) => {
-		
-		console.log("whar",params.id)
-		e.preventDefault();
-        axios.post('http://3.35.208.41:5000/suggestion/'+params.id+'/like',
-		{headers: {
-			Authorization: `Bearer ${localStorage.getItem("token")}`,
-		  }
-		})
-    }
-	
 	return <div>
 		<Header right='suggestion'></Header>
 		<div className="board">
@@ -50,12 +41,7 @@ function SuggestionDetailPage() {
 						<span>{sugges.createdate}</span>
 					</div>
 				</div>
-				<div className="like">
-					<button id="img_btn" className="likebtn" onClick={likeHandler}>
-						<input type="image" id="likeImg" src={heart} />
-					</button>
-					<div id="likes" disabled="disabled">{sugges.like_count}</div>
-				</div>
+				<LikedBtn id={sugges.id} likeSelection={sugges.likeSelection} count={sugges.like_count} what='suggestion'/>
 			</div>
 			<pre className='boardContent'>
 				{sugges.content}
