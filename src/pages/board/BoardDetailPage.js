@@ -36,16 +36,14 @@ function BoardDetailPage() {
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!board) return <div>데이터가 없습니다.</div>
 	
-
-	const ReportHandler = async () => {
-		
-		const response = await axios.post('http://hialcohol.xyz:5000/reports/board/'+params.id, null,
+	const ReportHandler = (i) => {
+        axios.post('http://hialcohol.xyz:5000/reports/board/'+params.id, null,
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
-		});
-		
-	}
+		})
+        .then((res) => console.log(res));
+    }
 	return <div>
 		<Header right='board'></Header>
 		<div className="board">
