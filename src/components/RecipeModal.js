@@ -40,7 +40,7 @@ function RecipeModal(props) {
         <h2>{recipe[0].rate}</h2>
         <br /><br />
         <p>{recipe[0].content}</p>
-        
+        <br /><br /><br />
 
         </>
     )
