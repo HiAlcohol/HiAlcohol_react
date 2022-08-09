@@ -14,11 +14,7 @@ function AdminReport() {
 			try {
 				console.log('렌더링이 완료되었습니다!');
 				const response = await axios.get(
-					'http://3.35.208.41:5000/admin/reports/board',
-					{headers: {
-						Authorization: `Bearer ${localStorage.getItem("token")}`,
-						}
-					}
+					'http://3.35.208.41:5000/admin/reports/board'
 				);
 				setReports(response.data.data);
 			} catch(e) {
@@ -30,7 +26,7 @@ function AdminReport() {
 			try {
 				console.log('렌더링이 완료되었습니다!');
 				const response = await axios.get(
-					'http://3.35.208.41:5000/admin/reports/comment'
+					'http://43.200.182.67:5000/admin/reports/comment'
 				);
 				setReportsComent(response.data.data);
 			} catch(e) {

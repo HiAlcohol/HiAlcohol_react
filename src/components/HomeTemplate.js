@@ -19,7 +19,7 @@ function HomeTemplate(props) {
 
 		const fetchToday = async () => {
 			try {
-				const response = await axios.get('http://3.35.208.41:5000/cocktails/recipe/'+props.cocktail.id);
+				const response = await axios.get('http://43.200.182.67:5000/cocktails/recipe/'+props.cocktail.id);
 				setRecipe(response.data.data);
 			} catch(e) {
 				setError(e);
