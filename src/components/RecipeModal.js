@@ -9,7 +9,7 @@ function RecipeModal(props) {
     useEffect(() => {
 		const fetchBoard = async () => {
 			try {
-				const response = await axios.get('http://3.36.153.6/cocktails/recipe/'+ keyId );
+				const response = await axios.get('http://43.200.182.67:5000/cocktails/recipe/'+ keyId );
 				setRecipe(response.data.data);
 			} catch(e) {
 				setError(e);

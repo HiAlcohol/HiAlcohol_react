@@ -37,7 +37,7 @@ const Header = (props) => {
 		const fetchUserInfo = async () => {
 			try {
 				if (token) {
-					const response = await axios.get("http://3.36.153.6/users", 
+					const response = await axios.get("http://43.200.182.67:5000/users", 
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					  }

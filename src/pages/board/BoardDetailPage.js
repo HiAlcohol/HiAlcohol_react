@@ -24,7 +24,7 @@ function BoardDetailPage() {
 	useEffect(() => {
 		const fetchBoard = async () => {
 			try {
-				const response = await axios.get('http://3.36.153.6/boards/' + params.id);
+				const response = await axios.get('http://43.200.182.67:5000/boards/' + params.id);
 				setBoard(response.data.data);
 				console.log(response.data.data)
 			} catch(e) {
@@ -37,7 +37,7 @@ function BoardDetailPage() {
 	if (!board) return <div>데이터가 없습니다.</div>
 	
 	const ReportHandler = (i) => {
-        axios.post('http://3.36.153.6/reports/board/'+params.id, null,
+        axios.post('http://43.200.182.67:5000/reports/board/'+params.id, null,
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }

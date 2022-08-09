@@ -11,7 +11,7 @@ function Comment() {
 	useEffect(() => {
 		const fetchComment = async () => {
 			try {
-				const response = await axios.get('http://3.36.153.6/boards/' + params.id + '/comments');
+				const response = await axios.get('http://43.200.182.67:5000/boards/' + params.id + '/comments');
 				setComments(response.data.data);
 			} catch(e) {
 				setError(e);
@@ -25,7 +25,7 @@ function Comment() {
 	if (!comments) return <div>댓글 api 호출 실패</div>
 
 	const commentReportHandler = (i) => {
-        axios.post('http://3.36.153.6/reports/board/'+params.id+'/comment/'+comments[i].commentId, null,
+        axios.post('http://43.200.182.67:5000/reports/board/'+params.id+'/comment/'+comments[i].commentId, null,
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }

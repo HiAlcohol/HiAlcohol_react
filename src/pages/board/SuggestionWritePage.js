@@ -27,7 +27,7 @@ const SuggestionWritepage = () => {
             content : content
         };
     
-        axios.post('http://3.36.153.6/suggestion', body,
+        axios.post('http://43.200.182.67:5000/suggestion', body,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }

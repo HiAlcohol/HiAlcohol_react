@@ -20,7 +20,7 @@ function MbtiResult() {
 	useEffect(() => {
 		const fetchMbti = async () => {
 			try {
-				const response = await axios.get('http://3.36.153.6/mbti?result=' + params)
+				const response = await axios.get('http://43.200.182.67:5000/mbti?result=' + params)
 				setMbti(response.data.data.mbti)
 			} catch (e) {
 				setError(e)
