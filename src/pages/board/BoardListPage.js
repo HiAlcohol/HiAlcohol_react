@@ -15,7 +15,7 @@ function Boards() {
 			try {
 				console.log('렌더링이 완료되었습니다!');
 				const response = await axios.get(
-					'http://3.35.208.41:5000/boards', 
+					'http://3.36.153.6/boards', 
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					  }
@@ -33,7 +33,7 @@ function Boards() {
 	const selected = async (e) => {
 		setSelected(e.target.value);
 		const response = await axios.get(
-			'http://3.35.208.41:5000/boards?option='+e.target.value
+			'http://3.36.153.6/boards?option='+e.target.value
 		);
 		setBoards(response.data.data);
 	}

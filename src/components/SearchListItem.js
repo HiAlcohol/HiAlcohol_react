@@ -44,7 +44,7 @@ function SearchListItem(props) {
 	useEffect(() => {
 		const fetchSearch = async () => {
 			try {
-				const response = await axios.get('http://3.35.208.41:5000/cocktails/search?keyword='+keyword);
+				const response = await axios.get('http://3.36.153.6/cocktails/search?keyword='+keyword);
 				setRecipes(response.data.data);
 			} catch(e) {
 				setError(e);

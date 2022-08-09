@@ -12,7 +12,7 @@ function MyBoards() {
 			console.log(1);
 			try {
 				if (localStorage.getItem("token")) {
-					const response = await axios.get('http://3.35.208.41:5000/users/boards', 
+					const response = await axios.get('http://3.36.153.6/users/boards', 
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					}
