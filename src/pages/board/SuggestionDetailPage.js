@@ -22,12 +22,27 @@ function SuggestionDetailPage() {
 				setError(e);
 			}
 		};
+		
+
 		fetchSuggestion()
 	}, []);
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!suggestion) return <div>데이터가 없습니다.</div>
+
+	const deleteHandler = async () => {
+		const response = await axios.delete('http://43.200.182.67:5000/suggestion/' + params.id ,
+			{headers: {
+				Authorization: `Bearer ${localStorage.getItem("token")}`,
+			  }
+			});
+			console.log('취소')
+			
+			window.location.replace("/suggestions");
+	}        
+
+    
 	let sugges = suggestion[0]
-	console.log(sugges.id)
+	// console.log(sugges.id)
 
 	return <div>
 		<Header right='suggestion'></Header>
@@ -50,7 +65,7 @@ function SuggestionDetailPage() {
 				<div></div>
 				<div>수정</div>
 				<div>|</div>
-				<div className='del'>삭제</div>
+				<div className='del' onClick={deleteHandler}>삭제</div>
 				<div></div>
 			</div>
 		</div>
