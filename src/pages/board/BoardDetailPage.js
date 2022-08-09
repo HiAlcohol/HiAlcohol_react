@@ -44,6 +44,7 @@ function BoardDetailPage() {
 		})
         .then((res) => console.log(res));
     }
+	console.log(board)
 	return <div>
 		<Header right='board'></Header>
 		<div className="board">
@@ -56,7 +57,7 @@ function BoardDetailPage() {
 						<span>{board.createdate}</span>
 					</div>
 				</div>
-				<LikedBtn id={board.postId} likeSelection={board.likeSelection} count={board.count} what=''/>
+				<LikedBtn id={board.postId} likeSelection={board.likeSelection} count={board.count} what='board'/>
 			</div>
 			<pre className='boardContent'>
 				{board.content}
