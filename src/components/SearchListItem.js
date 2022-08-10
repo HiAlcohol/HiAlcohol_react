@@ -101,9 +101,13 @@ function SearchListItem(props) {
                 </Modal>
             </>
         } else if (props.type === 'modify') {
+            
             click = <>
                 <div className='modiRecipe'>
-                    <Link to='/admin/cocktail/modifyrecipe'><button>수정</button></Link>
+                    <button  onClick={() => {
+                    changeKey(i)
+                   
+                 }}><a href={'/admin/cocktail/modifyrecipe/'+keyId}>수정</a></button>
                 </div>
             </>
             

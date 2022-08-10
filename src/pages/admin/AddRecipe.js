@@ -37,7 +37,7 @@ function AddRecipeTemplate() {
 
         let body = {
             cocktail : cocktail,
- 			materials: material.split(', '),
+ 			materials: material.split(','),
   			rate: rate,
   			content: content
         };
