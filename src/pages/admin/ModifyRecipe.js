@@ -54,12 +54,13 @@ function AddRecipeTemplate() {
 
 	const submitHandler = (e) => {
         e.preventDefault();
-
+		console.log(material.length)
         let body = {
-            cocktail : cocktail,
- 			materials: material.split(','),
-  			rate: rate,
-  			content: content
+			id : keyId,
+            cocktail : cocktail ? cocktail : recipe[0].cocktail,
+ 			materials: material ? material.split(',') : recipe[0].materials,
+  			rate: rate ? rate : recipe[0].rate,
+  			content: content ? content: recipe[0].content
         };
 		console.log("??", body)
     
@@ -85,14 +86,14 @@ function AddRecipeTemplate() {
 				<th><p>칵테일 이름</p></th>
 				<td><input type="text" onChange={cocktailHandler} defaultValue={recipe[0].cocktail} /></td>
 			</tr>
-            <tr className="alcotype_box">
+            {/* <tr className="alcotype_box">
 				<th><p>술종류</p></th>
 				<td><input type="text"  defaultValue={recipe[0].alcotype}/></td>
 			</tr>
             <tr className="alconame_box">
 				<th><p>(제품명)</p></th>
 				<td><input type="text" defaultValue={recipe[0].product} /></td>
-			</tr>
+			</tr> */}
             <tr className="cockinput_box">
 				<th><p>재료</p></th>
 				<td><input type="text" onChange={materialHandler} defaultValue={recipe[0].materials}/>
