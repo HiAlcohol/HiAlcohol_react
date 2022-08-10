@@ -12,7 +12,7 @@ function Item(props) {
 		key = board.postId
     }
     else if(link === 'suggestion') {
-        linkIs = "/suggestion/" 
+        linkIs = "/suggestions/" 
 		key = board.suggestionId
     }
 

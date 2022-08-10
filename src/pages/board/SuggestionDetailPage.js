@@ -2,7 +2,7 @@ import '../../scss/board/BoardItem.scss'
 import '../../scss/board/BoardListItem.scss'
 import heart from '../../img/heart_fill.png'
 import Header from '../../components/Header'
-import { useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import LikedBtn from '../../components/board/LikedBtn'
@@ -63,7 +63,7 @@ function SuggestionDetailPage() {
 			</pre>
 			<div className='select'>
 				<div></div>
-				<div>수정</div>
+				<div><a href={'/suggestion/'+params.id}>수정</a></div>
 				<div>|</div>
 				<div className='del' onClick={deleteHandler}>삭제</div>
 				<div></div>
