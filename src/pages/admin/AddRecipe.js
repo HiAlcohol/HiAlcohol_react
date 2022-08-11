@@ -9,7 +9,7 @@ function AddRecipeTemplate() {
 	const [rate, SetRate] = useState("")
     const [content, SetContent] = useState("")
 	const [material, SetMaterial] = useState("")
-	const [materials, SetMaterials] = useState("")
+	const [image, SetImage] = useState("")
 
     const cocktailHandler = (e) => {
         e.preventDefault();
@@ -27,6 +27,13 @@ function AddRecipeTemplate() {
         e.preventDefault();
         SetMaterial(e.target.value)
     }
+	const imgHandler = (e) => {
+        e.preventDefault();
+        SetImage(e.target.files[0])
+		const formData = new FormData();
+		formData.append('file',image)
+    for (const keyValue of formData) console.log("K",keyValue); 
+    }
 
 	const cancleEvent = () => {
 		window.location.replace("/admin/cocktail")
@@ -39,20 +46,24 @@ function AddRecipeTemplate() {
             cocktail : cocktail,
  			materials: material.split(','),
   			rate: rate,
-  			content: content
+  			content: content,
+			image
         };
 		console.log("??", body)
+
     
-		axios.patch('http://43.200.182.67:5000/admin/recipe', body,
+		axios.post('http://43.200.182.67:5000/admin/recipe', body,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
-		})
+		},
+		image)
         .then((res) => console.log(res));
 
-		window.location.replace("/admin/cocktail");
+		// window.location.replace("/admin/cocktail");
         
     }
+
 
     return (
 
@@ -94,7 +105,7 @@ function AddRecipeTemplate() {
 			</tr>
 			<tr className="cockimg">
 				<th><p>칵테일 사진 업로드 +</p></th>
-				<td><input type='file' accept='image/*'/></td>
+				<td><input type='file' accept='image/*' onChange={imgHandler}/></td>
 			</tr>
 		</table>
 		<div className="btnzone">

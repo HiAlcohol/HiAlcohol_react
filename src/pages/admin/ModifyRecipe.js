@@ -11,6 +11,7 @@ function AddRecipeTemplate() {
 	const [rate, SetRate] = useState("")
     const [content, SetContent] = useState("")
 	const [material, SetMaterial] = useState("")
+	const [img, SetImg] = useState("")
 	const params = useParams();
 
 	const [recipe , setRecipe] = useState(null);
@@ -31,6 +32,8 @@ function AddRecipeTemplate() {
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!recipe) return <div>데이터가 없습니다.</div>
 
+	console.log(recipe)
+
     const cocktailHandler = (e) => {
         e.preventDefault();
         SetCocktail(e.target.value);
@@ -47,10 +50,10 @@ function AddRecipeTemplate() {
         e.preventDefault();
         SetMaterial(e.target.value)
     }
+	
 	const cancleEvent = () => {
 		window.location.replace("/admin/cocktail")
 	}
-
 
 	const submitHandler = (e) => {
         e.preventDefault();
@@ -62,19 +65,30 @@ function AddRecipeTemplate() {
   			rate: rate ? rate : recipe[0].rate,
   			content: content ? content: recipe[0].content
         };
-		console.log("??", body)
+		console.log(body)
+		
+		let file = img
+		console.log("??", file)
+
     
 		axios.patch('http://43.200.182.67:5000/admin/recipe/', body,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
-		})
+		},file)
         .then((res) => console.log(res));	
 
-		window.location.replace("/admin/cocktail");
+		// window.location.replace("/admin/cocktail");
         
     }
 
+	const imgHandler = (e) => {
+        e.preventDefault();
+        SetImg(e.target.files[0])
+		const formData = new FormData();
+		formData.append('file',img)
+    for (const keyValue of formData) console.log("K",keyValue); 
+    }
 
     return (
 
@@ -111,7 +125,7 @@ function AddRecipeTemplate() {
 			</tr>
 			<tr className="cockimg">
 				<th><p>칵테일 사진 업로드 +</p></th>
-				<td><input type='file' accept='image/*'/></td>
+				<td><input type='file' accept='image/*' onChange={imgHandler}/></td>
 			</tr>
 		</table>
 		<div className="btnzone">
