@@ -64,12 +64,12 @@ function AddRecipeTemplate() {
         };
 		console.log("??", body)
     
-		axios.patch('http://43.200.182.67:5000/admin/recipe/'+params.id, body,
+		axios.patch('http://43.200.182.67:5000/admin/recipe/', body,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
 		})
-        .then((res) => console.log(res));
+        .then((res) => console.log(res));	
 
 		window.location.replace("/admin/cocktail");
         
