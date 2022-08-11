@@ -3,6 +3,7 @@ import BoardListItem from "../../components/BoardListItem";
 import '../../scss/board/BoardList.scss'
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useParams } from 'react-router-dom'
 
 function Suggestion() {
     const [suggestions, setSuggestions] = useState(null);
@@ -33,15 +34,12 @@ function Suggestion() {
 		);
 		setSuggestions(response.data.data);
 	}
-    
-    const board = [
-        {postId: 1, title: '알쓰를 위한 편의점 칵테일', nickname: '유저', createdate: '2022.03.14', count: 8},
-        {postId: 2, title: '술 테스트 게시글', nickname: '유저2', createdate: '2022.03.15', count: 2}
-    ]
 
     if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!suggestions) return <div>데이터가 없습니다.</div>
     
+
+
     return <div>
         <Header right="suggestion"></Header>
         <div className="dropdown">

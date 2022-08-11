@@ -35,6 +35,16 @@ function BoardDetailPage() {
 	}, []);
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!board) return <div>데이터가 없습니다.</div>
+	
+	const ReportHandler = (i) => {
+        axios.post('http://43.200.182.67:5000/reports/board/'+params.id, null,
+		{headers: {
+			Authorization: `Bearer ${localStorage.getItem("token")}`,
+		  }
+		})
+        .then((res) => console.log(res));
+    }
+	console.log(board)
 	return <div>
 		<Header right='board'></Header>
 		<div className="board">
@@ -47,7 +57,7 @@ function BoardDetailPage() {
 						<span>{board.createdate}</span>
 					</div>
 				</div>
-				<LikedBtn id={board.postId} likeSelection={board.likeSelection} count={board.count}/>
+				<LikedBtn id={board.postId} likeSelection={board.likeSelection} count={board.count} what='board'/>
 			</div>
 			<pre className='boardContent'>
 				{board.content}
@@ -58,7 +68,7 @@ function BoardDetailPage() {
 				<div>|</div>
 				<div className='del'>삭제</div>
 				<div>|</div>
-				<div className='report'>신고</div>
+				<div className='report' onClick={ReportHandler}>신고</div>
 				<div></div>
 			</div>
 		</div>

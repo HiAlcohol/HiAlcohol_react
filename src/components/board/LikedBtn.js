@@ -4,23 +4,25 @@ import heartfill from '../../img/heart_fill.png'
 import heart from '../../img/heart_outline.png'
 
 const LikedBtn = (props) => {
+	console.log(props)
+	const link = props.what;
+
 	const liked = async () => {
 		if (props.likeSelection === true) {
 			// 취소
-			const response = await axios.delete('http://43.200.182.67:5000/board/' + props.id + '/like',
+			const response = await axios.delete('http://43.200.182.67:5000/'+link+'/' + props.id + '/like',
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			  }
 			});
 			console.log('취소')
 		} else {
-			// 스크랩
-			const response = await axios.post('http://43.200.182.67:5000/board/' + props.id + '/like', null,
+			const response = await axios.post('http://43.200.182.67:5000/'+link+'/' + props.id + '/like', null,
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			  }
 			});
-			console.log('스크랩')
+			console.log('좋아요')
 		}
 		window.location.reload();
 	}

@@ -33,7 +33,7 @@ const Header = (props) => {
 	const [profile, setProfile] = useState(loginIcon)
 	const [role, setRole] = useState('guest')
 	const [error, setError] = useState(null)
-	
+	console.log('header')
 	useEffect( () => {
 		const fetchUserInfo = async () => {
 			try {
@@ -55,14 +55,19 @@ const Header = (props) => {
 		fetchUserInfo();
 	}, []);
 
-	const boardWrite = () => {
+	const boardWrite = (e, board, link) => {
+		e.preventDefault();
 		const sendData = async () => {
 			try {
 				const response = await axios.post("http://43.200.182.67:5000/boards", 
-					{title: props.board.title,
-					content: props.board.content})
-				console.log(response.data)
-
+					board,
+					{headers: {
+						Authorization: `Bearer ${localStorage.getItem("token")}`,
+					  }
+					}
+					)
+				console.log('res', response)
+				// window.location.href = link
 			} catch (e) {
 				setError(e);
 			}
@@ -104,9 +109,7 @@ const Header = (props) => {
                 	<Link to='/' className='logo'>Hi Alcohol</Link>
                 </div>
                 <div className='completion'>
-					<button onClick={boardWrite}>
-                    	완료
-					</button>   
+                    <input id="completeBtn" type="submit" value="완료" onClick={(e) => boardWrite(e, props.board, "/boards")}></input>
                 </div>
 		</div>
 		return header;

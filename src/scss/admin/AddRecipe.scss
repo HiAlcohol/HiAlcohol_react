@@ -18,24 +18,24 @@
         color: white;
         padding: 10px;
         margin: 10px;
-        width: 100%;
+        width: 80%;
         // box-shadow: 0px 0px 10px rgba(11, 243, 188, 0.5);
     }
 }
 
-.cockinput_box {
-    input {
-        width: 67%
-    }
-    button {
-        background-color: #242424;
-        border: 1px solid #0BF3BC;
-        border-radius: 30px;
-        color: #0BF3BC;
-        width: 20%;
-        height: 40px;
-    }
-}
+// .cockinput_box {
+//     input {
+//         width: 67%
+//     }
+//     button {
+//         background-color: #242424;
+//         border: 1px solid #0BF3BC;
+//         border-radius: 30px;
+//         color: #0BF3BC;
+//         width: 20%;
+//         height: 40px;
+//     }
+// }
 
 
 th > p {
@@ -67,6 +67,7 @@ th > p {
 	color: white;
 	background-color: transparent;
 	margin: 10px;
+    border: none;
 }
 
 .btnzone {

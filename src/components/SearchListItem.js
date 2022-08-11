@@ -101,9 +101,13 @@ function SearchListItem(props) {
                 </Modal>
             </>
         } else if (props.type === 'modify') {
+            
             click = <>
                 <div className='modiRecipe'>
-                    <Link to='/admin/cocktail/addrecipe'><button>수정</button></Link>
+                    <button  onClick={() => {
+                    changeKey(i)
+                   
+                 }}><a href={'/admin/cocktail/modifyrecipe/'+keyId}>수정</a></button>
                 </div>
             </>
             
@@ -112,7 +116,7 @@ function SearchListItem(props) {
         searchItem.push(
             <>
             <div className='list'>
-                 <img src = {cocktail[i].img} className="list-img" />
+                 <img src = {cocktail[i].image} className="list-img" />
                 <div className='recipe-title'>
                 <a>{cocktail[i].cocktail}</a>
 

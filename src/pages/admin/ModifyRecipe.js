@@ -1,15 +1,35 @@
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import axios from "axios";
 import Header from '../../components/Header'
 import "../../scss/admin/AddRecipe.scss"
+import { useParams } from 'react-router-dom'
+import axios from 'axios'
+import { useEffect} from "react";
 
 function AddRecipeTemplate() {
 	const [cocktail, SetCocktail] = useState("")
 	const [rate, SetRate] = useState("")
     const [content, SetContent] = useState("")
 	const [material, SetMaterial] = useState("")
-	const [materials, SetMaterials] = useState("")
+	const params = useParams();
+
+	const [recipe , setRecipe] = useState(null);
+	const [error, setError] = useState(null);
+
+	let keyId = params.id
+    useEffect(() => {
+		const fetchBoard = async () => {
+			try {
+				const response = await axios.get('http://43.200.182.67:5000/cocktails/recipe/'+ keyId );
+				setRecipe(response.data.data);
+			} catch(e) {
+				setError(e);
+			}
+		};
+		fetchBoard()
+	}, []);
+	if (error) return <div>에러가 발생했습니다. {error}</div>
+	if (!recipe) return <div>데이터가 없습니다.</div>
 
     const cocktailHandler = (e) => {
         e.preventDefault();
@@ -27,23 +47,24 @@ function AddRecipeTemplate() {
         e.preventDefault();
         SetMaterial(e.target.value)
     }
-
 	const cancleEvent = () => {
 		window.location.replace("/admin/cocktail")
 	}
 
-    const submitHandler = (e) => {
-        e.preventDefault();
 
+	const submitHandler = (e) => {
+        e.preventDefault();
+		console.log(material.length)
         let body = {
-            cocktail : cocktail,
- 			materials: material.split(','),
-  			rate: rate,
-  			content: content
+			id : keyId,
+            cocktail : cocktail ? cocktail : recipe[0].cocktail,
+ 			materials: material ? material.split(',') : recipe[0].materials,
+  			rate: rate ? rate : recipe[0].rate,
+  			content: content ? content: recipe[0].content
         };
 		console.log("??", body)
     
-        // axios.post('http://43.200.182.67:5000/admin/recipe', body,
+        // axios.patch('http://43.200.182.67:5000/admin/recipe/' + params.id, body,
         // {headers: {
 		// 	Authorization: `Bearer ${localStorage.getItem("token")}`,
 		//   }
@@ -53,43 +74,39 @@ function AddRecipeTemplate() {
         
     }
 
+
     return (
 
         <>
         <Header right='common' />
-        <p className="add_title">레시피 추가</p>
+        <p className="add_title">레시피 수정</p>
 
         <table className="input_box">
 			<tr className="cockname_box">
 				<th><p>칵테일 이름</p></th>
-				<td><input type="text"  onChange={cocktailHandler}/></td>
+				<td><input type="text" onChange={cocktailHandler} defaultValue={recipe[0].cocktail} /></td>
 			</tr>
             {/* <tr className="alcotype_box">
 				<th><p>술종류</p></th>
-				<td><input type="text" /></td>
+				<td><input type="text"  defaultValue={recipe[0].alcotype}/></td>
 			</tr>
             <tr className="alconame_box">
 				<th><p>(제품명)</p></th>
-				<td><input type="text"  /></td>
+				<td><input type="text" defaultValue={recipe[0].product} /></td>
 			</tr> */}
             <tr className="cockinput_box">
 				<th><p>재료</p></th>
-				<td><input type="text" onChange={materialHandler}/>
-
-				{/* <button id="inputbtn" type="submit" onClick={addmaterial(material)}>재료추가+</button> */}
+				<td><input type="text" onChange={materialHandler} defaultValue={recipe[0].materials}/>
 				</td>
 				
 			</tr>
-			<tr>
-			<div className="matzone"></div>
-			</tr>
             <tr className="cockrate_box">
 				<th><p>비율</p></th>
-				<td><input type="text"  onChange={RateHandler}/></td>
+				<td><input type="text" onChange={RateHandler} defaultValue={recipe[0].rate} /></td>
 			</tr>
             <tr className="cockncontent_box">
 				<th><p>설명</p></th>
-				<td><input type="text" onChange={contentHandler}/></td>
+				<td><input type="text" onChange={contentHandler} defaultValue={recipe[0].content}/></td>
 			</tr>
 			<tr className="cockimg">
 				<th><p>칵테일 사진 업로드 +</p></th>
