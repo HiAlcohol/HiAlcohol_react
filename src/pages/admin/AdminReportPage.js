@@ -14,7 +14,7 @@ function AdminReport() {
 			try {
 				console.log('렌더링이 완료되었습니다!');
 				const response = await axios.get(
-					'http://3.35.208.41:5000/admin/reports/board'
+					'http://43.200.182.67:5000/admin/reports/board'
 				);
 				setReports(response.data.data);
 			} catch(e) {
@@ -34,9 +34,11 @@ function AdminReport() {
 			}
 		};
 		fetchReports();
-		// fetchReportsComent();
+		fetchReportsComent();
 		
 	}, []);
+	console.log("1", reports)
+	console.log("2", reportsComent)
 
 	// if (error) return <div>에러가 발생했습니다. {error}</div>
 	// if (!reports) return <div>데이터가 없습니다.</div>
