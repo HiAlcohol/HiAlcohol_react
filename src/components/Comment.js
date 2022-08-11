@@ -16,7 +16,7 @@ function Comment() {
 	useEffect(() => {
 		const fetchComment = async () => {
 			try {
-				const response = await axios.get('http://3.35.208.41:5000/boards/' + params.id + '/comments');
+				const response = await axios.get('http://43.200.182.67:5000/boards/' + params.id + '/comments');
 				setComments(response.data.data);
 			} catch(e) {
 				setError(e);

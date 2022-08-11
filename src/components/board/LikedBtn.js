@@ -7,7 +7,7 @@ const LikedBtn = (props) => {
 	const liked = async () => {
 		if (props.likeSelection === true) {
 			// 취소
-			const response = await axios.delete('http://3.35.208.41:5000/board/' + props.id + '/like',
+			const response = await axios.delete('http://43.200.182.67:5000/board/' + props.id + '/like',
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			  }
@@ -15,7 +15,7 @@ const LikedBtn = (props) => {
 			console.log('취소')
 		} else {
 			// 스크랩
-			const response = await axios.post('http://3.35.208.41:5000/board/' + props.id + '/like', null,
+			const response = await axios.post('http://43.200.182.67:5000/board/' + props.id + '/like', null,
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			  }

@@ -11,7 +11,7 @@ export default async function UserInfo() {
 	
 	if (token) {
 		const header = {'token': token}
-		const response = await axios.get("http://3.35.208.41:5000/users", 
+		const response = await axios.get("http://43.200.182.67:5000/users", 
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 			}
