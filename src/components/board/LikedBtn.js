@@ -9,6 +9,7 @@ const LikedBtn = (props) => {
 
 	const liked = async () => {
 		if (props.likeSelection === true) {
+			// 취소
 			const response = await axios.delete('http://43.200.182.67:5000/'+link+'/' + props.id + '/like',
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,

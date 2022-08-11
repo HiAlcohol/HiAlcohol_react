@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/HiAlcohol/HiAlcohol_react/static/css/main.d987524d.css",
-    "main.js": "/HiAlcohol/HiAlcohol_react/static/js/main.43330199.js",
-    "static/media/cocktail.png": "/HiAlcohol/HiAlcohol_react/static/media/cocktail.b203806b54263c0671d0.png",
-    "index.html": "/HiAlcohol/HiAlcohol_react/index.html",
-    "main.d987524d.css.map": "/HiAlcohol/HiAlcohol_react/static/css/main.d987524d.css.map",
-    "main.43330199.js.map": "/HiAlcohol/HiAlcohol_react/static/js/main.43330199.js.map"
+    "main.css": "/static/css/main.1d24a00d.css",
+    "main.js": "/static/js/main.22874b13.js",
+    "static/media/cocktail.png": "/static/media/cocktail.b203806b54263c0671d0.png",
+    "index.html": "/index.html",
+    "main.1d24a00d.css.map": "/static/css/main.1d24a00d.css.map",
+    "main.22874b13.js.map": "/static/js/main.22874b13.js.map"
   },
   "entrypoints": [
-    "static/css/main.d987524d.css",
-    "static/js/main.43330199.js"
+    "static/css/main.1d24a00d.css",
+    "static/js/main.22874b13.js"
   ]
 }

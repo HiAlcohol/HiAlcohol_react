@@ -32,7 +32,8 @@ const Header = (props) => {
 	const [nickname, setNickname] = useState('로그인하기')
 	const [profile, setProfile] = useState(loginIcon)
 	const [role, setRole] = useState('guest')
-	
+	const [error, setError] = useState(null)
+	console.log('header')
 	useEffect( () => {
 		const fetchUserInfo = async () => {
 			try {
@@ -48,11 +49,32 @@ const Header = (props) => {
 				}
 			} catch(e) {
 				console.log(e)
+				setError(e);
 			}
 		}
 		fetchUserInfo();
 	}, []);
-	
+
+	const boardWrite = (e, board, link) => {
+		e.preventDefault();
+		const sendData = async () => {
+			try {
+				const response = await axios.post("http://43.200.182.67:5000/boards", 
+					board,
+					{headers: {
+						Authorization: `Bearer ${localStorage.getItem("token")}`,
+					  }
+					}
+					)
+				console.log('res', response)
+				window.location.href = link
+			} catch (e) {
+				setError(e);
+			}
+		}
+		sendData();
+	}
+	if (error) return <div>{error}</div>
 	console.log(props)
 	var header = ''
 	if (props.right === 'board') {
@@ -80,14 +102,14 @@ const Header = (props) => {
 		</>
 	} else if (props.right === 'write') {
 		header = <div className="header">
-		<div className='exit'>
+				<div className='exit'>
                     X
                 </div>
                 <div className='Header'>
                 	<Link to='/' className='logo'>Hi Alcohol</Link>
                 </div>
                 <div className='completion'>
-                    <input id="completeBtn" type="submit" value="완료"></input>
+                    <input id="completeBtn" type="submit" value="완료" onClick={(e) => boardWrite(e, props.board, "/boards")}></input>
                 </div>
 		</div>
 		return header;

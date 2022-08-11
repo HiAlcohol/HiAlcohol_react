@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import '../scss/Menu.scss';
 import {slide as Slide} from 'react-burger-menu'
+import styled from 'styled-components';
 
 function Menu(props) {
 	let menu_list = ''

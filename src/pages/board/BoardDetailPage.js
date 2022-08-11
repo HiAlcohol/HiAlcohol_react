@@ -45,6 +45,31 @@ function BoardDetailPage() {
         .then((res) => console.log(res));
     }
 	console.log(board)
+
+	const deleteHandler = async () => {
+		try {
+			const response = await axios.delete('http://43.200.182.67:5000/boards/'+ params.id, 
+				{headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+					}
+				}
+			);
+			window.location.href = "/boards"
+		} catch (e) {
+			setError(e);
+		}
+	}
+
+	const modifyHandler = async () => {
+		// await axios.put('http://43.200.182.67:5000/boards/'+ params.id, 
+		// 	{}, 
+		// 	{headers: {
+		// 		Authorization: `Bearer ${localStorage.getItem("token")}`,
+		// 		}
+		// 	}
+		// 	)
+	}
+
 	return <div>
 		<Header right='board'></Header>
 		<div className="board">
@@ -64,11 +89,11 @@ function BoardDetailPage() {
 			</pre>
 			<div className='select'>
 				<div></div>
-				<div className='modify'>수정</div>
+				<button className='modify' onClick={modifyHandler}>수정</button>
 				<div>|</div>
-				<div className='del'>삭제</div>
+				<button className='del' onClick={deleteHandler}>삭제</button>
 				<div>|</div>
-				<div className='report' onClick={ReportHandler}>신고</div>
+				<button className='report' onClick={ReportHandler}>신고</button>
 				<div></div>
 			</div>
 		</div>
