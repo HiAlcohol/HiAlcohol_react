@@ -67,7 +67,7 @@ const Header = (props) => {
 					}
 					)
 				console.log('res', response)
-				// window.location.href = link
+				window.location.href = link
 			} catch (e) {
 				setError(e);
 			}
