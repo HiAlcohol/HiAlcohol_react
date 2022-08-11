@@ -39,10 +39,10 @@ const App = () => {
 	  <Route path="/mbti/result" element={<MbtiResult/>}/>
 
 	  <Route path="/nickname/edit" element={isLogin() ? <NicknameEdit /> : <Navigate replace to="/"/>}/>
-	  <Route path="/admin/reports/board" element={(props) => {isLogin() ? <AdminReport {...props}/> : <Navigate replace to="/"/>}}/>
-	  <Route path="/admin/cocktail" element={(props) => {isLogin() ? <AdminCocktail {...props}/> : <Navigate replace to="/"/>}}/>
-    <Route path= "/admin/cocktail/addrecipe" element={(props) => {isLogin() ? <AddRecipe {...props}/> : <Navigate replace to="/"/>}}/>
-    <Route path= "/admin/cocktail/modifyrecipe/:id" element={(props) => {isLogin() ? <ModifyRecipe {...props}/> : <Navigate replace to="/"/>}}/>
+	  <Route path="/admin/reports/board" element={isLogin() ? <AdminReport /> : <Navigate replace to="/"/>}/>
+	  <Route path="/admin/cocktail" element={isLogin() ? <AdminCocktail /> : <Navigate replace to="/"/>}/>
+    <Route path= "/admin/cocktail/addrecipe" element={isLogin() ? <AddRecipe /> : <Navigate replace to="/"/>}/>
+    <Route path= "/admin/cocktail/modifyrecipe/:id" element={isLogin() ? <ModifyRecipe /> : <Navigate replace to="/"/>}/>
     <Route path= "/suggestions" element={<Suggestion />} />
     <Route path="/suggestions/:id" element={<SuggestionDetail />} />
     <Route path = "/suggestion" element= {<SuggestionWrite />} />
