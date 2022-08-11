@@ -15,7 +15,7 @@ function Suggestion() {
 			try {
 				console.log('렌더링이 완료되었습니다!');
 				const response = await axios.get(
-					'http://3.35.208.41:5000/suggestions'
+					'http://43.200.182.67:5000/suggestions'
 				);
 				setSuggestions(response.data.data);
 			} catch(e) {
@@ -29,7 +29,7 @@ function Suggestion() {
 	const selected = async (e) => {
 		setSelected(e.target.value);
 		const response = await axios.get(
-			'http://3.35.208.41:5000/suggestions?option='+e.target.value
+			'http://43.200.182.67:5000/suggestions?option='+e.target.value
 		);
 		setSuggestions(response.data.data);
 	}

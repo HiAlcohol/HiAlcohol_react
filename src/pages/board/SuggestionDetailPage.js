@@ -14,7 +14,7 @@ function SuggestionDetailPage(props) {
 	useEffect(() => {
 		const fetchSuggestion = async () => {
 			try {
-				const response = await axios.get('http://3.35.208.41:5000/suggestion/' + params.id);
+				const response = await axios.get('http://43.200.182.67:5000/suggestion/' + params.id);
 				setSuggestion(response.data.data);
 				console.log(response.data.data)
 			} catch(e) {
