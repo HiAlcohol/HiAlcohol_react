@@ -13,7 +13,6 @@ function HomeTemplate(props) {
 	const [torecipe, setRecipe] = useState(null);
 	const [error, setError] = useState(null);
 	const [isOpen, setOpen] = useState(false);
-
 	
 	useEffect(() => {
 

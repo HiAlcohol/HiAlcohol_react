@@ -32,12 +32,13 @@ const Header = (props) => {
 	const [nickname, setNickname] = useState('로그인하기')
 	const [profile, setProfile] = useState(loginIcon)
 	const [role, setRole] = useState('guest')
+	const [error, setError] = useState(null)
 	
 	useEffect( () => {
 		const fetchUserInfo = async () => {
 			try {
 				if (token) {
-					const response = await axios.get("http://3.35.208.41:5000/users", 
+					const response = await axios.get("http://43.200.182.67:5000/users", 
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					  }
@@ -48,11 +49,27 @@ const Header = (props) => {
 				}
 			} catch(e) {
 				console.log(e)
+				setError(e);
 			}
 		}
 		fetchUserInfo();
 	}, []);
-	
+
+	const boardWrite = () => {
+		const sendData = async () => {
+			try {
+				const response = await axios.post("http://43.200.182.67:5000/boards", 
+					{title: props.board.title,
+					content: props.board.content})
+				console.log(response.data)
+
+			} catch (e) {
+				setError(e);
+			}
+		}
+		sendData();
+	}
+	if (error) return <div>{error}</div>
 	console.log(props)
 	var header = ''
 	if (props.right === 'board') {
@@ -80,14 +97,16 @@ const Header = (props) => {
 		</>
 	} else if (props.right === 'write') {
 		header = <div className="header">
-		<div className='exit'>
+				<div className='exit'>
                     X
                 </div>
                 <div className='Header'>
                 	<Link to='/' className='logo'>Hi Alcohol</Link>
                 </div>
                 <div className='completion'>
-                    완료                  
+					<button onClick={boardWrite}>
+                    	완료
+					</button>   
                 </div>
 		</div>
 		return header;
