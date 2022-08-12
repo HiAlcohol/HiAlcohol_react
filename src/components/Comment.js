@@ -4,8 +4,8 @@ import { useParams } from 'react-router-dom'
 import '../scss/Comment.scss'
 
 function Comment() {
-
 	const [comments, setComments] = useState(null);
+	const [comment, setComment] = useState('');
 	const [error, setError] = useState(null);
 	const params = useParams();
 	useEffect(() => {
@@ -32,6 +32,24 @@ function Comment() {
 		})
         .then((res) => console.log(res));
     }
+	const delComment = async (i) => {
+		console.log(comments[i])
+		await axios.delete('http://43.200.182.67:5000/boards/'+params.id+'/comments/'+comments[i].commentId,
+		{headers: {
+			Authorization: `Bearer ${localStorage.getItem("token")}`,
+		  }
+		}).then((res) => console.log(res));
+		window.location.reload();
+	}
+	const addComment = async () => {
+		await axios.post('http://43.200.182.67:5000/boards/'+params.id+'/comments',
+		{content: comment},
+		{headers: {
+			Authorization: `Bearer ${localStorage.getItem("token")}`,
+			}
+		}).then((res) => console.log(res));
+		window.location.reload();
+	}
 
 	for (let i = 0; i < comments.length; i++) {
 		
@@ -41,7 +59,7 @@ function Comment() {
 		comList.push(<div className="comview">				
 			<div className='com_header'>
 				<div className="com_nick">{comments[i].nickname}</div>
-				<div>X</div>
+				<button className='del' onClick={(e) => {delComment(i)}}>X</button>
 			</div>
 			<pre className='com_content'>{comments[i].content}</pre>
 			<div className='com_footer'>
@@ -62,8 +80,9 @@ function Comment() {
 		{comList}
 		</div>
 		<div className='com_container'>
-			<textarea className='write_com' placeholder='댓글을 입력해주세요'/>
-			<input className='ok' type="submit" value="등록"/>
+			<textarea name='comment' className='write_com' placeholder='댓글을 입력해주세요' 
+				onChange={(e) => {setComment(e.target.value)}}/>
+			<input className='ok' type="submit" value="등록" onClick={(e) => {addComment(e)}}/>
 		</div>
 	</div>
 }
