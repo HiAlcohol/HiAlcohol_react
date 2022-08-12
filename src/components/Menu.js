@@ -35,6 +35,9 @@ function Menu(props) {
 			<a className="bm-item menu-item" href="/admin/reports/board">
 				관리자페이지
 			</a>
+			<a className="bm-item menu-item" href="/profile/edit">
+				회원정보 수정
+			</a>
 			<a href='#'>
 				<div className="bm-item menu-item" onClick={logout}>
 					로그아웃
