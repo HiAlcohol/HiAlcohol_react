@@ -1,5 +1,5 @@
 import Header from '../../components/Header'
-import ReportBoards from '../../components/admin/ReportBoards'
+import ReportBoards from '../../components/admin/ReportBoards2'
 import axios from "axios";
 import { useEffect, useState } from "react";
 
@@ -46,7 +46,7 @@ function AdminReport() {
 
 	const dummy = [
 		{id:12, title: '잭콕', userName: '유저1', createDate: '2021.10.15', visible: true},
-		{ id:2, title: '잭콕', userName: '유저1', createDate: '2021.10.15', visible: false},	]
+		{ id:2, title: '잭콕2', userName: '유저1', createDate: '2021.10.15', visible: false},	]
 
 	const dummy2 = [
 		{
@@ -60,32 +60,32 @@ function AdminReport() {
             comment: {
                 id: "댓글 아이디",
                 nickname: "댓글 작성자 닉네임",
-                content: "댓글 내용",
+                content: "댓글 내용dlqsl",
                 createdate: "댓글 작성일"
             },
             count: "신고 횟수"
         },{
 			post: {
-                id: "게시글 아이디",
+                id: "게시글 아이디2",
                 nickname: "게시글 작성자 닉네임",
-                title: "게시글 제목",
-                content: "게시글 내용",
+                title: "게시글 제목2",
+                content: "게시글 내용입니다",
                 createdate: "게시글 작성일"
             },
             comment: { 
                 id: "댓글 아이디",
                 nickname: "댓글 작성자 닉네임",
-                content: "댓글 내용",
+                content: "댓글 내용입니다2",
                 createdate: "댓글 작성일"
             },
             count: "신고 횟수"
         }
 	]
-	console.log("?",dummy2[0].post.title)
 	return <>
 		<Header></Header>
-		<ReportBoards subtitle={'신고된 게시글'} boards={dummy} type='board'/>
-		<ReportBoards subtitle={'신고된 댓글이 포함된 게시글'} boards={dummy2} type='comment'/>
+		<ReportBoards boards={dummy} comments={dummy2} />
+		{/* <ReportBoards subtitle={'신고된 게시글'} boards={dummy} type='board'/>
+		<ReportBoards subtitle={'신고된 댓글이 포함된 게시글'} boards={dummy2} type='comment'/> */}
 		{/* <ReportBoards subtitle={'신고된 게시글'} boards={reports}/> */}
 		{/* <ReportBoards subtitle={'신고된 댓글이 포함된 게시글'} boards={reportsComent}/> */}
 	</>
