@@ -75,7 +75,7 @@ const Header = (props) => {
 	// 	sendData();
 	// }
 	if (error) return <div>{error}</div>
-	console.log(props)
+	console.log('props:', props)
 	var header = ''
 	if (props.right === 'board') {
 		header = <>
@@ -101,6 +101,13 @@ const Header = (props) => {
 			<User nickname={nickname} profile={profile} />
 		</>
 	} else if (props.right === 'write' || props.right === 'edit') {
+		console.log(props.board)
+		let submit = null
+		if (props.right === 'write') {
+			submit = <input id="completeBtn" type="submit" value="완료" onClick={(e) => props.clickEvent(e, props.board, "/boards")}></input>
+		} else {
+			submit = <input id="completeBtn" type="submit" value="완료" onClick={(e) => props.clickEvent(e, props.board)}/>
+		}
 		header = <div className="header">
 				<div className='exit'>
                     X
@@ -109,8 +116,7 @@ const Header = (props) => {
                 	<Link to='/' className='logo'>Hi Alcohol</Link>
                 </div>
                 <div className='completion'>
-                    {props.right === 'write' ? <input id="completeBtn" type="submit" value="완료" onClick={(e) => props.clickEvent.boardWrite(e, props.board, "/boards")}></input>
-						: <input id="completeBtn" type="submit" value="완료" onClick={(e) => props.clickEvent.boardEdit(e, props.board)}/>}
+					{submit}
                 </div>
 		</div>
 		return header;

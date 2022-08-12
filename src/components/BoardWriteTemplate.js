@@ -27,7 +27,6 @@ const BoardWriteTemplate = () => {
 					  }
 					}
 					)
-				console.log('res', response)
 				window.location.href = link
 			} catch (e) {
 				setError(e);

@@ -17,34 +17,33 @@ const BoardEditTemplate = (props) => {
 			images: props.images
 		})
 	}, [props])
-	
-	console.log('props: ', props)
-	console.log('boardEditTemplate', board)
 
 	const onChangeBoard = (e) => {
 		setBoard({
 			...board,
 			[e.target.name]: e.target.value
 		})
-		console.log(board)
 	}
 
 	const boardEdit = async (e, content) => {
-		console.log(content)
 		e.preventDefault();
-		const response = await axios.put('http://43.200.182.67:5000/boards/'+ params.id, 
-			content,
-			{headers: {
-				Authorization: `Bearer ${localStorage.getItem("token")}`,
+		try {
+			const response = await axios.put('http://43.200.182.67:5000/boards/'+ params.id, 
+				content,
+				{headers: {
+					Authorization: `Bearer ${localStorage.getItem("token")}`,
+					}
 				}
+			)
+			if (response.status == 200) {
+				window.location.href = "/board/" + params.id;
 			}
-		)
-		console.log('status:', response.status)
-		if (response.status == 200) {
-			// window.location.href = "/boards/" + params.id;
+		} catch(e) {
+			setError(e)
 		}
 	}
 
+	if (error) return <div>{error}</div>
 	return <div className='BoardWriteTemplate'>
            <form>
             <div className='main-title'>
