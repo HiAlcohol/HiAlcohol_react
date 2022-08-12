@@ -61,13 +61,7 @@ function BoardDetailPage() {
 	}
 
 	const modifyHandler = async () => {
-		// await axios.put('http://43.200.182.67:5000/boards/'+ params.id, 
-		// 	{}, 
-		// 	{headers: {
-		// 		Authorization: `Bearer ${localStorage.getItem("token")}`,
-		// 		}
-		// 	}
-		// 	)
+		window.location.href='/board/edit/' + params.id
 	}
 
 	return <div>

@@ -2,6 +2,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import Home from './pages/HomePage';
 import SearchList from './pages/SearchListPage';
 import BoardWrite from "./pages/board/BoardWritePage";
+import BoardEdit from "./pages/board/BoardEditPage";
 import Map from "./pages/MapPage";
 import Boards from "./pages/board/BoardListPage"
 import BoardDetailPage from "./pages/board/BoardDetailPage";
@@ -33,6 +34,7 @@ const App = () => {
       <Route path="/boards" element={<Boards />}/>
 	  <Route path="/board/:id" element={<BoardDetailPage/>}/>
       <Route path="/board/write" element={isLogin() ? <BoardWrite /> : <Navigate replace to="/boards"/>} />
+	  <Route path="/board/edit/:id" element={isLogin() ? <BoardEdit /> : <Navigate replace to="/boards"/>} />
 	  <Route path="/likes" element={isLogin() ? <LikeList/> : <Navigate replace to="/"/>}/>
 	  <Route path="/myboard" element={isLogin() ? <MyBoards /> : <Navigate replace to="/"/>}/>
 	  <Route path="/mbti/test" element={<MbtiTest/>}/>

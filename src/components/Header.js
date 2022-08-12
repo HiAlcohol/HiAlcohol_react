@@ -55,25 +55,25 @@ const Header = (props) => {
 		fetchUserInfo();
 	}, []);
 
-	const boardWrite = (e, board, link) => {
-		e.preventDefault();
-		const sendData = async () => {
-			try {
-				const response = await axios.post("http://43.200.182.67:5000/boards", 
-					board,
-					{headers: {
-						Authorization: `Bearer ${localStorage.getItem("token")}`,
-					  }
-					}
-					)
-				console.log('res', response)
-				window.location.href = link
-			} catch (e) {
-				setError(e);
-			}
-		}
-		sendData();
-	}
+	// const boardWrite = (e, board, link) => {
+	// 	e.preventDefault();
+	// 	const sendData = async () => {
+	// 		try {
+	// 			const response = await axios.post("http://43.200.182.67:5000/boards", 
+	// 				board,
+	// 				{headers: {
+	// 					Authorization: `Bearer ${localStorage.getItem("token")}`,
+	// 				  }
+	// 				}
+	// 				)
+	// 			console.log('res', response)
+	// 			window.location.href = link
+	// 		} catch (e) {
+	// 			setError(e);
+	// 		}
+	// 	}
+	// 	sendData();
+	// }
 	if (error) return <div>{error}</div>
 	console.log(props)
 	var header = ''
@@ -100,7 +100,7 @@ const Header = (props) => {
 		<>
 			<User nickname={nickname} profile={profile} />
 		</>
-	} else if (props.right === 'write') {
+	} else if (props.right === 'write' || props.right === 'edit') {
 		header = <div className="header">
 				<div className='exit'>
                     X
@@ -109,7 +109,8 @@ const Header = (props) => {
                 	<Link to='/' className='logo'>Hi Alcohol</Link>
                 </div>
                 <div className='completion'>
-                    <input id="completeBtn" type="submit" value="완료" onClick={(e) => boardWrite(e, props.board, "/boards")}></input>
+                    {props.right === 'write' ? <input id="completeBtn" type="submit" value="완료" onClick={(e) => props.clickEvent.boardWrite(e, props.board, "/boards")}></input>
+						: <input id="completeBtn" type="submit" value="완료" onClick={(e) => props.clickEvent.boardEdit(e, props.board)}/>}
                 </div>
 		</div>
 		return header;
