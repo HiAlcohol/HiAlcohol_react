@@ -20,16 +20,21 @@
 	color: white;
 	padding: 10px;
 	margin: 10px;
-	width: 100%;
 	// box-shadow: 0px 0px 10px rgba(11, 243, 188, 0.5);
 }
 
-.profile th p{
+.profile > th > p{
 	font-size: 15px;
+	margin: 0px;
 }
 
 .profile > td > input {
 	color: white;
 	background-color: transparent;
 	margin: 10px;
+}
+
+.profile_img {
+	display: block;
+	margin: 20px;
 }
