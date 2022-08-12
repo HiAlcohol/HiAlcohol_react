@@ -30,11 +30,8 @@ function BoardListItem({board}) {
 		</div>
 }
 function ListItem({board}) {
-	const [boardId, setBoardId] = useState(null);
-	const [commentId, setCommentId] = useState(null);
-	const [error, setError] = useState(null);
+
 	const reportHandler = (boardId, commentId) => {
-		console.log(boardId, commentId)
 
         // e.preventDefault();
 
@@ -45,18 +42,6 @@ function ListItem({board}) {
 		})
         .then((res) => console.log(res));
     }
-	const changeKey = (i) => {
-		console.log(i)
-        try {
-            setBoardId(board[i].post.id)
-			setCommentId(board[i].comment.id)
-			
-			reportHandler(boardId, commentId)
-        } catch(e) {
-            setError(e);
-        }
-    };
-
 
 	const commentItem=[]
 	for (let i = 0; i<board.length;i++) {
@@ -74,8 +59,7 @@ function ListItem({board}) {
 					</div>
 				</a>
 				<div className='visible' onClick={() => {
-					changeKey(i)
-                    
+			reportHandler(board[i].post.id, board[i].comment.id)
                  }}>{board[i].visible ? '숨김': '해제'}</div>
 			</div>
 			</>
@@ -89,7 +73,6 @@ function ListItem({board}) {
 	)
 }
 function ReportBoards({boards, comments}) {
-	// console.log(">>>", comments)
 	const comboard = comments.post
 	return <>
 		<div>
