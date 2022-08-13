@@ -18,6 +18,9 @@ function Menu(props) {
 			<a className="bm-item menu-item" href="/likes">
 				좋아요 리스트
 			</a>
+			<a className="bm-item menu-item" href="/suggestions">
+				건의 게시판
+			</a>
 			<a href='#'>
 				<div className="bm-item menu-item" onClick={logout}>
 					로그아웃
@@ -32,14 +35,17 @@ function Menu(props) {
 			<a className="bm-item menu-item" href="/likes">
 				좋아요 리스트
 			</a>
+			<a className="bm-item menu-item" href="/profile/edit">
+				회원정보 수정
+			</a>
+			<a className="bm-item menu-item" href="/suggestions">
+				건의 게시판
+			</a>
 			<a className="bm-item menu-item" href="/admin/reports/board">
 				신고 관리 페이지
 			</a>
 			<a className="bm-item menu-item" href="/admin/cocktail">
 				레시피 관리 페이지
-			</a>
-			<a className="bm-item menu-item" href="/profile/edit">
-				회원정보 수정
 			</a>
 			<a href='#'>
 				<div className="bm-item menu-item" onClick={logout}>
