@@ -76,21 +76,9 @@ function AddRecipeTemplate() {
 				<th><p>칵테일 이름</p></th>
 				<td><input type="text"  onChange={cocktailHandler}/></td>
 			</tr>
-            {/* <tr className="alcotype_box">
-				<th><p>술종류</p></th>
-				<td><input type="text" /></td>
-			</tr>
-            <tr className="alconame_box">
-				<th><p>(제품명)</p></th>
-				<td><input type="text"  /></td>
-			</tr> */}
             <tr className="cockinput_box">
 				<th><p>재료</p></th>
-				<td><input type="text" onChange={materialHandler}/>
-
-				{/* <button id="inputbtn" type="submit" onClick={addmaterial(material)}>재료추가+</button> */}
-				</td>
-				
+				<td><input type="text" onChange={materialHandler}/></td>
 			</tr>
 			<tr>
 			<div className="matzone"></div>
