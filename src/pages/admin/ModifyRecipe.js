@@ -56,6 +56,11 @@ function AddRecipeTemplate() {
 	}
 
 	const submitHandler = (e) => {
+		
+		const file = new FormData();
+		file.append('image',img)
+		for (const keyValue of file) console.log("K",keyValue);
+
         e.preventDefault();
 		console.log(material.length)
         let body = {
@@ -67,16 +72,22 @@ function AddRecipeTemplate() {
         };
 		console.log(body)
 		
-		let file = img
-		console.log("??", file)
 
     
 		axios.patch('http://43.200.182.67:5000/admin/recipe/', body,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
-		},file)
-        .then((res) => console.log(res));	
+		})
+        .then((res) => console.log(res));
+
+		// axios.patch('http://43.200.182.67:5000/admin/recipe/', file,
+        // {headers: {
+		// 	Authorization: `Bearer ${localStorage.getItem("token")}`,
+		// 	"Content-Type": "multipart/form-data",
+		//   }
+		// })
+        // .then((res) => console.log(res));	
 
 		// window.location.replace("/admin/cocktail");
         
@@ -85,9 +96,8 @@ function AddRecipeTemplate() {
 	const imgHandler = (e) => {
         e.preventDefault();
         SetImg(e.target.files[0])
-		const formData = new FormData();
-		formData.append('file',img)
-    for (const keyValue of formData) console.log("K",keyValue); 
+		
+     
     }
 
     return (
