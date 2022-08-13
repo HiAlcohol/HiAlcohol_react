@@ -1,7 +1,6 @@
 import '../../scss/board/BoardListItem.scss'
 import '../../scss/admin/Admin.scss'
 import axios from "axios";
-import { useState } from 'react';
 
 function BoardListItem({board}) {
 	const reportHandler = (e) => {
@@ -20,9 +19,9 @@ function BoardListItem({board}) {
 				<div className="subject">
 					<p>{board.title}</p>
 					<div className="info">
-						<span>{board.userName}</span>
+						<span>{board.nickname}</span>
 						<span> | </span>
-						<span>{board.createDate}</span>
+						<span>{board.createdate}</span>
 					</div>
 				</div>
 			</a>
