@@ -11,6 +11,7 @@ function AddRecipeTemplate() {
 	const [rate, SetRate] = useState("")
     const [content, SetContent] = useState("")
 	const [material, SetMaterial] = useState("")
+	const [img, SetImg] = useState("")
 	const params = useParams();
 
 	const [recipe , setRecipe] = useState(null);
@@ -31,6 +32,8 @@ function AddRecipeTemplate() {
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!recipe) return <div>데이터가 없습니다.</div>
 
+	console.log(recipe)
+
     const cocktailHandler = (e) => {
         e.preventDefault();
         SetCocktail(e.target.value);
@@ -47,12 +50,17 @@ function AddRecipeTemplate() {
         e.preventDefault();
         SetMaterial(e.target.value)
     }
+	
 	const cancleEvent = () => {
 		window.location.replace("/admin/cocktail")
 	}
 
-
 	const submitHandler = (e) => {
+		
+		const file = new FormData();
+		file.append('image',img)
+		for (const keyValue of file) console.log("K",keyValue);
+
         e.preventDefault();
 		console.log(material.length)
         let body = {
@@ -62,18 +70,35 @@ function AddRecipeTemplate() {
   			rate: rate ? rate : recipe[0].rate,
   			content: content ? content: recipe[0].content
         };
-		console.log("??", body)
+		console.log(body)
+		
+
     
-        // axios.patch('http://43.200.182.67:5000/admin/recipe/' + params.id, body,
+		axios.patch('http://43.200.182.67:5000/admin/recipe/', body,
+        {headers: {
+			Authorization: `Bearer ${localStorage.getItem("token")}`,
+		  }
+		})
+        .then((res) => console.log(res));
+
+		// axios.patch('http://43.200.182.67:5000/admin/recipe/', file,
         // {headers: {
 		// 	Authorization: `Bearer ${localStorage.getItem("token")}`,
+		// 	"Content-Type": "multipart/form-data",
 		//   }
 		// })
-        // .then((res) => console.log(res));
+        // .then((res) => console.log(res));	
+
 		// window.location.replace("/admin/cocktail");
         
     }
 
+	const imgHandler = (e) => {
+        e.preventDefault();
+        SetImg(e.target.files[0])
+		
+     
+    }
 
     return (
 
@@ -86,19 +111,10 @@ function AddRecipeTemplate() {
 				<th><p>칵테일 이름</p></th>
 				<td><input type="text" onChange={cocktailHandler} defaultValue={recipe[0].cocktail} /></td>
 			</tr>
-            {/* <tr className="alcotype_box">
-				<th><p>술종류</p></th>
-				<td><input type="text"  defaultValue={recipe[0].alcotype}/></td>
-			</tr>
-            <tr className="alconame_box">
-				<th><p>(제품명)</p></th>
-				<td><input type="text" defaultValue={recipe[0].product} /></td>
-			</tr> */}
             <tr className="cockinput_box">
 				<th><p>재료</p></th>
 				<td><input type="text" onChange={materialHandler} defaultValue={recipe[0].materials}/>
 				</td>
-				
 			</tr>
             <tr className="cockrate_box">
 				<th><p>비율</p></th>
@@ -110,7 +126,7 @@ function AddRecipeTemplate() {
 			</tr>
 			<tr className="cockimg">
 				<th><p>칵테일 사진 업로드 +</p></th>
-				<td><input type='file' accept='image/*'/></td>
+				<td><input type='file' accept='image/*' onChange={imgHandler}/></td>
 			</tr>
 		</table>
 		<div className="btnzone">

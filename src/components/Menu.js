@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import '../scss/Menu.scss';
 import {slide as Slide} from 'react-burger-menu'
-import styled from 'styled-components';
+// import styled from 'styled-components';
 
 function Menu(props) {
 	let menu_list = ''
@@ -12,6 +12,10 @@ function Menu(props) {
 	}
 	if (props.role === 'user') {
 		menu_list = <>
+		<a className="bm-item menu-item" href="/suggestions">
+				건의 게시판
+			</a>
+			<a className='menubar'>ㅡ</a>
 			<a className="bm-item menu-item" href="/myboard">
 				내가 쓴 꿀조합
 			</a>
@@ -26,17 +30,25 @@ function Menu(props) {
 		</>
 	} else if (props.role === 'admin') {
 		menu_list = <>
+		<a className="bm-item menu-item" href="/suggestions">
+				건의 게시판
+			</a>
+			<a className='menubar'>ㅡ</a>
 			<a className="bm-item menu-item" href="/myboard">
 				내가 쓴 꿀조합
 			</a>
 			<a className="bm-item menu-item" href="/likes">
 				좋아요 리스트
 			</a>
-			<a className="bm-item menu-item" href="/admin/reports/board">
-				관리자페이지
-			</a>
 			<a className="bm-item menu-item" href="/profile/edit">
 				회원정보 수정
+			</a>
+			<a className='menubar'>ㅡ</a>
+			<a className="bm-item menu-item" href="/admin/reports/board">
+				신고 관리 페이지
+			</a>
+			<a className="bm-item menu-item" href="/admin/cocktail">
+				레시피 관리 페이지
 			</a>
 			<a href='#'>
 				<div className="bm-item menu-item" onClick={logout}>

@@ -42,7 +42,7 @@ const SuggestionWritepage = () => {
         <div className='BoardWriteTemplate'>
            <form onSubmit={submitHandler}>
             <div className='main-title'>
-                <Header right='write'></Header>
+                <Header right='suggeswrite'></Header>
                 <div className='container'>
                     <div className='writeTitle'>
                         <input type='text' value={title} name='title' placeholder='제목' onChange={titleHandler}></input>
