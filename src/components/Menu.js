@@ -12,6 +12,7 @@ function Menu(props) {
 	}
 	if (props.role === 'user') {
 		menu_list = <>
+			<a className='menubar'>ㅡ</a>
 			<a className="bm-item menu-item" href="/myboard">
 				내가 쓴 꿀조합
 			</a>
@@ -29,6 +30,7 @@ function Menu(props) {
 		</>
 	} else if (props.role === 'admin') {
 		menu_list = <>
+			<a className='menubar'>ㅡ</a>
 			<a className="bm-item menu-item" href="/myboard">
 				내가 쓴 꿀조합
 			</a>
@@ -38,9 +40,7 @@ function Menu(props) {
 			<a className="bm-item menu-item" href="/profile/edit">
 				회원정보 수정
 			</a>
-			<a className="bm-item menu-item" href="/suggestions">
-				건의 게시판
-			</a>
+			<a className='menubar'>ㅡ</a>
 			<a className="bm-item menu-item" href="/admin/reports/board">
 				신고 관리 페이지
 			</a>
