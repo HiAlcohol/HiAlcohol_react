@@ -7,6 +7,7 @@ import React from "react";
 const SearchTemplate = () => {
     const params = new URLSearchParams(window.location.search);
     let key = params.get("keyword");
+    let link = '/cocktails/search?keyword='+key
 
     return (
     <>
@@ -14,10 +15,8 @@ const SearchTemplate = () => {
             <div className='search'>
                 <form method="get" action='/cocktails/search'>
                     <input type='text' name= 'keyword' placeholder="술 이름을 입력해주세요." />
-                    <button type='submit'>
-                        <Link to = {'/cocktails/search?keyword='+key}>
+                    <button type='submit' a href={link}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    </Link>
                     </button>
                 </form>
                 
