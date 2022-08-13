@@ -33,7 +33,10 @@ function Menu(props) {
 				좋아요 리스트
 			</a>
 			<a className="bm-item menu-item" href="/admin/reports/board">
-				관리자페이지
+				신고 관리 페이지
+			</a>
+			<a className="bm-item menu-item" href="/admin/cocktail">
+				레시피 관리 페이지
 			</a>
 			<a href='#'>
 				<div className="bm-item menu-item" onClick={logout}>

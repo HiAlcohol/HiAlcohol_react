@@ -43,10 +43,12 @@ const App = () => {
 	  <Route path="/admin/cocktail" element={isLogin() ? <AdminCocktail /> : <Navigate replace to="/"/>}/>
     <Route path= "/admin/cocktail/addrecipe" element={isLogin() ? <AddRecipe /> : <Navigate replace to="/"/>}/>
     <Route path= "/admin/cocktail/modifyrecipe/:id" element={isLogin() ? <ModifyRecipe /> : <Navigate replace to="/"/>}/>
+
+    
     <Route path= "/suggestions" element={<Suggestion />} />
     <Route path="/suggestions/:id" element={<SuggestionDetail />} />
-    <Route path = "/suggestion" element= {<SuggestionWrite />} />
-    <Route path="/suggestion/:id" element = {<SuggestionModify />} />
+    <Route path="/suggestion" element={isLogin() ? <SuggestionWrite /> : <Navigate replace to="/suggestions"/>} />
+    <Route path="/suggestion/:id" element={isLogin() ? <SuggestionModify /> : <Navigate replace to="/suggestions"/>} />
     </Routes>
   )
 };
