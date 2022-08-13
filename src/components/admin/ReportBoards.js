@@ -22,6 +22,8 @@ function BoardListItem({board}) {
 						<span>{board.nickname}</span>
 						<span> | </span>
 						<span>{board.createdate}</span>
+						<span> | </span>
+						<span>신고 누적 {board.count}</span>
 					</div>
 				</div>
 			</a>
@@ -51,9 +53,9 @@ function ListItem({board}) {
 					<div className="subject">
 						<p>{board[i].post.title}</p>
 						<div className="info">
-							<span>댓글 내용</span>
+						<span>{board[i].comment.content}</span>
 							<span> | </span>
-							<span>{board[i].comment.content}</span>
+							<span>신고 누적 {board[i].count}</span>
 						</div>
 					</div>
 				</a>
