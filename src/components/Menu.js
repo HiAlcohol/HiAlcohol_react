@@ -12,15 +12,15 @@ function Menu(props) {
 	}
 	if (props.role === 'user') {
 		menu_list = <>
+		<a className="bm-item menu-item" href="/suggestions">
+				건의 게시판
+			</a>
 			<a className='menubar'>ㅡ</a>
 			<a className="bm-item menu-item" href="/myboard">
 				내가 쓴 꿀조합
 			</a>
 			<a className="bm-item menu-item" href="/likes">
 				좋아요 리스트
-			</a>
-			<a className="bm-item menu-item" href="/suggestions">
-				건의 게시판
 			</a>
 			<a href='#'>
 				<div className="bm-item menu-item" onClick={logout}>
@@ -30,6 +30,9 @@ function Menu(props) {
 		</>
 	} else if (props.role === 'admin') {
 		menu_list = <>
+		<a className="bm-item menu-item" href="/suggestions">
+				건의 게시판
+			</a>
 			<a className='menubar'>ㅡ</a>
 			<a className="bm-item menu-item" href="/myboard">
 				내가 쓴 꿀조합
