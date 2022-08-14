@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import LikedBtn from '../../components/board/LikedBtn'
+import styled from 'styled-components'
 
 function BoardDetailPage() {
 	// const dummy = {
@@ -63,6 +64,12 @@ function BoardDetailPage() {
 	const modifyHandler = async () => {
 		window.location.href='/board/edit/' + params.id
 	}
+	let images = ''
+	if (board.images !== null) {
+		images = <div>
+		{board.images.map((image) => <img src={image} width="40%"/>)}
+	</div>
+	}
 
 	return <div>
 		<Header right='board'></Header>
@@ -81,6 +88,7 @@ function BoardDetailPage() {
 			<pre className='boardContent'>
 				{board.content}
 			</pre>
+			{images}
 			<div className='select'>
 				<div></div>
 				<button className='modify' onClick={modifyHandler}>수정</button>
