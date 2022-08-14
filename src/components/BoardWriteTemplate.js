@@ -25,8 +25,7 @@ const BoardWriteTemplate = () => {
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					  }
-					}
-					)
+					})
 				window.location.href = link
 			} catch (e) {
 				setError(e);

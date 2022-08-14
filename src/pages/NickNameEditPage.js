@@ -97,7 +97,7 @@ function NicknameEdit() {
 				formData,
 				{headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
-					"Content-Type": `multipart/form-data;`,
+					"Content-Type": `multipart/form-data`,
 				  }
 				});
 			setImage(response2.data.data.profile_url)
