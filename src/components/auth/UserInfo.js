@@ -19,7 +19,6 @@ export default async function UserInfo() {
 		setNickname(response.data.data.nickname)
 		setProfile(response.data.data.profile_url)
 		setRole(response.data.data.role)
-		console.log(response.data)
 	}
 	return {
 		nickname: nickname,

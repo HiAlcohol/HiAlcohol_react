@@ -5,7 +5,6 @@ import {slide as Slide} from 'react-burger-menu'
 
 function Menu(props) {
 	let menu_list = ''
-	console.log(props.role)
 	const logout = () => {
 		localStorage.removeItem('token')
 		window.location.href = "/"

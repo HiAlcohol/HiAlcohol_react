@@ -33,7 +33,6 @@ function Comment() {
         .then((res) => console.log(res));
     }
 	const delComment = async (i) => {
-		console.log(comments[i])
 		await axios.delete('http://43.200.182.67:5000/boards/'+params.id+'/comments/'+comments[i].commentId,
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,

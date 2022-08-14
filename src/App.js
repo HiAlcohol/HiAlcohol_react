@@ -21,7 +21,6 @@ import SuggestionWrite from "./pages/board/SuggestionWritePage";
 import SuggestionModify from "./pages/board/SuggestionModify"
 
 function isLogin() {
-	console.log(localStorage.getItem("token")?true:false)
 	return localStorage.getItem("token")?true:false;
 }
 
