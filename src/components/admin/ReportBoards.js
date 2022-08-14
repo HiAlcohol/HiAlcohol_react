@@ -12,6 +12,7 @@ function BoardListItem({board}) {
 		  }
 		})
         .then((res) => console.log(res));
+		window.location.reload(true);
         
     }
 	return <div className="content">
@@ -27,7 +28,7 @@ function BoardListItem({board}) {
 					</div>
 				</div>
 			</a>
-			<div className='visible' onClick={reportHandler}>{board.visible ? '숨김': '해제'}</div>
+			<div className='visible' onClick={reportHandler}>{board.blind ? '숨김': '해제'}</div>
 		</div>
 }
 function ListItem({board}) {
@@ -42,7 +43,9 @@ function ListItem({board}) {
 		  }
 		})
         .then((res) => console.log(res));
+		window.location.reload(true);
     }
+
 
 	const commentItem=[]
 	for (let i = 0; i<board.length;i++) {
@@ -61,7 +64,7 @@ function ListItem({board}) {
 				</a>
 				<div className='visible' onClick={() => {
 			reportHandler(board[i].post.id, board[i].comment.id)
-                 }}>{board[i].visible ? '숨김': '해제'}</div>
+                 }}>{board[i].comment.blind ? '숨김': '해제'}</div>
 			</div>
 			</>
 		)
