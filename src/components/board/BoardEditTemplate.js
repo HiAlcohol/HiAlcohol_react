@@ -24,7 +24,6 @@ const BoardEditTemplate = (props) => {
 			content: props.content,
 			// images: props.images
 		})
-		setImages(props.images)
 	}, [props])
 
 	const onChangeBoard = (e) => {
@@ -43,7 +42,12 @@ const BoardEditTemplate = (props) => {
 		e.preventDefault();
 		const fd = new FormData();
 		// Object.values(images).forEach((file) => fd.append("images",file))
-		fd.append("images", images)
+		console.log(images)
+		if (images === null) {
+			fd.append("images", props.images)
+		} else {
+			fd.append("images", images)
+		}
 		fd.append('title', content.title)
 		fd.append('content', content.content)
 		try {
@@ -66,7 +70,6 @@ const BoardEditTemplate = (props) => {
 
 	if (error) return <div>{error}</div>
 	return <div className='BoardWriteTemplate'>
-           <form>
             <div className='main-title'>
                 <Header right='edit' board={board} images={images} clickEvent={boardEdit}></Header>
                 <div className='container'>
@@ -81,7 +84,6 @@ const BoardEditTemplate = (props) => {
                     </div>
                 </div>
             </div>
-           </form>
         </div>
 }
 

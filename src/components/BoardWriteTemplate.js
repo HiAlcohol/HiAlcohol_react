@@ -53,7 +53,6 @@ const BoardWriteTemplate = () => {
 	if (error) return <div>{error}</div>;
     return (
         <div className='BoardWriteTemplate'>
-           <form>
             <div className='main-title'>
                 <Header right='write' board={board} images={images} clickEvent={boardWrite}></Header>
                 <div className='container'>
@@ -61,14 +60,14 @@ const BoardWriteTemplate = () => {
                         <input type='text' name="title" placeholder='제목' onChange={onChangeBoard}></input>
                     </div>
 					<div className="images">
-						<Images type="file" multiple="multiple" accept='image/*' onChange={onChangeImages}/>
+						{/* <Images type="file" multiple="multiple" accept='image/*' onChange={onChangeImages}/> */}
+						<Images type="file" accept='image/*' onChange={onChangeImages}/>
 					</div>
                     <div className='contents'>
                         <textarea name='content' placeholder='내용 입력' onChange={onChangeBoard}></textarea>
                     </div>
                 </div>
             </div>
-           </form>
         </div>
     );
 };
