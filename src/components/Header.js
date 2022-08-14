@@ -48,7 +48,6 @@ const Header = (props) => {
 					setRole(response.data.data.role)
 				}
 			} catch(e) {
-				console.log(e)
 				setError(e);
 			}
 		}
@@ -75,7 +74,6 @@ const Header = (props) => {
 	// 	sendData();
 	// }
 	if (error) return <div>{error}</div>
-	console.log('props:', props)
 	var header = ''
 	if (props.right === 'board') {
 		header = <>
@@ -104,9 +102,9 @@ const Header = (props) => {
 		
 		let submit = null
 		if (props.right === 'write') {
-			submit = <input id="completeBtn" type="submit" value="완료" onClick={(e) => props.clickEvent(e, props.board, "/boards")}></input>
+			submit = <input id="completeBtn" type="submit" value="완료" onClick={(e) => props.clickEvent(e, props.board, "/boards", props.images)}></input>
 		} else {
-			submit = <input id="completeBtn" type="submit" value="완료" onClick={(e) => props.clickEvent(e, props.board)}/>
+			submit = <input id="completeBtn" type="submit" value="완료" onClick={(e) => props.clickEvent(e, props.board, props.images)}/>
 		}
 		header = <div className="header">
 				<div className='exit'>

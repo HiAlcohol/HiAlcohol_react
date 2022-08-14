@@ -43,13 +43,13 @@ a {
 }
 
 .writeTitle {
-    width: 95%;
+    width: 100%;
     input{
 		background-color:#242424; 
 		height: 30px; 
-		width: 95%;
+		width: 90%;
 		color: white;
-		margin-bottom: 20px;
+		// margin-bottom: 20px;
 		border: none;
 		border-bottom: white 1px solid;
 		padding: 10px;
@@ -58,6 +58,10 @@ a {
         }
     }
     
+}
+
+.images {
+	width: 100%;
 }
 
 .contents {
