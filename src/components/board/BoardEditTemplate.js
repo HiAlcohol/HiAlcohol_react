@@ -22,7 +22,7 @@ const BoardEditTemplate = (props) => {
 		setBoard({
 			title: props.title,
 			content: props.content,
-			// images: props.images
+			images: props.images
 		})
 	}, [props])
 
@@ -31,6 +31,7 @@ const BoardEditTemplate = (props) => {
 			...board,
 			[e.target.name]: e.target.value
 		})
+		// console.log(e.target.value)
 	}
 
 	const onChangeImages = (e) => {
@@ -42,7 +43,6 @@ const BoardEditTemplate = (props) => {
 		e.preventDefault();
 		const fd = new FormData();
 		// Object.values(images).forEach((file) => fd.append("images",file))
-		console.log(images)
 		if (images === null) {
 			fd.append("images", props.images)
 		} else {
@@ -50,6 +50,7 @@ const BoardEditTemplate = (props) => {
 		}
 		fd.append('title', content.title)
 		fd.append('content', content.content)
+		console.log('fd', fd)
 		try {
 			const response = await axios.put('http://43.200.182.67:5000/boards/'+ params.id, 
 				fd,
