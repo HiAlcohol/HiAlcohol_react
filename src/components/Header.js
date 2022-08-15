@@ -108,7 +108,7 @@ const Header = (props) => {
 		}
 		header = <div className="header">
 				<div className='exit'>
-                    X
+				<Link to = '/boards'>X</Link>
                 </div>
                 <div className='Header'>
                 	<Link to='/' className='logo'>Hi Alcohol</Link>
