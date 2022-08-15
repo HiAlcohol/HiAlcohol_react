@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
 import Header from '../../components/Header'
 import "../../scss/admin/AddRecipe.scss"
 import { useParams } from 'react-router-dom'
@@ -11,7 +10,7 @@ function AddRecipeTemplate() {
 	const [rate, SetRate] = useState("")
     const [content, SetContent] = useState("")
 	const [material, SetMaterial] = useState("")
-	const [img, SetImg] = useState("")
+	const [img, SetImg] = useState(null)
 	const params = useParams();
 
 	const [recipe , setRecipe] = useState(null);
@@ -50,58 +49,43 @@ function AddRecipeTemplate() {
         e.preventDefault();
         SetMaterial(e.target.value)
     }
+	const imgHandler = (e) => {
+        e.preventDefault();
+        SetImg(e.target.files[0])
+    }
 	
 	const cancleEvent = () => {
 		window.location.replace("/admin/cocktail")
 	}
 
 	const submitHandler = (e) => {
-		
-		const file = new FormData();
-		file.append('image',img)
-		for (const keyValue of file) console.log("K",keyValue);
+		e.preventDefault();
 
-        e.preventDefault();
-		console.log(material.length)
-        let body = {
-			id : keyId,
-            cocktail : cocktail ? cocktail : recipe[0].cocktail,
- 			materials: material ? material.split(',') : recipe[0].materials,
-  			rate: rate ? rate : recipe[0].rate,
-  			content: content ? content: recipe[0].content
-        };
-		console.log(body)
+		const formData = new FormData();
+
+		formData.append('id', keyId)
+		formData.append('cocktail', cocktail ? cocktail : recipe[0].cocktail)
+		formData.append('materials', material ? material.split(',') : recipe[0].materials)
+		formData.append('rate', rate ? rate : recipe[0].rate)
+		formData.append('content', content ? content: recipe[0].content)
+
+		formData.append('image',img)
+		for (const keyValue of formData) console.log("K",keyValue);
 		
 
-    
-		axios.patch('http://43.200.182.67:5000/admin/recipe/', body,
+		axios.patch('http://43.200.182.67:5000/admin/recipe/',formData,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
+			"Content-Type": `multipart/form-data; `,
 		  }
 		})
-        .then((res) => console.log(res));
-
-		// axios.patch('http://43.200.182.67:5000/admin/recipe/', file,
-        // {headers: {
-		// 	Authorization: `Bearer ${localStorage.getItem("token")}`,
-		// 	"Content-Type": "multipart/form-data",
-		//   }
-		// })
-        // .then((res) => console.log(res));	
+        .then((res) => console.log(res));	
 
 		// window.location.replace("/admin/cocktail");
         
     }
 
-	const imgHandler = (e) => {
-        e.preventDefault();
-        SetImg(e.target.files[0])
-		
-     
-    }
-
     return (
-
         <>
         <Header right='common' />
         <p className="add_title">레시피 수정</p>
@@ -126,15 +110,13 @@ function AddRecipeTemplate() {
 			</tr>
 			<tr className="cockimg">
 				<th><p>칵테일 사진 업로드 +</p></th>
-				<td><input type='file' accept='image/*' onChange={imgHandler}/></td>
+				<td><input type='file' multiple="multiple" accept='image/*' onChange={imgHandler}/></td>
 			</tr>
 		</table>
 		<div className="btnzone">
 			<button id = "canclebtn" onClick={cancleEvent}>취소</button>
 			<button id = "okbtn" onClick={submitHandler}>확인</button>
 		</div>
-
-        
         </>
     );
 };
