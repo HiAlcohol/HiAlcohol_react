@@ -25,7 +25,7 @@ function BoardDetailPage() {
 	useEffect(() => {
 		const fetchBoard = async () => {
 			try {
-				const response = await axios.get('http://hialcohol.p-e.kr/boards/' + params.id,
+				const response = await axios.get('https://hialcohol.p-e.kr/boards/' + params.id,
 				{headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
 				  }
@@ -42,7 +42,7 @@ function BoardDetailPage() {
 	if (!board) return <div>데이터가 없습니다.</div>
 	
 	const ReportHandler = (i) => {
-        axios.post('http://hialcohol.p-e.kr/reports/board/'+params.id, null,
+        axios.post('https://hialcohol.p-e.kr/reports/board/'+params.id, null,
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
@@ -53,7 +53,7 @@ function BoardDetailPage() {
 
 	const deleteHandler = async () => {
 		try {
-			const response = await axios.delete('http://hialcohol.p-e.kr/boards/'+ params.id, 
+			const response = await axios.delete('https://hialcohol.p-e.kr/boards/'+ params.id, 
 				{headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
 					}

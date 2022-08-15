@@ -44,7 +44,7 @@ function SearchListItem(props) {
 	useEffect(() => {
 		const fetchSearch = async () => {
 			try {
-				const response = await axios.get('http://hialcohol.p-e.kr/cocktails/search?keyword='+keyword);
+				const response = await axios.get('https://hialcohol.p-e.kr/cocktails/search?keyword='+keyword);
 				setRecipes(response.data.data);
 			} catch(e) {
 				setError(e);

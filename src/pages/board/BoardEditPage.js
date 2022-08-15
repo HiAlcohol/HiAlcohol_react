@@ -12,7 +12,7 @@ const BoardEdit = () => {
 	useEffect(() => {
 		const initBoard = async () => {
 			try {
-				const response = await axios.get('http://hialcohol.p-e.kr/boards/' + params.id,
+				const response = await axios.get('https://hialcohol.p-e.kr/boards/' + params.id,
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					}

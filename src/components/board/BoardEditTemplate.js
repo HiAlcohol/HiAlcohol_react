@@ -69,7 +69,7 @@ const BoardEditTemplate = (props) => {
 		fd.append('content', content.content)
 		console.log('fd', fd)
 		try {
-			const response = await axios.put('http://hialcohol.p-e.kr/boards/'+ params.id, 
+			const response = await axios.put('https://hialcohol.p-e.kr/boards/'+ params.id, 
 				fd,
 				{headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -88,7 +88,7 @@ const BoardEditTemplate = (props) => {
 
 	const imageDel = async (e) => {
 		try {
-			await axios.delete('http://hialcohol.p-e.kr/boards/' + params.id + '/images',
+			await axios.delete('https://hialcohol.p-e.kr/boards/' + params.id + '/images',
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 				"Content-Type": `multipart/form-data; `,

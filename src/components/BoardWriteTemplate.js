@@ -37,7 +37,7 @@ const BoardWriteTemplate = () => {
 			fd.append("title", board.title)
 			fd.append("content", board.content)
 			try {
-				const response = await axios.post("http://hialcohol.p-e.kr/boards", 
+				const response = await axios.post("https://hialcohol.p-e.kr/boards", 
 					fd,
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,

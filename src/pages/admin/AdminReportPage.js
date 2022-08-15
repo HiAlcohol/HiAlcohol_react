@@ -14,7 +14,7 @@ function AdminReport() {
 			try {
 				console.log('렌더링이 완료되었습니다!');
 				const response = await axios.get(
-					'http://hialcohol.p-e.kr/admin/reports/board',
+					'https://hialcohol.p-e.kr/admin/reports/board',
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					  }
@@ -30,7 +30,7 @@ function AdminReport() {
 			try {
 				console.log('렌더링이 완료되었습니다!');
 				const response = await axios.get(
-					'http://hialcohol.p-e.kr/admin/reports/comment',
+					'https://hialcohol.p-e.kr/admin/reports/comment',
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					  }

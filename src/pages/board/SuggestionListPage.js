@@ -15,7 +15,7 @@ function Suggestion() {
 			try {
 				console.log('렌더링이 완료되었습니다!');
 				const response = await axios.get(
-					'http://hialcohol.p-e.kr/suggestions',
+					'https://hialcohol.p-e.kr/suggestions',
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					  }
@@ -33,7 +33,7 @@ function Suggestion() {
 	const selected = async (e) => {
 		setSelected(e.target.value);
 		const response = await axios.get(
-			'http://hialcohol.p-e.kr/suggestions?option='+e.target.value
+			'https://hialcohol.p-e.kr/suggestions?option='+e.target.value
 		);
 		setSuggestions(response.data.data);
 	}

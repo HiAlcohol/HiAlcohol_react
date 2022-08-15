@@ -27,7 +27,7 @@ const SuggestionWritepage = () => {
             content : content
         };
     
-        axios.post('http://hialcohol.p-e.kr/suggestion', body,
+        axios.post('https://hialcohol.p-e.kr/suggestion', body,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }

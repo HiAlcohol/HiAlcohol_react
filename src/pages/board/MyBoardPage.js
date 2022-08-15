@@ -12,7 +12,7 @@ function MyBoards() {
 			console.log(1);
 			try {
 				if (localStorage.getItem("token")) {
-					const response = await axios.get('http://hialcohol.p-e.kr/users/boards', 
+					const response = await axios.get('https://hialcohol.p-e.kr/users/boards', 
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					}

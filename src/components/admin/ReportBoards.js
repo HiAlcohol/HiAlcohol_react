@@ -6,7 +6,7 @@ function BoardListItem({board}) {
 	const reportHandler = (e) => {
         e.preventDefault();
 
-        axios.patch('http://hialcohol.p-e.kr/admin/reports/board/'+board.id, null,
+        axios.patch('https://hialcohol.p-e.kr/admin/reports/board/'+board.id, null,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
@@ -37,7 +37,7 @@ function ListItem({board}) {
 
         // e.preventDefault();
 
-        axios.patch('http://hialcohol.p-e.kr/admin/reports/board/'+boardId+'/comment/'+commentId, null,
+        axios.patch('https://hialcohol.p-e.kr/admin/reports/board/'+boardId+'/comment/'+commentId, null,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }

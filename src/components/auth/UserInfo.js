@@ -11,7 +11,7 @@ export default async function UserInfo() {
 	
 	if (token) {
 		const header = {'token': token}
-		const response = await axios.get("http://hialcohol.p-e.kr/users", 
+		const response = await axios.get("https://hialcohol.p-e.kr/users", 
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 			}

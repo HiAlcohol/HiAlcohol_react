@@ -20,7 +20,7 @@ function MbtiResult() {
 	useEffect(() => {
 		const fetchMbti = async () => {
 			try {
-				const response = await axios.get('http://hialcohol.p-e.kr/mbti?result=' + params)
+				const response = await axios.get('https://hialcohol.p-e.kr/mbti?result=' + params)
 				setMbti(response.data.data.mbti)
 			} catch (e) {
 				setError(e)

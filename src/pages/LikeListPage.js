@@ -18,7 +18,7 @@ function LikeList() {
 			try {
 				console.log('렌더링이 완료되었습니다!');
 				const response = await axios.get(
-					'http://hialcohol.p-e.kr/users/likes',
+					'https://hialcohol.p-e.kr/users/likes',
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 						}
@@ -37,7 +37,7 @@ function LikeList() {
 		setSelected(e.target.value);
 		// header 에 토큰 추가
 		const response = await axios.get(
-			'http://hialcohol.p-e.kr/users/likes'
+			'https://hialcohol.p-e.kr/users/likes'
 		);
 		setBoards(response.data.data);
 	}

@@ -25,7 +25,7 @@ const Homepage = () => {
 
 		const fetchHome = async () => {
 			try {
-				const response = await axios.get('http://hialcohol.p-e.kr/');
+				const response = await axios.get('https://hialcohol.p-e.kr/');
 				setRandom(response.data.data);
 			} catch(e) {
 				setError(e);

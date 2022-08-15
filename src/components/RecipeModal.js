@@ -9,7 +9,7 @@ function RecipeModal(props) {
     useEffect(() => {
 		const fetchBoard = async () => {
 			try {
-				const response = await axios.get('http://hialcohol.p-e.kr/cocktails/recipe/'+ keyId );
+				const response = await axios.get('https://hialcohol.p-e.kr/cocktails/recipe/'+ keyId );
 				setRecipe(response.data.data);
 			} catch(e) {
 				setError(e);

@@ -10,14 +10,14 @@ const LikedBtn = (props) => {
 	const liked = async () => {
 		if (props.likeSelection === true) {
 			// 취소
-			const response = await axios.delete('http://43.200.182.67:5000/'+link+'/' + props.id + '/like',
+			const response = await axios.delete('https://hialcohol.p-e.kr/'+link+'/' + props.id + '/like',
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			  }
 			});
 			console.log('취소')
 		} else {
-			const response = await axios.post('http://43.200.182.67:5000/'+link+'/' + props.id + '/like', null,
+			const response = await axios.post('https://hialcohol.p-e.kr/'+link+'/' + props.id + '/like', null,
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			  }

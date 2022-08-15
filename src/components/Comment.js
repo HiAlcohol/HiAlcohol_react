@@ -11,7 +11,7 @@ function Comment() {
 	useEffect(() => {
 		const fetchComment = async () => {
 			try {
-				const response = await axios.get('http://hialcohol.p-e.kr/boards/' + params.id + '/comments');
+				const response = await axios.get('https://hialcohol.p-e.kr/boards/' + params.id + '/comments');
 				setComments(response.data.data);
 			} catch(e) {
 				setError(e);
@@ -25,7 +25,7 @@ function Comment() {
 	if (!comments) return <div>댓글 api 호출 실패</div>
 
 	const commentReportHandler = (i) => {
-        axios.post('http://hialcohol.p-e.kr/reports/board/'+params.id+'/comment/'+comments[i].commentId, null,
+        axios.post('https://hialcohol.p-e.kr/reports/board/'+params.id+'/comment/'+comments[i].commentId, null,
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
@@ -33,7 +33,7 @@ function Comment() {
         .then((res) => console.log(res));
     }
 	const delComment = async (i) => {
-		await axios.delete('http://hialcohol.p-e.kr/boards/'+params.id+'/comments/'+comments[i].commentId,
+		await axios.delete('https://hialcohol.p-e.kr/boards/'+params.id+'/comments/'+comments[i].commentId,
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
@@ -41,7 +41,7 @@ function Comment() {
 		window.location.reload();
 	}
 	const addComment = async () => {
-		await axios.post('http://hialcohol.p-e.kr/boards/'+params.id+'/comments',
+		await axios.post('https://hialcohol.p-e.kr/boards/'+params.id+'/comments',
 		{content: comment},
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
