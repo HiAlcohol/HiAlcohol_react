@@ -9,7 +9,7 @@ function AddRecipeTemplate() {
 	const [rate, SetRate] = useState("")
     const [content, SetContent] = useState("")
 	const [material, SetMaterial] = useState("")
-	const [image, SetImage] = useState("")
+	const [img, SetImage] = useState("")
 
     const cocktailHandler = (e) => {
         e.preventDefault();
@@ -30,9 +30,6 @@ function AddRecipeTemplate() {
 	const imgHandler = (e) => {
         e.preventDefault();
         SetImage(e.target.files[0])
-		const formData = new FormData();
-		formData.append('file',image)
-    for (const keyValue of formData) console.log("K",keyValue); 
     }
 
 	const cancleEvent = () => {
@@ -42,25 +39,29 @@ function AddRecipeTemplate() {
     const submitHandler = (e) => {
         e.preventDefault();
 
-        let body = {
-            cocktail : cocktail,
- 			materials: material.split(','),
-  			rate: rate,
-  			content: content,
-			image
-        };
-		console.log("??", body)
+		const formData = new FormData();
 
+		const mat = material.split(',')
+
+		formData.append('cocktail', cocktail)
+		for (var i=0; i<mat.length; i++){
+			formData.append('materials[]', mat[i])
+		}
+		formData.append('rate', rate)
+		formData.append('content', content)
+
+		formData.append('image',img)
+		for (const keyValue of formData) console.log("K",keyValue);
     
-		axios.post('http://43.200.182.67:5000/admin/recipe', body,
+		axios.post('http://43.200.182.67:5000/admin/recipe', formData,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
+			"Content-Type": `multipart/form-data; `,
 		  }
-		},
-		image)
+		})
         .then((res) => console.log(res));
 
-		// window.location.replace("/admin/cocktail");
+		window.location.replace("/admin/cocktail");
         
     }
 
@@ -93,7 +94,7 @@ function AddRecipeTemplate() {
 			</tr>
 			<tr className="cockimg">
 				<th><p>칵테일 사진 업로드 +</p></th>
-				<td><input type='file' accept='image/*' onChange={imgHandler}/></td>
+				<td><input type='file' multiple="multiple" accept='image/*' onChange={imgHandler}/></td>
 			</tr>
 		</table>
 		<div className="btnzone">
