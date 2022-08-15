@@ -63,11 +63,14 @@ function AddRecipeTemplate() {
 
 		const formData = new FormData();
 
+		const mat = material.split(',')
 		formData.append('id', keyId)
 		formData.append('cocktail', cocktail ? cocktail : recipe[0].cocktail)
-		formData.append('materials', material ? material.split(',') : recipe[0].materials)
+		for (var i=0; i<mat.length; i++){
+			formData.append('materials[]', mat[i])
+		}
 		formData.append('rate', rate ? rate : recipe[0].rate)
-		formData.append('content', content ? content: recipe[0].content)
+		formData.append('content', recipe[0].content)
 
 		formData.append('image',img)
 		for (const keyValue of formData) console.log("K",keyValue);
@@ -81,7 +84,7 @@ function AddRecipeTemplate() {
 		})
         .then((res) => console.log(res));	
 
-		// window.location.replace("/admin/cocktail");
+		window.location.replace("/admin/cocktail");
         
     }
 
