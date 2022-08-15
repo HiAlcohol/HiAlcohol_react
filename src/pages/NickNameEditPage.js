@@ -36,7 +36,7 @@ function NicknameEdit() {
 	useEffect(() => {
 		const initUser = async () => {
 			try {
-				const response = await axios.get('http://43.200.182.67:5000/users',
+				const response = await axios.get('http://hialcohol.p-e.kr/users',
 				{headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
 				  }
@@ -82,7 +82,7 @@ function NicknameEdit() {
 		formData.append('profile_url', image)
 		console.log('formdata', formData)
 		try {
-			await axios.put('http://43.200.182.67:5000/users',
+			await axios.put('http://hialcohol.p-e.kr/users',
 				{nickname: nick},
 				{headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -93,7 +93,7 @@ function NicknameEdit() {
 			console.log('닉네임 수정 오류')
 		}
 		try {
-			const response2 = await axios.post('http://43.200.182.67:5000/users/image',
+			const response2 = await axios.post('http://hialcohol.p-e.kr/users/image',
 				formData,
 				{headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,

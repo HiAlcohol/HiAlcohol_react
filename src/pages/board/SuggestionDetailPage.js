@@ -15,7 +15,7 @@ function SuggestionDetailPage() {
 	useEffect(() => {
 		const fetchSuggestion = async () => {
 			try {
-				const response = await axios.get('http://43.200.182.67:5000/suggestion/' + params.id,
+				const response = await axios.get('http://hialcohol.p-e.kr/suggestion/' + params.id,
 				{headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
 				  }
@@ -34,7 +34,7 @@ function SuggestionDetailPage() {
 	if (!suggestion) return <div>데이터가 없습니다.</div>
 
 	const deleteHandler = async () => {
-		const response = await axios.delete('http://43.200.182.67:5000/suggestion/' + params.id ,
+		const response = await axios.delete('http://hialcohol.p-e.kr/suggestion/' + params.id ,
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			  }

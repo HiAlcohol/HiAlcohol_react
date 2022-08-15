@@ -38,7 +38,7 @@ const Header = (props) => {
 		const fetchUserInfo = async () => {
 			try {
 				if (token) {
-					const response = await axios.get("http://43.200.182.67:5000/users", 
+					const response = await axios.get("http://hialcohol.p-e.kr/users", 
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					  }
@@ -58,7 +58,7 @@ const Header = (props) => {
 	// 	e.preventDefault();
 	// 	const sendData = async () => {
 	// 		try {
-	// 			const response = await axios.post("http://43.200.182.67:5000/boards", 
+	// 			const response = await axios.post("http://hialcohol.p-e.kr/boards", 
 	// 				board,
 	// 				{headers: {
 	// 					Authorization: `Bearer ${localStorage.getItem("token")}`,

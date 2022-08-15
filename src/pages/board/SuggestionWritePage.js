@@ -27,7 +27,7 @@ const SuggestionWritepage = () => {
             content : content
         };
     
-        axios.post('http://43.200.182.67:5000/suggestion', body,
+        axios.post('http://hialcohol.p-e.kr/suggestion', body,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }

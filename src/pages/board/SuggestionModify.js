@@ -16,7 +16,7 @@ const SuggestionWritepage = () => {
 	useEffect(() => {
 		const fetchSuggestion = async () => {
 			try {
-				const response = await axios.get('http://43.200.182.67:5000/suggestion/' + params.id);
+				const response = await axios.get('http://hialcohol.p-e.kr/suggestion/' + params.id);
 				setSuggestion(response.data.data);
 				// console.log(response.data.data)
 			} catch(e) {
@@ -50,7 +50,7 @@ const SuggestionWritepage = () => {
         };
         console.log(body)
     
-        axios.patch('http://43.200.182.67:5000/suggestion/'+params.id, body,
+        axios.patch('http://hialcohol.p-e.kr/suggestion/'+params.id, body,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }

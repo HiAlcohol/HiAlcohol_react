@@ -53,7 +53,7 @@ function AddRecipeTemplate() {
 		formData.append('image',img)
 		for (const keyValue of formData) console.log("K",keyValue);
     
-		axios.post('http://43.200.182.67:5000/admin/recipe', formData,
+		axios.post('http://hialcohol.p-e.kr/admin/recipe', formData,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 			"Content-Type": `multipart/form-data; `,

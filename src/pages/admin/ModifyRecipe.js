@@ -20,7 +20,7 @@ function AddRecipeTemplate() {
     useEffect(() => {
 		const fetchBoard = async () => {
 			try {
-				const response = await axios.get('http://43.200.182.67:5000/cocktails/recipe/'+ keyId );
+				const response = await axios.get('http://hialcohol.p-e.kr/cocktails/recipe/'+ keyId );
 				setRecipe(response.data.data);
 			} catch(e) {
 				setError(e);
@@ -76,7 +76,7 @@ function AddRecipeTemplate() {
 		for (const keyValue of formData) console.log("K",keyValue);
 		
 
-		axios.patch('http://43.200.182.67:5000/admin/recipe/',formData,
+		axios.patch('http://hialcohol.p-e.kr/admin/recipe/',formData,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 			"Content-Type": `multipart/form-data; `,
