@@ -8,7 +8,7 @@ const BoardEdit = () => {
 	const params = useParams();
 	const [title, setTitle] = useState('');
 	const [content, setContent] = useState('');
-	const [images, setImages] = useState([]);
+	const [images, setImages] = useState(null);
 	useEffect(() => {
 		const initBoard = async () => {
 			try {

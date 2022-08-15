@@ -10,6 +10,22 @@ const Images = styled.input`
 	margin: 20px 0 20px 0;
 	width:90%;
 `
+const CurImg = styled.button`
+	background: initial;
+	color: white;
+	border: 1px solid white;
+	border-radius: 5px;
+	padding: 5px;
+	margin: 10px 0px 0px 20px;
+	display: block;
+	img {
+		padding: 5px;
+	}
+	p{
+		font-size: 13px;
+		cursor: pointer;
+	}
+`
 
 const BoardEditTemplate = (props) => {
 	const [error, setError] = useState(null);
@@ -37,6 +53,7 @@ const BoardEditTemplate = (props) => {
 	const onChangeImages = (e) => {
 		// setImages(e.target.files)
 		setImages(e.target.files[0])
+
 	}
 
 	const boardEdit = async (e, content, images) => {
@@ -69,7 +86,33 @@ const BoardEditTemplate = (props) => {
 		}
 	}
 
+	const imageDel = async (e) => {
+		try {
+			await axios.delete('http://43.200.182.67:5000/boards/' + params.id + '/images',
+			{headers: {
+				Authorization: `Bearer ${localStorage.getItem("token")}`,
+				"Content-Type": `multipart/form-data; `,
+				}
+			})
+		} catch(e) {
+			setError(e);
+		}
+		setBoard({
+			...board,
+			images: null
+		})
+	}
+
 	if (error) return <div>{error}</div>
+	let preview = ''
+	console.log(board.images)
+	if (board.images != undefined || board.images != null) {
+		preview = <CurImg onClick={imageDel}>
+		<img src={board.images} name="image" width="50px"/>
+		<p>{'X'}</p>
+		</CurImg>
+	}
+	console.log('images: ', images)
 	return <div className='BoardWriteTemplate'>
             <div className='main-title'>
                 <Header right='edit' board={board} images={images} clickEvent={boardEdit}></Header>
@@ -78,6 +121,7 @@ const BoardEditTemplate = (props) => {
                         <input type='text' name="title" placeholder='제목' onChange={onChangeBoard} defaultValue={board.title}></input>
                     </div>
 					<div className="images">
+						{preview}
 						<Images type="file" multiple="multiple" accept='image/*' name="images" onChange={onChangeImages}/>
 					</div>
                     <div className='contents'>
