@@ -64,7 +64,7 @@ function ListItem({board}) {
 				</a>
 				<div className='visible' onClick={() => {
 			reportHandler(board[i].post.id, board[i].comment.id)
-                 }}>{board[i].comment.blind ? '숨김': '해제'}</div>
+                 }}>{board[i].comment.blind ? '해제': '숨김'}</div>
 			</div>
 			</>
 		)
