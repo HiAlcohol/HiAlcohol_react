@@ -30,7 +30,7 @@ function Comment() {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
 		})
-        .then((res) => console.log(res));
+        .then((res) => alert(res.data.message));
     }
 	const delComment = async (i) => {
 		await axios.delete('https://hialcohol.p-e.kr/boards/'+params.id+'/comments/'+comments[i].commentId,
