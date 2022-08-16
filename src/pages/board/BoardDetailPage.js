@@ -41,13 +41,13 @@ function BoardDetailPage() {
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!board) return <div>데이터가 없습니다.</div>
 	
-	const ReportHandler = (i) => {
+	const ReportHandler = () => {
         axios.post('https://hialcohol.p-e.kr/reports/board/'+params.id, null,
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
 		})
-        .then((res) => console.log(res));
+        .then((res) =>alert(res.data.message));
     }
 	console.log(board)
 

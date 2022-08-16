@@ -8,6 +8,7 @@ const SuggestionWritepage = () => {
 
     const [title, SetTitle] = useState("")
     const [content, SetContent] = useState("")
+	const [error, setError] = useState(null);
 
     const titleHandler = (e) => {
         e.preventDefault();
@@ -18,29 +19,40 @@ const SuggestionWritepage = () => {
         SetContent(e.target.value);
     }
 
-    const submitHandler = (e) => {
-        e.preventDefault();
-        console.log(title, content);
-
-        let body = {
-            title : title,
-            content : content
-        };
+    const suggeWrite = (e) => {
+		e.preventDefault();
+        const submitHandler = async () => {
+            console.log(title, content);
     
-        axios.post('https://hialcohol.p-e.kr/suggestion', body,
-        {headers: {
-			Authorization: `Bearer ${localStorage.getItem("token")}`,
-		  }
-		})
-        .then((res) => console.log(res));
-        
-    window.location.replace("suggestions");
-    }
+            let body = {
+                title : title,
+                content : content
+            };
+            console.log('\?');
+            try {
+                console.log('렌더링이 완료되었습니다!');
+                const response = await  axios.post('https://hialcohol.p-e.kr/suggestion', body,
+                {headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`,
+                  }
+                });
+                
+            } catch(e) {
+                setError(e);
+            }
+           
+        window.location.replace("suggestions");
+        };
+        submitHandler();
+	}
+    
+
+  
 
     
     return (
         <div className='BoardWriteTemplate'>
-           <form onSubmit={submitHandler}>
+           <form onSubmit={suggeWrite}>
             <div className='main-title'>
                 <Header right='suggeswrite'></Header>
                 <div className='container'>

@@ -3,10 +3,10 @@ import '../../scss/admin/Admin.scss'
 import axios from "axios";
 
 function BoardListItem({board}) {
-	const reportHandler = (e) => {
+	const reportHandler = async (e) => {
         e.preventDefault();
 
-        axios.patch('https://hialcohol.p-e.kr/admin/reports/board/'+board.id, null,
+        await axios.patch('https://hialcohol.p-e.kr/admin/reports/board/'+board.id, null,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
@@ -28,7 +28,7 @@ function BoardListItem({board}) {
 					</div>
 				</div>
 			</a>
-			<div className='visible' onClick={reportHandler}>{board.blind ? '숨김': '해제'}</div>
+			<div className='visible' onClick={reportHandler}>{board.blind ? '해제': '숨김'}</div>
 		</div>
 }
 function ListItem({board}) {
@@ -64,7 +64,7 @@ function ListItem({board}) {
 				</a>
 				<div className='visible' onClick={() => {
 			reportHandler(board[i].post.id, board[i].comment.id)
-                 }}>{board[i].comment.blind ? '숨김': '해제'}</div>
+                 }}>{board[i].comment.blind ? '해제': '숨김'}</div>
 			</div>
 			</>
 		)

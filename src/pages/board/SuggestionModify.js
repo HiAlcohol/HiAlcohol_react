@@ -38,32 +38,38 @@ const SuggestionWritepage = () => {
         e.preventDefault();
         SetContent(e.target.value);
     }
-
-    const submitHandler = (e) => {
+    const suggeWrite = (e) => {
         e.preventDefault();
-        console.log(title, content);
-
-        let body = {
-            id : params.id,
-            title : title ? title : suggestion[0].title,
-            content : content ? content : suggestion[0].content
-        };
-        console.log(body)
+        const submitHandler = async () => {
+            console.log("?",params.id);
+            e.preventDefault();
+            console.log(title, content);
     
-        axios.patch('https://hialcohol.p-e.kr/suggestion/'+params.id, body,
-        {headers: {
-			Authorization: `Bearer ${localStorage.getItem("token")}`,
-		  }
-		})
-        .then((res) => console.log(res));
+            let body = {
+                id : params.id,
+                title : title ? title : suggestion[0].title,
+                content : content ? content : suggestion[0].content
+            };
+            console.log(body)
         
-    window.location.replace("/suggestions");
-    }
+            axios.patch('https://hialcohol.p-e.kr/suggestion/'+params.id, body,
+            {headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              }
+            })
+            .then((res) => console.log(res));
+            
+        window.location.replace("/suggestions");
+        };
+        submitHandler();
+	}
+
+    
 
     
     return (
         <div className='BoardWriteTemplate'>
-           <form onSubmit={submitHandler}>
+           <form onSubmit={suggeWrite}>
             <div className='main-title'>
                 <Header right='suggeswrite'></Header>
                 <div className='container'>

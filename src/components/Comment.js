@@ -24,13 +24,13 @@ function Comment() {
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!comments) return <div>댓글 api 호출 실패</div>
 
-	const commentReportHandler = (i) => {
-        axios.post('https://hialcohol.p-e.kr/reports/board/'+params.id+'/comment/'+comments[i].commentId, null,
+	const commentReportHandler = async (i) => {
+        await axios.post('https://hialcohol.p-e.kr/reports/board/'+params.id+'/comment/'+comments[i].commentId, null,
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
 		})
-        .then((res) => console.log(res));
+        .then((res) => alert(res.data.message));
     }
 	const delComment = async (i) => {
 		await axios.delete('https://hialcohol.p-e.kr/boards/'+params.id+'/comments/'+comments[i].commentId,
