@@ -57,9 +57,7 @@ function AddRecipeTemplate() {
 	const cancleEvent = () => {
 		window.location.replace("/admin/cocktail")
 	}
-
-	const submitHandler = (e) => {
-		e.preventDefault();
+	const submitHandler = async () => {
 
 		const formData = new FormData();
 
@@ -74,19 +72,26 @@ function AddRecipeTemplate() {
 
 		formData.append('image',img)
 		for (const keyValue of formData) console.log("K",keyValue);
+    
 		
 
-		axios.patch('https://hialcohol.p-e.kr/admin/recipe/',formData,
-        {headers: {
-			Authorization: `Bearer ${localStorage.getItem("token")}`,
-			"Content-Type": `multipart/form-data; `,
-		  }
-		})
-        .then((res) => console.log(res));	
+		try {
+			console.log('렌더링이 완료되었습니다!');
+			const response = await axios.patch('https://hialcohol.p-e.kr/admin/recipe/',formData,
+			{headers: {
+				Authorization: `Bearer ${localStorage.getItem("token")}`,
+				"Content-Type": `multipart/form-data; `,
+			  }
+			}
+			);
+		} catch(e) {
+			setError(e)
+		}
+		window.location.replace("/admin/cocktail");
+	};
 
-		// window.location.replace("/admin/cocktail");
-        
-    }
+	
+    
 
     return (
         <>
