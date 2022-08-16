@@ -8,6 +8,7 @@ const SuggestionWritepage = () => {
 
     const [title, SetTitle] = useState("")
     const [content, SetContent] = useState("")
+	const [error, setError] = useState(null);
 
     const titleHandler = (e) => {
         e.preventDefault();
@@ -17,25 +18,30 @@ const SuggestionWritepage = () => {
         e.preventDefault();
         SetContent(e.target.value);
     }
-
-    const submitHandler = (e) => {
-        e.preventDefault();
+    
+    const submitHandler = async () => {
         console.log(title, content);
 
         let body = {
             title : title,
             content : content
         };
-    
-        axios.post('https://hialcohol.p-e.kr/suggestion', body,
-        {headers: {
-			Authorization: `Bearer ${localStorage.getItem("token")}`,
-		  }
-		})
-        .then((res) => console.log(res));
-        
-    window.location.replace("suggestions");
-    }
+        console.log('\?', body);
+        try {
+            console.log('렌더링이 완료되었습니다!');
+            const response = await  axios.post('https://hialcohol.p-e.kr/suggestion', body,
+            {headers: {
+                Authorization: `Bearer ${localStorage.getItem("token")}`,
+              }
+            })
+            .then((res) => console.log(res));
+            
+        } catch(e) {
+            setError(e);
+        }
+        window.location.replace("suggestions");
+    };
+  
 
     
     return (
