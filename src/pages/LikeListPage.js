@@ -47,7 +47,7 @@ function LikeList() {
 	
     return <div>
         <Header right="board"></Header>
-        <BoardListItem board={boards}></BoardListItem>
+        <BoardListItem board={boards} link='board'></BoardListItem>
     </div>
 }
 

@@ -32,7 +32,7 @@ function MyBoards() {
     // ]
 	console.log(1)
 	if (error) return <div>{error}</div>
-	const list = (board) ?<BoardListItem board={board}/>:<p>data 없음</p>
+	const list = (board) ?<BoardListItem board={board} link='board'/>:<p>data 없음</p>
     return <div>
         <Header right="board"></Header>
         <div className="dropdown">
