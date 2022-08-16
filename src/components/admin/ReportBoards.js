@@ -28,7 +28,7 @@ function BoardListItem({board}) {
 					</div>
 				</div>
 			</a>
-			<div className='visible' onClick={reportHandler}>{board.blind ? '숨김': '해제'}</div>
+			<div className='visible' onClick={reportHandler}>{board.blind ? '해제': '숨김'}</div>
 		</div>
 }
 function ListItem({board}) {
