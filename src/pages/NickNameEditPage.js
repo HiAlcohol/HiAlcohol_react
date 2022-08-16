@@ -105,6 +105,7 @@ function NicknameEdit() {
 			setError(e)
 			console.log('프로필 사진 업로드 오류')
 		}
+		window.location.reload();
 	}
 	if (error) return <p>{error}</p>
 	return <>
