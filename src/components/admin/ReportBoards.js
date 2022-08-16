@@ -3,10 +3,10 @@ import '../../scss/admin/Admin.scss'
 import axios from "axios";
 
 function BoardListItem({board}) {
-	const reportHandler = (e) => {
+	const reportHandler = async (e) => {
         e.preventDefault();
 
-        axios.patch('https://hialcohol.p-e.kr/admin/reports/board/'+board.id, null,
+        await axios.patch('https://hialcohol.p-e.kr/admin/reports/board/'+board.id, null,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
