@@ -47,6 +47,7 @@ const SuggestionWritepage = () => {
                     <div className='writeTitle'>
                         <input type='text' value={title} name='title' placeholder='제목' onChange={titleHandler}></input>
                     </div>
+                    <br />
                     <div className='contents'>
                         <textarea name='content' value={content} placeholder='내용 입력' onChange={contentHandler}></textarea>
                     </div>

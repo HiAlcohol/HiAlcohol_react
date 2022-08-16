@@ -70,6 +70,7 @@ const SuggestionWritepage = () => {
                     <div className='writeTitle'>
                         <input type='text' defaultValue={suggestion[0].title} name='title' onChange={titleHandler}></input>
                     </div>
+                    <br />
                     <div className='contents'>
                         <textarea name='content' defaultValue={suggestion[0].content} placeholder='내용 입력' onChange={contentHandler}></textarea>
                     </div>
