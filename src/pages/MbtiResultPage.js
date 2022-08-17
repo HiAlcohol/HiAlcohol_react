@@ -61,7 +61,6 @@ function MbtiResult() {
 	</div>
 	<button className="restart" onClick={restart}>처음으로</button>
 	<br/>
-	<button className="copy" onClick={copy}>링크복사</button>
 	<div className="recommend">
 		더 많은 술을 추천받고 싶다면?
 		<br/>
