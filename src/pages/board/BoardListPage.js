@@ -3,6 +3,7 @@ import BoardListItem from "../../components/BoardListItem";
 import '../../scss/board/BoardList.scss'
 import axios from "axios";
 import { useEffect, useState } from "react";
+import KakaoAdFit from "../../components/KakaoAdFit";
 
 function Boards() {
 	const [boards, setBoards] = useState(null);
@@ -10,6 +11,19 @@ function Boards() {
 	const [Selected, setSelected] = useState('latest');
 
 	useEffect( () => {
+		// let ins = document.createElement('ins');
+		// let scr = document.createElement('script');
+		// ins.className = 'kakao_ad_area';
+		// ins.style = "display:none; width:100%;";
+		// scr.async = 'true';
+		// scr.type = "text/javascript";
+		// scr.src = "//t1.daumcdn.net/kas/static/ba.min.js";
+		// ins.setAttribute('data-ad-width','320');
+		// ins.setAttribute('data-ad-height','100');
+		// ins.setAttribute('data-ad-unit','DAN-aaaaaaaaaaa');
+		// document.querySelector('.adfit').appendChild(ins);
+		// document.querySelector('.adfit').appendChild(scr);
+
 		const fetchBoards = async () => {
 
 			try {
@@ -28,6 +42,7 @@ function Boards() {
 		};
 		fetchBoards();
 		setSelected('latest')
+		
 	}, []);
 
 	const selected = async (e) => {
@@ -43,8 +58,14 @@ function Boards() {
     ]
 	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!boards) return <div>데이터가 없습니다.</div>
+
+
     return <div>
         <Header right="board"></Header>
+		<div className="adfit">
+			<KakaoAdFit/>
+		</div>
+		
         <div className="dropdown">
 			<select id="singer" name="order" onChange={selected} value={Selected}>
 				<option value="latest" key="latest">최신순</option>
