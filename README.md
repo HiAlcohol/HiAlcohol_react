@@ -39,6 +39,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - 좋아요한 게시글 모아보기, 내가 쓴 게시글 모아보기
 - 술 mbti 페이지
 - 로그인, 회원정보 수정
+- 프로필 이미지 업로드, 닉네임 변경
 
 이민형
 <br/>
