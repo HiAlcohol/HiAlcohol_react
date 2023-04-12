@@ -6,6 +6,12 @@
 #### Prev Repo
 [성신여대 데이터베이스 설계 수업 프로젝트](https://github.com/HiAlcohol/HiAlcohol_server)
 
+#### 실행 command
+```
+yarn
+yarn start
+```
+
 ## 맡은 역할
 
 ### 👩🏻‍💻 안영선
