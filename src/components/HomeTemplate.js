@@ -10,7 +10,7 @@ import { faMartiniGlass, faMartiniGlassCitrus } from "@fortawesome/free-solid-sv
 
 function HomeTemplate(props) {
 
-	const [torecipe, setRecipe] = useState(null);
+	const [torecipe, setRecipe] = useState([{id: 1, cocktail: "블랙 러시안", materials: ['보드카', '커피 리큐어'], rate: '보드카 2: 커피리큐어 1', content: ''}]);
 	const [error, setError] = useState(null);
 	const [isOpen, setOpen] = useState(false);
 	
@@ -21,6 +21,7 @@ function HomeTemplate(props) {
 				const response = await Api.get('cocktails/recipe/'+props.cocktail.id);
 				setRecipe(response.data.data);
 			} catch(e) {
+				console.log(e)
 				setError(e);
 			}
 		};
@@ -28,14 +29,14 @@ function HomeTemplate(props) {
 		
 	}, []);
 	if (error) return <div>에러가 발생했습니다. {error}</div>
-	if (!torecipe) return <div>데이터가 없습니다.</div>
+	//if (!torecipe) setRecipe([{id: 1, cocktail: "블랙 러시안", materials: ['보드카', '커피 리큐어'], rate: '', content: ''}])
 
 	const params = new URLSearchParams(window.location.search);
     let key = params.get("keyword");
 
 	const cocktail = props.cocktail;
 	const recipe = torecipe[0];
-	
+	console.log('recipe', torecipe);
 	const materials = recipe.materials;
 	const inputItem = []
         for (let j = 0; j<materials.length; j++){
