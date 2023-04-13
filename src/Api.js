@@ -1,3 +1,5 @@
 import axios from "axios";
 
-const Api = axios.create({baseURL: 'https://hialcohol.p-e.kr/'})
+const Api = axios.create({baseURL: `${process.env.SERVER_BASE_URL}`});
+
+export default Api;

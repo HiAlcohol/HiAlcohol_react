@@ -1,5 +1,5 @@
 import HomeTemplate from "../components/HomeTemplate";
-import axios from "axios";
+import Api from '../Api.js';
 import { useEffect, useState } from "react";
 import UserInfo from "../components/auth/UserInfo";
 // import { Cookies } from "react-cookie";
@@ -25,7 +25,7 @@ const Homepage = () => {
 
 		const fetchHome = async () => {
 			try {
-				const response = await axios.get('https://hialcohol.p-e.kr/');
+				const response = await Api.get('/');
 				setRandom(response.data.data);
 			} catch(e) {
 				setError(e);
