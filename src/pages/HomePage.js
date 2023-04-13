@@ -2,12 +2,9 @@ import HomeTemplate from "../components/HomeTemplate";
 import Api from '../Api.js';
 import { useEffect, useState } from "react";
 import UserInfo from "../components/auth/UserInfo";
-// import { Cookies } from "react-cookie";
-
-// const cookies = new Cookies();
 
 const Homepage = () => {
-    const [random, setRandom] = useState(null);
+    const [random, setRandom] = useState({id: 1, cocktail: "블랙 러시안", image: {defaultImage}});
 	const [error, setError] = useState(null);
 	const query = new URLSearchParams(window.location.search).get("token");
 
