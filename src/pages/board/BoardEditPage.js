@@ -1,4 +1,4 @@
-import axios from "axios";
+import Api from '../../Api.js';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom"
 import BoardEditTemplate from "../../components/board/BoardEditTemplate";
@@ -12,7 +12,7 @@ const BoardEdit = () => {
 	useEffect(() => {
 		const initBoard = async () => {
 			try {
-				const response = await axios.get('https://hialcohol.p-e.kr/boards/' + params.id,
+				const response = await Api.get('/boards/' + params.id,
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					}

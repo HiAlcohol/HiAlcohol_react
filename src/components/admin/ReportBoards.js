@@ -1,12 +1,12 @@
 import '../../scss/board/BoardListItem.scss'
 import '../../scss/admin/Admin.scss'
-import axios from "axios";
+import Api from '../../Api.js';
 
 function BoardListItem({board}) {
 	const reportHandler = async (e) => {
         e.preventDefault();
 
-        await axios.patch('https://hialcohol.p-e.kr/admin/reports/board/'+board.id, null,
+        await Api.patch('/admin/reports/board/'+board.id, null,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
@@ -37,7 +37,7 @@ function ListItem({board}) {
 
         // e.preventDefault();
 
-        axios.patch('https://hialcohol.p-e.kr/admin/reports/board/'+boardId+'/comment/'+commentId, null,
+        Api.patch('/admin/reports/board/'+boardId+'/comment/'+commentId, null,
         {headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }

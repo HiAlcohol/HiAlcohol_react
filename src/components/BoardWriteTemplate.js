@@ -1,4 +1,4 @@
-import axios from 'axios';
+import Api from '../Api.js';
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import '../scss/board/BoardWriteTemplate.scss';
@@ -37,7 +37,7 @@ const BoardWriteTemplate = () => {
 			fd.append("title", board.title)
 			fd.append("content", board.content)
 			try {
-				const response = await axios.post("https://hialcohol.p-e.kr/boards", 
+				const response = await Api.post("/boards", 
 					fd,
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,

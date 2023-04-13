@@ -1,4 +1,4 @@
-import axios from "axios";
+import Api from '../Api.js';
 import { useEffect, useState } from "react";
 import BoardListItem from "../components/BoardListItem";
 import Header from "../components/Header";
@@ -17,8 +17,8 @@ function LikeList() {
 
 			try {
 				console.log('렌더링이 완료되었습니다!');
-				const response = await axios.get(
-					'https://hialcohol.p-e.kr/users/likes',
+				const response = await Api.get(
+					'/users/likes',
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 						}
@@ -36,8 +36,8 @@ function LikeList() {
 	const selected = async (e) => {
 		setSelected(e.target.value);
 		// header 에 토큰 추가
-		const response = await axios.get(
-			'https://hialcohol.p-e.kr/users/likes'
+		const response = await Api.get(
+			'/users/likes'
 		);
 		setBoards(response.data.data);
 	}

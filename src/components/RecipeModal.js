@@ -1,4 +1,4 @@
-import axios from "axios";
+import Api from '../Api.js';
 import { useEffect, useState } from "react";
 
 
@@ -9,7 +9,7 @@ function RecipeModal(props) {
     useEffect(() => {
 		const fetchBoard = async () => {
 			try {
-				const response = await axios.get('https://hialcohol.p-e.kr/cocktails/recipe/'+ keyId );
+				const response = await Api.get('/cocktails/recipe/'+ keyId );
 				setRecipe(response.data.data);
 			} catch(e) {
 				setError(e);

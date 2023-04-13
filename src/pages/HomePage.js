@@ -2,6 +2,7 @@ import HomeTemplate from "../components/HomeTemplate";
 import Api from '../Api.js';
 import { useEffect, useState } from "react";
 import UserInfo from "../components/auth/UserInfo";
+import defaultImage from '../img/cocktail.png';
 
 const Homepage = () => {
     const [random, setRandom] = useState({id: 1, cocktail: "블랙 러시안", image: {defaultImage}});

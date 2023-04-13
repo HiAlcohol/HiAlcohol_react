@@ -1,7 +1,7 @@
 import Header from "../../components/Header"
 import BoardListItem from "../../components/BoardListItem";
 import '../../scss/board/BoardList.scss'
-import axios from "axios";
+import Api from '../../Api.js';
 import { useEffect, useState } from "react";
 import KakaoAdFit from "../../components/KakaoAdFit";
 
@@ -28,8 +28,8 @@ function Boards() {
 
 			try {
 				console.log('렌더링이 완료되었습니다!');
-				const response = await axios.get(
-					'https://hialcohol.p-e.kr/boards', 
+				const response = await Api.get(
+					'/boards', 
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					  }
@@ -47,8 +47,8 @@ function Boards() {
 
 	const selected = async (e) => {
 		setSelected(e.target.value);
-		const response = await axios.get(
-			'https://hialcohol.p-e.kr/boards?option='+e.target.value
+		const response = await Api.get(
+			'/boards?option='+e.target.value
 		);
 		setBoards(response.data.data);
 	}

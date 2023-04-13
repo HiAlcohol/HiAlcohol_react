@@ -5,7 +5,7 @@ import Header from '../../components/Header'
 import Comment from '../../components/Comment'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+import Api from '../../Api.js';
 import LikedBtn from '../../components/board/LikedBtn'
 import styled from 'styled-components'
 
@@ -25,7 +25,7 @@ function BoardDetailPage() {
 	useEffect(() => {
 		const fetchBoard = async () => {
 			try {
-				const response = await axios.get('https://hialcohol.p-e.kr/boards/' + params.id,
+				const response = await Api.get('/boards/' + params.id,
 				{headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
 				  }
@@ -42,7 +42,7 @@ function BoardDetailPage() {
 	if (!board) return <div>데이터가 없습니다.</div>
 	
 	const ReportHandler = () => {
-        axios.post('https://hialcohol.p-e.kr/reports/board/'+params.id, null,
+        Api.post('/reports/board/'+params.id, null,
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
@@ -53,7 +53,7 @@ function BoardDetailPage() {
 
 	const deleteHandler = async () => {
 		try {
-			const response = await axios.delete('https://hialcohol.p-e.kr/boards/'+ params.id, 
+			const response = await Api.delete('/boards/'+ params.id, 
 				{headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
 					}

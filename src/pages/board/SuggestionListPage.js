@@ -1,7 +1,7 @@
 import Header from "../../components/Header"
 import BoardListItem from "../../components/BoardListItem";
 import '../../scss/board/BoardList.scss'
-import axios from "axios";
+import Api from '../../Api.js';
 import { useEffect, useState } from "react";
 
 function Suggestion() {
@@ -14,8 +14,8 @@ function Suggestion() {
 
 			try {
 				console.log('렌더링이 완료되었습니다!');
-				const response = await axios.get(
-					'https://hialcohol.p-e.kr/suggestions',
+				const response = await Api.get(
+					'/suggestions',
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					  }
@@ -32,8 +32,8 @@ function Suggestion() {
 
 	const selected = async (e) => {
 		setSelected(e.target.value);
-		const response = await axios.get(
-			'https://hialcohol.p-e.kr/suggestions?option='+e.target.value
+		const response = await Api.get(
+			'/suggestions?option='+e.target.value
 		);
 		setSuggestions(response.data.data);
 	}

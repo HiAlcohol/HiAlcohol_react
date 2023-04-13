@@ -1,5 +1,4 @@
-import axios from 'axios'
-import { useParams } from 'react-router-dom'
+import Api from '../../Api.js';
 import heartfill from '../../img/heart_fill.png'
 import heart from '../../img/heart_outline.png'
 
@@ -10,14 +9,14 @@ const LikedBtn = (props) => {
 	const liked = async () => {
 		if (props.likeSelection === true) {
 			// 취소
-			const response = await axios.delete('https://hialcohol.p-e.kr/'+link+'/' + props.id + '/like',
+			const response = await Api.delete(link+'/' + props.id + '/like',
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			  }
 			});
 			console.log('취소')
 		} else {
-			const response = await axios.post('https://hialcohol.p-e.kr/'+link+'/' + props.id + '/like', null,
+			const response = await Api.post(link+'/' + props.id + '/like', null,
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			  }

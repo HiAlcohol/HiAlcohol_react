@@ -5,7 +5,7 @@ import writeBtn from '../img/writeButton.png';
 import loginIcon from '../img/loginIcon.png';
 import '../scss/Header.scss';
 import Menu from "./Menu"
-import axios from 'axios';
+import Api from '../Api.js';
 
 const User = (props) => {
 	const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_KAKAO_REDIRECT_URI}&response_type=code`;
@@ -38,7 +38,7 @@ const Header = (props) => {
 		const fetchUserInfo = async () => {
 			try {
 				if (token) {
-					const response = await axios.get("https://hialcohol.p-e.kr/users", 
+					const response = await Api.get("/users", 
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					  }
@@ -58,7 +58,7 @@ const Header = (props) => {
 	// 	e.preventDefault();
 	// 	const sendData = async () => {
 	// 		try {
-	// 			const response = await axios.post("https://hialcohol.p-e.kr/boards", 
+	// 			const response = await Api.post("/boards", 
 	// 				board,
 	// 				{headers: {
 	// 					Authorization: `Bearer ${localStorage.getItem("token")}`,

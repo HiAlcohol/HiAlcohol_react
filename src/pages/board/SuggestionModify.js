@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
+import Api from '../../Api.js';
 import React from 'react';
 import '../../scss/board/BoardWriteTemplate.scss'
 import Header from '../../components/Header';
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 
 const SuggestionWritepage = () => {
 
@@ -16,7 +16,7 @@ const SuggestionWritepage = () => {
 	useEffect(() => {
 		const fetchSuggestion = async () => {
 			try {
-				const response = await axios.get('https://hialcohol.p-e.kr/suggestion/' + params.id);
+				const response = await Api.get('/suggestion/' + params.id);
 				setSuggestion(response.data.data);
 				// console.log(response.data.data)
 			} catch(e) {
@@ -24,7 +24,6 @@ const SuggestionWritepage = () => {
 			}
 		};
 		
-
 		fetchSuggestion()
 	}, []);
 	if (error) return <div>에러가 발생했습니다. {error}</div>
@@ -52,7 +51,7 @@ const SuggestionWritepage = () => {
             };
             console.log(body)
         
-            axios.patch('https://hialcohol.p-e.kr/suggestion/'+params.id, body,
+            Api.patch('/suggestion/'+params.id, body,
             {headers: {
                 Authorization: `Bearer ${localStorage.getItem("token")}`,
               }

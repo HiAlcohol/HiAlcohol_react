@@ -1,4 +1,4 @@
-import axios from "axios";
+import Api from '../../Api.js';
 import { useEffect, useState } from "react";
 import BoardListItem from "../../components/BoardListItem";
 import Header from "../../components/Header";
@@ -12,7 +12,7 @@ function MyBoards() {
 			console.log(1);
 			try {
 				if (localStorage.getItem("token")) {
-					const response = await axios.get('https://hialcohol.p-e.kr/users/boards', 
+					const response = await Api.get('/users/boards', 
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					}

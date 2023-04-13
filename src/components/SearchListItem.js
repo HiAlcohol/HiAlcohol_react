@@ -3,8 +3,7 @@ import '../scss/RecipeTemplate.scss';
 import React, { useState } from "react";
 import Modal from 'react-modal';
 import { click } from '@testing-library/user-event/dist/click';
-import { Link } from 'react-router-dom';
-import axios from "axios";
+import Api from '../Api.js';
 import { useEffect } from "react";
 import RecipeModal from './RecipeModal';
 
@@ -44,7 +43,7 @@ function SearchListItem(props) {
 	useEffect(() => {
 		const fetchSearch = async () => {
 			try {
-				const response = await axios.get('https://hialcohol.p-e.kr/cocktails/search?keyword='+keyword);
+				const response = await Api.get('https://hialcohol.p-e.kr/cocktails/search?keyword='+keyword);
 				setRecipes(response.data.data);
 			} catch(e) {
 				setError(e);

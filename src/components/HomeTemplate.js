@@ -3,7 +3,7 @@ import Modal from 'react-modal';
 import Search from './SearchTemplate';
 import '../scss/HomeTemplate.scss';
 import Header from './Header';
-import axios from "axios";
+import Api from '../Api.js';
 import { useEffect} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMartiniGlass, faMartiniGlassCitrus } from "@fortawesome/free-solid-svg-icons";
@@ -18,7 +18,7 @@ function HomeTemplate(props) {
 
 		const fetchToday = async () => {
 			try {
-				const response = await axios.get('https://hialcohol.p-e.kr/cocktails/recipe/'+props.cocktail.id);
+				const response = await Api.get('cocktails/recipe/'+props.cocktail.id);
 				setRecipe(response.data.data);
 			} catch(e) {
 				setError(e);

@@ -4,7 +4,7 @@ import cocktail from '../img/cocktail.png'
 import '../scss/MbtiResult.scss'
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
-import axios from "axios";
+import Api from '../Api.js';
 
 function MbtiResult() {
 	const [mbti, setMbti] = useState(null);
@@ -20,7 +20,7 @@ function MbtiResult() {
 	useEffect(() => {
 		const fetchMbti = async () => {
 			try {
-				const response = await axios.get('https://hialcohol.p-e.kr/mbti?result=' + params)
+				const response = await Api.get('/mbti?result=' + params)
 				setMbti(response.data.data.mbti)
 			} catch (e) {
 				setError(e)

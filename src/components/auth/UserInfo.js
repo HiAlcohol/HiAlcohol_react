@@ -1,4 +1,4 @@
-import axios from "axios"
+import Api from '../../Api.js';
 import { useEffect, useState } from "react"
 import loginIcon from '../../img/loginIcon.png';
 
@@ -11,7 +11,7 @@ export default async function UserInfo() {
 	
 	if (token) {
 		const header = {'token': token}
-		const response = await axios.get("https://hialcohol.p-e.kr/users", 
+		const response = await Api.get("/users", 
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 			}

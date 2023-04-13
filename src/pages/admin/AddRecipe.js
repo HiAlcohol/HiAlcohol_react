@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
-import axios from "axios";
+import Api from '../../Api.js';
 import Header from '../../components/Header'
 import "../../scss/admin/AddRecipe.scss"
 
@@ -58,7 +57,7 @@ function AddRecipeTemplate() {
 
 		try {
 			console.log('렌더링이 완료되었습니다!');
-			const response = await axios.post('https://hialcohol.p-e.kr/admin/recipe', formData,
+			const response = await Api.post('/admin/recipe', formData,
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 				"Content-Type": `multipart/form-data; `,

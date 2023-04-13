@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from '../../components/Header'
 import "../../scss/admin/AddRecipe.scss"
 import { useParams } from 'react-router-dom'
-import axios from 'axios'
+import Api from '../../Api.js';
 import { useEffect} from "react";
 
 function AddRecipeTemplate() {
@@ -20,7 +20,7 @@ function AddRecipeTemplate() {
     useEffect(() => {
 		const fetchBoard = async () => {
 			try {
-				const response = await axios.get('https://hialcohol.p-e.kr/cocktails/recipe/'+ keyId );
+				const response = await Api.get('/cocktails/recipe/'+ keyId );
 				setRecipe(response.data.data);
 			} catch(e) {
 				setError(e);
@@ -77,7 +77,7 @@ function AddRecipeTemplate() {
 
 		try {
 			console.log('렌더링이 완료되었습니다!');
-			const response = await axios.patch('https://hialcohol.p-e.kr/admin/recipe/',formData,
+			const response = await Api.patch('/admin/recipe/',formData,
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 				"Content-Type": `multipart/form-data; `,

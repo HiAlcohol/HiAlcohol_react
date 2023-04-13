@@ -1,4 +1,4 @@
-import axios from 'axios';
+import Api from '../Api.js';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom'
 import '../scss/Comment.scss'
@@ -11,7 +11,7 @@ function Comment() {
 	useEffect(() => {
 		const fetchComment = async () => {
 			try {
-				const response = await axios.get('https://hialcohol.p-e.kr/boards/' + params.id + '/comments');
+				const response = await Api.get('/boards/' + params.id + '/comments');
 				setComments(response.data.data);
 			} catch(e) {
 				setError(e);
@@ -25,7 +25,7 @@ function Comment() {
 	if (!comments) return <div>댓글 api 호출 실패</div>
 
 	const commentReportHandler = async (i) => {
-        await axios.post('https://hialcohol.p-e.kr/reports/board/'+params.id+'/comment/'+comments[i].commentId, null,
+        await Api.post('/reports/board/'+params.id+'/comment/'+comments[i].commentId, null,
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
@@ -33,7 +33,7 @@ function Comment() {
         .then((res) => alert(res.data.message));
     }
 	const delComment = async (i) => {
-		await axios.delete('https://hialcohol.p-e.kr/boards/'+params.id+'/comments/'+comments[i].commentId,
+		await Api.delete('/boards/'+params.id+'/comments/'+comments[i].commentId,
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,
 		  }
@@ -41,7 +41,7 @@ function Comment() {
 		window.location.reload();
 	}
 	const addComment = async () => {
-		await axios.post('https://hialcohol.p-e.kr/boards/'+params.id+'/comments',
+		await Api.post('/boards/'+params.id+'/comments',
 		{content: comment},
 		{headers: {
 			Authorization: `Bearer ${localStorage.getItem("token")}`,

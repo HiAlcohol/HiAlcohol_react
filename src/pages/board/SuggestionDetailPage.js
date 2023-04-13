@@ -2,9 +2,9 @@ import '../../scss/board/BoardItem.scss'
 import '../../scss/board/BoardListItem.scss'
 import heart from '../../img/heart_fill.png'
 import Header from '../../components/Header'
-import { Link, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+import Api from '../../Api.js';
 import LikedBtn from '../../components/board/LikedBtn'
 
 function SuggestionDetailPage() {
@@ -15,7 +15,7 @@ function SuggestionDetailPage() {
 	useEffect(() => {
 		const fetchSuggestion = async () => {
 			try {
-				const response = await axios.get('https://hialcohol.p-e.kr/suggestion/' + params.id,
+				const response = await Api.get('/suggestion/' + params.id,
 				{headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
 				  }
@@ -34,7 +34,7 @@ function SuggestionDetailPage() {
 	if (!suggestion) return <div>데이터가 없습니다.</div>
 
 	const deleteHandler = async () => {
-		const response = await axios.delete('https://hialcohol.p-e.kr/suggestion/' + params.id ,
+		const response = await Api.delete('/suggestion/' + params.id ,
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 			  }

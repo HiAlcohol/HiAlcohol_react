@@ -1,4 +1,4 @@
-import axios from "axios";
+import Api from '../../Api.js';
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
@@ -69,7 +69,7 @@ const BoardEditTemplate = (props) => {
 		fd.append('content', content.content)
 		console.log('fd', fd)
 		try {
-			const response = await axios.put('https://hialcohol.p-e.kr/boards/'+ params.id, 
+			const response = await Api.put('/boards/'+ params.id, 
 				fd,
 				{headers: {
 					Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -88,7 +88,7 @@ const BoardEditTemplate = (props) => {
 
 	const imageDel = async (e) => {
 		try {
-			await axios.delete('https://hialcohol.p-e.kr/boards/' + params.id + '/images',
+			await Api.delete('/boards/' + params.id + '/images',
 			{headers: {
 				Authorization: `Bearer ${localStorage.getItem("token")}`,
 				"Content-Type": `multipart/form-data; `,

@@ -1,6 +1,6 @@
 import Header from '../../components/Header'
 import ReportBoards from '../../components/admin/ReportBoards'
-import axios from "axios";
+import Api from '../../Api.js';
 import { useEffect, useState } from "react";
 
 function AdminReport() {
@@ -13,8 +13,8 @@ function AdminReport() {
 
 			try {
 				console.log('렌더링이 완료되었습니다!');
-				const response = await axios.get(
-					'https://hialcohol.p-e.kr/admin/reports/board',
+				const response = await Api.get(
+					'/admin/reports/board',
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					  }
@@ -29,8 +29,8 @@ function AdminReport() {
 
 			try {
 				console.log('렌더링이 완료되었습니다!');
-				const response = await axios.get(
-					'https://hialcohol.p-e.kr/admin/reports/comment',
+				const response = await Api.get(
+					'/admin/reports/comment',
 					{headers: {
 						Authorization: `Bearer ${localStorage.getItem("token")}`,
 					  }

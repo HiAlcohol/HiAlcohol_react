@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
+import Api from '../../Api.js';
 import React from 'react';
 import '../../scss/board/BoardWriteTemplate.scss'
 import Header from '../../components/Header';
@@ -31,7 +31,7 @@ const SuggestionWritepage = () => {
             console.log('\?');
             try {
                 console.log('렌더링이 완료되었습니다!');
-                const response = await  axios.post('https://hialcohol.p-e.kr/suggestion', body,
+                const response = await  Api.post('/suggestion', body,
                 {headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,
                   }
