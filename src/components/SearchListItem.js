@@ -43,9 +43,10 @@ function SearchListItem(props) {
 	useEffect(() => {
 		const fetchSearch = async () => {
 			try {
-				const response = await Api.get('https://hialcohol.p-e.kr/cocktails/search?keyword='+keyword);
+				const response = await Api.get('/cocktails/search?keyword='+keyword);
 				setRecipes(response.data.data);
 			} catch(e) {
+				console.log(e);
 				setError(e);
 			}
 		};
@@ -59,6 +60,7 @@ function SearchListItem(props) {
         try {
             setKeyId(cocktail[i].id)
         } catch(e) {
+			console.log(e);
             setError(e);
         }
     };

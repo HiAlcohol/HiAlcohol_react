@@ -6,7 +6,7 @@ import Header from './Header';
 import Api from '../Api.js';
 import { useEffect} from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMartiniGlass, faMartiniGlassCitrus } from "@fortawesome/free-solid-svg-icons";
+import { faMartiniGlassCitrus } from "@fortawesome/free-solid-svg-icons";
 
 function HomeTemplate(props) {
 
@@ -18,7 +18,7 @@ function HomeTemplate(props) {
 
 		const fetchToday = async () => {
 			try {
-				const response = await Api.get('cocktails/recipe/'+props.cocktail.id);
+				const response = await Api.get('/cocktails/recipe/'+props.cocktail.id);
 				setRecipe(response.data.data);
 			} catch(e) {
 				console.log(e)
@@ -39,12 +39,11 @@ function HomeTemplate(props) {
 	console.log('recipe', torecipe);
 	const materials = recipe.materials;
 	const inputItem = []
-        for (let j = 0; j<materials.length; j++){
-            inputItem.push(
-                <div className='in'>{materials[j]}</div>
-            )
-        }
-	
+	for (let j = 0; j < materials.length; j++){
+		inputItem.push(
+			<div className='in'>{materials[j]}</div>
+		)
+	}
 
     const handleClick = () => {
         setOpen(true);

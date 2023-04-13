@@ -1,7 +1,6 @@
 import HomeTemplate from "../components/HomeTemplate";
 import Api from '../Api.js';
 import { useEffect, useState } from "react";
-import UserInfo from "../components/auth/UserInfo";
 import defaultImage from '../img/cocktail.png';
 
 const Homepage = () => {
@@ -26,17 +25,20 @@ const Homepage = () => {
 				const response = await Api.get('/');
 				setRandom(response.data.data);
 			} catch(e) {
+				console.log(e);
 				setError(e);
 			}
 		};
 		fetchHome()
 		
 	}, []);
-	if (error) return <div>에러가 발생했습니다. {error}</div>
+	if (error) return <div>에러가 발생했습니다.</div>
 	if (!random) return <div>데이터가 없습니다.</div>
 
     return (
+		<>
         <HomeTemplate cocktail = {random} />
+		</>
     )
 }
 
