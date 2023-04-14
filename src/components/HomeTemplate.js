@@ -29,7 +29,7 @@ function HomeTemplate(props) {
 		
 	}, []);
 	if (error) return <div>에러가 발생했습니다. {error}</div>
-	//if (!torecipe) setRecipe([{id: 1, cocktail: "블랙 러시안", materials: ['보드카', '커피 리큐어'], rate: '', content: ''}])
+	if (!torecipe) setRecipe([{id: 1, cocktail: "블랙 러시안", materials: ['보드카', '커피 리큐어'], rate: '', content: ''}])
 
 	const params = new URLSearchParams(window.location.search);
     let key = params.get("keyword");
@@ -41,7 +41,7 @@ function HomeTemplate(props) {
 	const inputItem = []
 	for (let j = 0; j < materials.length; j++){
 		inputItem.push(
-			<div className='in'>{materials[j]}</div>
+			<div className='in' key='j'>{materials[j]}</div>
 		)
 	}
 
