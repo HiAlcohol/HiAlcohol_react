@@ -8,7 +8,7 @@ import Menu from "./Menu"
 import Api from '../Api.js';
 
 const User = (props) => {
-	const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_CLIENT_ID}&redirect_uri=${process.env.SERVER_BASE_URL}${process.env.REACT_APP_KAKAO_REDIRECT_URI}&response_type=code`;
+	const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.REACT_APP_KAKAO_CLIENT_ID}&redirect_uri=${process.env.REACT_APP_SERVER_BASE_URL}${process.env.REACT_APP_KAKAO_REDIRECT_URI}&response_type=code`;
 	const nickname = props.nickname
 	const profile = props.profile
 	var user = <div className='user'>

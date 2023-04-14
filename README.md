@@ -11,6 +11,13 @@
 yarn
 yarn start
 ```
+##### .env file setting
+```
+PORT="3001"
+REACT_APP_SERVER_BASE_URL="http://localhost:5000/"
+REACT_APP_KAKAO_CLIENT_ID="카카오 oauth 키"
+REACT_APP_KAKAO_REDIRECT_URI="/users/login"
+```
 
 ## 맡은 역할
 

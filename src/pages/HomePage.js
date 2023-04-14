@@ -32,7 +32,7 @@ const Homepage = () => {
 		fetchHome()
 		
 	}, []);
-	if (error) return <div>에러가 발생했습니다.</div>
+	if (error) return <div>에러가 발생했습니다. {error}</div>
 	if (!random) return <div>데이터가 없습니다.</div>
 
     return (
