@@ -1,10 +1,10 @@
 ## 🍸 2022 HiAlcohol Front-End Repository
-### 🥈 2022 성신여자대학교 소프트웨어 경진대회 은상
+### 🥈 2022 <!--성신여자대학교--> 소프트웨어 경진대회 은상
 
 기존 진행된 프로젝트에서 실제 운영되기 위해 필요한 기능들을 추가한 프로젝트입니다.
 
 #### Prev Repo
-[성신여대 데이터베이스 설계 수업 프로젝트](https://github.com/HiAlcohol/HiAlcohol_server)
+[데이터베이스 설계 수업 프로젝트](https://github.com/HiAlcohol/HiAlcohol_server)
 
 #### 실행 command
 ```
