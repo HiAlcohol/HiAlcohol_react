@@ -1,6 +1,8 @@
 ## 🍸 2022 HiAlcohol Front-End Repository
 ### 🥈 2022 <!--성신여자대학교-->교내 소프트웨어 경진대회 은상
 
+<img width="203" alt="스크린샷 2024-02-01 오후 4 30 47" src="https://github.com/HiAlcohol/HiAlcohol_react/assets/46748334/62d5e908-32b8-4141-b381-db667ef22575">
+
 기존 진행된 프로젝트에서 실제 운영되기 위해 필요한 기능들을 추가한 프로젝트입니다.
 
 #### Prev Repo
